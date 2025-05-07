@@ -22,3 +22,4 @@ WorkTogether
     This will deal with timezones and so fourth, also made for people who travel alot, and who move timezones reguarly
     With the growing number of people working remote, this will be more and more relevant
 
+    I have seen this problem first hand....

@@ -20,4 +20,5 @@ VisaMate, helps you navigate travelling abroad.
 WorkTogether
     A web app, that takes the location of each of the members in your organisation, and comes up with dates for meetings and so on, 
     This will deal with timezones and so fourth, also made for people who travel alot, and who move timezones reguarly
-    
+    With the growing number of people working remote, this will be more and more relevant
+

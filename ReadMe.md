@@ -17,13 +17,14 @@ Move abroad app,
 
 VisaMate, helps you navigate travelling abroad.
 
-WorkTogether
+WorkTogether/International Schedule
     A web app, that takes the location of each of the members in your organisation, and comes up with dates for meetings and so on, 
     This will deal with timezones and so fourth, also made for people who travel alot, and who move timezones reguarly
     With the growing number of people working remote, this will be more and more relevant
-
+    
     I have seen this problem first hand, as we are four guys, who work together, as we used to live close to each other, but we are currently in 3 different continents, and therefor timezones vary.
 
     MVP
 
-    *  
+    * 
+    Web App: Svelte, Next or smth.

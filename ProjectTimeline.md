@@ -27,4 +27,22 @@ WorkTogether/International Schedule
     MVP
 
     * 
-    Web App: Svelte, Next or smth.
+    Web App: Svelte, Next or smth. Could use 
+    Hosted using Vercel
+
+
+    On the main page, you should see a globe, low poly probably, maybe i there is a framework, where i can import a globe.
+    https://globe.gl/
+    This example seems promising: https://globe.gl/example/world-population/
+    
+
+
+
+
+    Timeline for the project:
+
+
+
+    Hours: 0-5: brainstorming, finding frameworks etc
+    Hour:S 6-9 Setting up the enviroment, importing frameworks, making vercel projcet, supabase etc
+    

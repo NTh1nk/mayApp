@@ -117,7 +117,10 @@
       requestAnimationFrame(() =>
         (function animate() {
           // animate time of day
-          dt += VELOCITY * 60 * 1000;
+          dt += VELOCITY;
+         //t += VELOCITY * 60 * 1000;
+         //sped up
+
           timeEl.textContent = new Date(dt).toLocaleString();
           material.uniforms.sunPosition.value.set(...sunPosAt(dt));
           requestAnimationFrame(animate);

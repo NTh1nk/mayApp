@@ -31,12 +31,22 @@
       <h1>Globe 2</h1>
     </div>
 
-    <div class="container">
+   <div class="container">
       <h2>Sidebar Navigation Example</h2>
-      <p>The sidebar width is set with <code>style="width:25%"</code>.</p>
-      <p>The left margin of the page content is set to the same value.</p>
-    </div>
+  <div id="external-content"></div>
+</div>
+
   </div>
+<script>
+  fetch('content.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('external-content').innerHTML = data;
+    })
+    .catch(error => {
+      console.error('Error loading content:', error);
+    });
+</script>
 
 </body>
 </html>

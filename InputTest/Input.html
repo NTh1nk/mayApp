@@ -50,7 +50,12 @@
         console.log("Location:", location);
         console.log("Amount:", amount);
             //  Display it
-        alert(`Location: ${location}\nAmount: ${amount}`);  }
+        alert(`Location: ${location}\nAmount: ${amount}`); 
+         //Reset input fields:
+        document.getElementById("location").value = '';
+        document.getElementById("amount").value = '';
+      }
+      
   </script>
 </body>
 </html>

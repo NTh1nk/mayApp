@@ -1,6 +1,6 @@
 const people = [
     { timeZone: 'America/New_York', weight: 1, workStart: 8 * 60, workEnd: 16 * 60 },
-    { timeZone: 'Europe/London', weight: 2, workStart: 8 * 60, workEnd: 16 * 60 },
+    { timeZone: 'Europe/Copenhagen', weight: 2, workStart: 8 * 60, workEnd: 16 * 60 },
     { timeZone: 'Asia/Tokyo', weight: 1.5, workStart: 8 * 60, workEnd: 16 * 60 },
   ];
   

@@ -3,23 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GlobalSheduleCoordinator homepage</title>
+  <title>GlobalScheduleCoordinator homepage</title>
   <link rel="stylesheet" href="Input.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
+  <style>
+    body { margin: 0; }
+    #time {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      color: lightblue;
+      font-family: monospace;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Sidebar -->
   <div class="sidebar" style="width:25%">
     <h3 class="bar-item">Menu</h3>
-
-    <!-- Input Field -->
     <a href="#" class="insertPData">
       <input type="text" id="pData" name="pData" placeholder="Enter data..."><br><br>
     </a>
-
-    <!-- Sidebar Links -->
     <a href="#" class="w3-bar-item w3-button">Link 1</a>
     <a href="#" class="w3-bar-item w3-button">Link 2</a>
     <a href="#" class="w3-bar-item w3-button">Link 3</a>
@@ -30,22 +35,16 @@
     <div class="Globe">
       <h1>Globe 2</h1>
     </div>
-
-   <div class="container">
-      <div id="external-content"></div>
-   </div>
-
+    <div class="container">
+      <div id="globeViz" style="width:100%; height:600px;"></div>
+      <div id="time"></div>
+    </div>
   </div>
-<script>
-  fetch('../../MainSite/Globe.html')
-    .then(response => response.text())
-    .then(data => { 
-      document.getElementById('external-content').innerHTML = data;
-    })
-    .catch(error => {
-      console.error('Error loading content:', error);
-    });
-</script>
+
+  <script type="module">
+    import { initGlobe } from '../Modules/globe.js';
+    initGlobe('globeViz', 'time');
+  </script>
 
 </body>
 </html>

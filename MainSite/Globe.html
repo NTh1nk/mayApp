@@ -82,6 +82,24 @@
       `
     };
 
+    //Markers
+            
+        const markerSvg = `<svg viewBox="-4 0 36 36">
+            <path fill="currentColor" d="M14,0 C21.732,0 28,5.641 28,12.6 C28,23.963 14,36 14,36 C14,36 0,24.064 0,12.6 C0,5.641 6.268,0 14,0 Z"></path>
+            <circle fill="black" cx="14" cy="14" r="7"></circle>
+        </svg>`;
+
+        // Gen random data
+        const N = 30;
+        const gData = [...Array(N).keys()].map(() => ({
+            lat: (Math.random() - 0.5) * 180,
+            lng: (Math.random() - 0.5) * 360,
+            size: 7 + Math.random() * 30,
+            color: ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)]
+        }));
+
+  //end of markers
+
     const sunPosAt = dt => {
       const day = new Date(+dt).setUTCHours(0, 0, 0, 0);
       const t = solar.century(dt);
@@ -92,8 +110,30 @@
     let dt = +new Date();
     const timeEl = document.getElementById('time');
 
-    const world = new Globe(document.getElementById('globeViz'));
+    const world = new Globe(document.getElementById('globeViz'))
 
+    //markers
+    .htmlElementsData(gData)
+    .htmlElement(d => {
+      const el = document.createElement('div');
+      el.innerHTML = markerSvg;
+      el.style.color = d.color;
+      el.style.width = `${d.size}px`;
+      el.style.transition = 'opacity 250ms';
+      el.className = "marker";
+
+      el.style['pointer-events'] = 'auto';
+      el.style.cursor = 'pointer';
+
+      const infoBox = document.createElement("div");
+      infoBox.className = "infoBox";
+      infoBox.textContent = "This is filler content";
+      el.appendChild(infoBox);
+      el.onclick = () => console.info(d);
+      return el;
+    })
+    .htmlElementVisibilityModifier((el, isVisible) => el.style.opacity = isVisible ? 1 : 0);;
+    //markers
     Promise.all([
       new TextureLoader().loadAsync('//cdn.jsdelivr.net/npm/three-globe/example/img/earth-day.jpg'),
       new TextureLoader().loadAsync('//cdn.jsdelivr.net/npm/three-globe/example/img/earth-night.jpg')
@@ -128,4 +168,28 @@
       );
     });
   </script>
+  <style>
+
+ 
+
+  .infoBox {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8px;
+    padding: 4px 8px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    font-size: 32px;
+    border-radius: 4px;
+    white-space: nowrap;
+    display: none;
+  }
+
+  .marker:hover .infoBox {
+    display: block;
+  }
+</style>
+
 </body>

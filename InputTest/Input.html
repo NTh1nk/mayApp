@@ -59,7 +59,7 @@
         const amountFloat = parseFloat(document.getElementById("amount").value);
         geocodeAddress(address, (coords) => {
           if (coords) {
-            console.log("Latitude:", coords.lat, "Longitude:", coords.lng, "Amount:", amountFloat);
+            alert("Latitude:", coords.lat, "Longitude:", coords.lng, "Amount:", amountFloat);
             // translate cords to add the marker to add a marker, etc.
           } else {
             alert("Invalid address");

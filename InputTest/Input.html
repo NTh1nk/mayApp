@@ -51,9 +51,7 @@
         console.log("Amount:", amount);
             //  Display it
         alert(`Location: ${location}\nAmount: ${amount}`); 
-         //Reset input fields:
-        document.getElementById("location").value = '';
-        document.getElementById("amount").value = '';
+     
 
         const address = document.getElementById("location").value;
         const amountFloat = parseFloat(document.getElementById("amount").value);
@@ -65,7 +63,9 @@
             alert("Invalid address");
           }
         });
-        
+        //Reset input fields:
+        document.getElementById("location").value = '';
+        document.getElementById("amount").value = '';
       }
 
       //Geocode means to translate an address to coordinates.

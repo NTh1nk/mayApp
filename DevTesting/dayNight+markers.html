@@ -120,9 +120,15 @@
       el.style.color = d.color;
       el.style.width = `${d.size}px`;
       el.style.transition = 'opacity 250ms';
+      el.className = "marker";
 
       el.style['pointer-events'] = 'auto';
       el.style.cursor = 'pointer';
+
+      const infoBox = document.createElement("div");
+      infoBox.className = "infoBox";
+      infoBox.textContent = "This is filler content";
+      el.appendChild(infoBox);
       el.onclick = () => console.info(d);
       return el;
     })
@@ -162,4 +168,28 @@
       );
     });
   </script>
+  <style>
+
+ 
+
+  .infoBox {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8px;
+    padding: 4px 8px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    font-size: 32px;
+    border-radius: 4px;
+    white-space: nowrap;
+    display: none;
+  }
+
+  .marker:hover .infoBox {
+    display: block;
+  }
+</style>
+
 </body>

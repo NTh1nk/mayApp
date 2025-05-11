@@ -13,5 +13,9 @@ function getLocalTime(UTCTime, timeZone)
     const today = new Date(); //today
     //get todays time in utc
     const UTCDate = new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate(), 0, UTCTime));
+    const localStr = UTCDate.toLocaleTimeString("en-US", {hour12: false, timeZone});
 
+    const [hour, minute] = localStr.split(":").map(Number);
+    console.log(hour,minute);
+    return hour * 60 + minute;
 }

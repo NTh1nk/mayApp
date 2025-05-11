@@ -19,3 +19,13 @@ function getLocalTime(UTCTime, timeZone)
     console.log(hour,minute);
     return hour * 60 + minute;
 }
+
+
+function inaccuracy(localMin, startMin, endMin) {
+    if(localMin >= startMin && localMin <= endMin)   return 0;
+
+    return localMin < startMin
+
+
+
+}

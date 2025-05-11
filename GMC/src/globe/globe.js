@@ -1,6 +1,6 @@
 import { TextureLoader, ShaderMaterial, Vector2 } from 'https://esm.sh/three';
 import * as solar from 'https://esm.sh/solar-calculator';
-import { markers } from '../placeMarker';
+
     const VELOCITY = 1; // minutes per frame
 
     // Custom shader:  Blends night and day images to simulate day/night cycle
@@ -67,10 +67,15 @@ import { markers } from '../placeMarker';
             <circle fill="black" cx="14" cy="14" r="7"></circle>
         </svg>`;
 
-        // Import markers
-        (async () => {
-        const gData = markers();
-
+        // Gen random data
+        // make it import markers instead
+        const N = 30;
+        const gData = [...Array(N).keys()].map(() => ({
+            lat: (Math.random() - 0.5) * 180,
+            lng: (Math.random() - 0.5) * 360,
+            size: 7 + Math.random() * 30,
+            color: ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)]
+        }));
 
   //end of markers
 
@@ -107,8 +112,6 @@ import { markers } from '../placeMarker';
       return el;
     })
     .htmlElementVisibilityModifier((el, isVisible) => el.style.opacity = isVisible ? 1 : 0);;
-        })();
-
     //markers
     Promise.all([
       new TextureLoader().loadAsync('//cdn.jsdelivr.net/npm/three-globe/example/img/earth-day.jpg'),

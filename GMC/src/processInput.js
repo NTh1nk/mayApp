@@ -1,4 +1,6 @@
-export function processInput(event) {
+import { geocodeAddress } from "./geocodeAddress";
+
+export async function processInput(event) {
       if (event) event.preventDefault();
         const location = document.getElementById("location").value;
         const amount = document.getElementById("amount").value;
@@ -10,17 +12,11 @@ export function processInput(event) {
 
         const address = document.getElementById("location").value;
         const amountFloat = parseFloat(document.getElementById("amount").value);
-        /*
-        geocodeAddress(address, (coords) => {
-          if (coords) {
-            console.log("Latitude:", coords.lat, "Longitude:", coords.lng, "Amount:", amountFloat);
-            // translate cords to add the marker to add a marker, etc.
-          } else {
-            alert("Invalid address");
-          }
-        }); */
+        
+        const coordinates = await geocodeAddress(address);
         //Reset input fields:
         document.getElementById("location").value = '';
         document.getElementById("amount").value = '';
+
       }
     

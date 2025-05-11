@@ -1,6 +1,14 @@
+import { geocodeAddress } from "./geocodeAddress";
+import { processInput } from "./processInput";
 
 
 export function markers(){
+ 
+
+    // import geolocated position
+    let address = processInput();
+    let coordinates = geocodeAddress();
+    //30 random example markers
     const N = 30;
     const gData = [...Array(N).keys()].map(() => ({
         lat: (Math.random() - 0.5) * 180,

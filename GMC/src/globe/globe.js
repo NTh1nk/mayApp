@@ -67,18 +67,9 @@ import { markers } from '../placeMarker';
             <circle fill="black" cx="14" cy="14" r="7"></circle>
         </svg>`;
 
-        // Gen random data
-        // make it import markers instead
-        //const N = 30;
+        // Import markers
         const gData = markers();
-        
-        
-        /*[...Array(N).keys()].map(() => ({
-            lat: (Math.random() - 0.5) * 180,
-            lng: (Math.random() - 0.5) * 360,
-            size: 7 + Math.random() * 30,
-            color: ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)]
-        }));*/
+
 
   //end of markers
 

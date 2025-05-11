@@ -1,6 +1,6 @@
-function geocodeAddress(address, callback) {
+export function geocodeAddress(address, callback) {
     const geocoder = new google.maps.Geocoder();
-    geocoder.geocode({ address: address }, function(results, status) {
+    coordinates = geocoder.geocode({ address: address }, function(results, status) {
       if (status === 'OK') {
         const lat = results[0].geometry.location.lat();
         const lng = results[0].geometry.location.lng();
@@ -10,4 +10,5 @@ function geocodeAddress(address, callback) {
           callback(null);
         }
       });
+    return coordinates;
     }      

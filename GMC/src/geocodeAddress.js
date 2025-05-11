@@ -1,37 +1,26 @@
-import { geocodeAddress } from "./geocodeAddress";
-import { processInput } from "./processInput";
+require('dotenv').config();  // Load environment variables from .env file
 
-export async function markers() {
-    const { address, amount } = processInput();
+// Access the OpenCage API key from the environment variable
+const apiKey = process.env.OPENCAGE_API_KEY;
 
-    try {
-        const coordinates = await geocodeAddress(address);
-        coordinates.amount = amount;
+export function geocodeAddress(address) {
+    // OpenCage API endpoint
+    const url = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(address)}&key=${apiKey}`;
 
-        const marker = coToMarker(coordinates);
-
-        // Optional: Add 30 random example markers
-        const N = 30;
-        const gData = [...Array(N).keys()].map(() => ({
-            lat: (Math.random() - 0.5) * 180,
-            lng: (Math.random() - 0.5) * 360,
-            size: 7 + Math.random() * 30,
-            color: ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)]
-        }));
-
-        return [marker, ...gData];
-
-    } catch (error) {
-        console.error("Geocoding failed:", error);
-        return []; // return empty array on failure
-    }
-}
-
-function coToMarker(coordinates) {
-    return {
-        lat: coordinates.lat,
-        lng: coordinates.lng,
-        size: coordinates.amount * 5,
-        color: ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)]
-    };
+    return new Promise((resolve, reject) => {
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if (data.results && data.results[0]) {
+                    const lat = data.results[0].geometry.lat;
+                    const lng = data.results[0].geometry.lng;
+                    resolve({ lat, lng });
+                } else {
+                    reject(new Error('Geocode failed: No results found.'));
+                }
+            })
+            .catch(error => {
+                reject(new Error('Geocode failed: ' + error));
+            });
+    });
 }

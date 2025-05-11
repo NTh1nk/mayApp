@@ -1,42 +1,37 @@
 import { geocodeAddress } from "./geocodeAddress";
 import { processInput } from "./processInput";
 
+export async function markers() {
+    const { address, amount } = processInput();
 
-export function markers(){
- 
+    try {
+        const coordinates = await geocodeAddress(address);
+        coordinates.amount = amount;
 
-    // import geolocated position
-    let address = processInput();
-    let coordinateList = geocodeAddress(address);
-    const markerData = [];
+        const marker = coToMarker(coordinates);
 
-    for(let i = 0; i< coordinateList.lenght;)//amoubt of addreses)
-    {   
-        const marker = coToMarker(coordinateList[i]);
-        markerData.push(marker);
-
-    }
-    //30 random example markers
-    const N = 30;
-    const gData = [...Array(N).keys()].map(() => ({
-        lat: (Math.random() - 0.5) * 180,
-        lng: (Math.random() - 0.5) * 360,
-        size: 7 + Math.random() * 30,
-        color: ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)]
+        // Optional: Add 30 random example markers
+        const N = 30;
+        const gData = [...Array(N).keys()].map(() => ({
+            lat: (Math.random() - 0.5) * 180,
+            lng: (Math.random() - 0.5) * 360,
+            size: 7 + Math.random() * 30,
+            color: ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)]
         }));
-    return gData; //change this up when finished
 
+        return [marker, ...gData];
+
+    } catch (error) {
+        console.error("Geocoding failed:", error);
+        return []; // return empty array on failure
+    }
 }
 
-
-
-function coToMarker(coordinates){
-
-    const marker =  {
+function coToMarker(coordinates) {
+    return {
         lat: coordinates.lat,
         lng: coordinates.lng,
-        size: coordinates.amount * 5,// make this scale with the amount of people
+        size: coordinates.amount * 5,
         color: ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)]
-    }
-    return marker;
+    };
 }

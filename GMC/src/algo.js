@@ -25,7 +25,7 @@ function inaccuracy(localMin, startMin, endMin) {
     if(localMin >= startMin && localMin <= endMin)   return 0;
 
     return localMin < startMin
-
-
+    ? startMin - localMin
+    : localMin - endMin
 
 }

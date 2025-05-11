@@ -29,3 +29,25 @@ function inaccuracy(localMin, startMin, endMin) {
     : localMin - endMin
 
 }
+
+
+function evaluate(UTCTime, timeZone){
+    
+
+}
+
+
+function totalflaw(people){
+
+    let flawTotal = 0;
+    for(let i = 0; i < people.length; i++){ 
+        //inacurracy
+
+
+        flawTotal += 0;
+
+    }
+    
+
+
+}

@@ -4,9 +4,9 @@ import math
 
 # Sample data: [(timezone_name, weight, working_hour_start, working_hour_end)]
 people = [
-    ('US/Eastern', 1, time(8, 0), time(16, 0)),
-    ('Europe/London', 2, time(8, 0), time(16, 0)),
-    ('Asia/Tokyo', 1.5, time(8, 0), time(16, 0)),
+   ('America/Denver', 1, time(8, 0), time(16, 0)),         # Colorado
+    ('Europe/Copenhagen', 2, time(8, 0), time(16, 0)),      # Denmark
+    ('Pacific/Auckland', 1.5, time(8, 0), time(16, 0)),     # New Zealand
 ]
 
 tp = sum(p[1] for p in people)

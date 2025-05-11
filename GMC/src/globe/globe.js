@@ -1,6 +1,6 @@
 import { TextureLoader, ShaderMaterial, Vector2 } from 'https://esm.sh/three';
 import * as solar from 'https://esm.sh/solar-calculator';
-
+import { markers } from '../placeMarker';
     const VELOCITY = 1; // minutes per frame
 
     // Custom shader:  Blends night and day images to simulate day/night cycle
@@ -69,13 +69,16 @@ import * as solar from 'https://esm.sh/solar-calculator';
 
         // Gen random data
         // make it import markers instead
-        const N = 30;
-        const gData = [...Array(N).keys()].map(() => ({
+        //const N = 30;
+        const gData = markers();
+        
+        
+        /*[...Array(N).keys()].map(() => ({
             lat: (Math.random() - 0.5) * 180,
             lng: (Math.random() - 0.5) * 360,
             size: 7 + Math.random() * 30,
             color: ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)]
-        }));
+        }));*/
 
   //end of markers
 

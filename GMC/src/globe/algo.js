@@ -10,6 +10,8 @@ const people = [
 
 function getLocalTime(UTCTime, timeZone)
 {
+    const today = new Date(); //today
+    //get todays time in utc
+    const UTCDate = new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate(), 0, UTCTime));
 
-    
 }

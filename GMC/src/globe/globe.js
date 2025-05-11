@@ -68,6 +68,7 @@ import { markers } from '../placeMarker';
         </svg>`;
 
         // Import markers
+        (async () => {
         const gData = markers();
 
 
@@ -106,6 +107,8 @@ import { markers } from '../placeMarker';
       return el;
     })
     .htmlElementVisibilityModifier((el, isVisible) => el.style.opacity = isVisible ? 1 : 0);;
+        })();
+
     //markers
     Promise.all([
       new TextureLoader().loadAsync('//cdn.jsdelivr.net/npm/three-globe/example/img/earth-day.jpg'),

@@ -1,4 +1,4 @@
-require('dotenv').config();  // Load environment variables from .env file
+require('env/dotenv').config();  // Load environment variables from .env file
 
 // Access the OpenCage API key from the environment variable
 const apiKey = process.env.OPENCAGE_API_KEY;

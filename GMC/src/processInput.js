@@ -7,7 +7,7 @@ export function processInput(event) {
     console.log("Location:", location);
     console.log("Amount:", amount);
 
-    alert(location);  //Just for debugging
+    //alert(location);  //Just for debugging
     // Reset input fields
 
     //Insert the input into the table

@@ -53,11 +53,11 @@ body {
 }
 
 /* Page content */
-.Globe, .container {
+.topBar, .container {
   padding: 20px;
 }
 
-.Globe h1 {
+.topBar h1 {
   font-size: 32px;
   border-bottom: 1px solid #555;
   padding-bottom: 10px;

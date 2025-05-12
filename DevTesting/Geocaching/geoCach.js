@@ -24,6 +24,7 @@ function geocodeAddress(address) {
     });
 }
 
+
 const address = "Evanstonevej 8";
 geocodeAddress(address)
     .then(coords => console.log(coords))

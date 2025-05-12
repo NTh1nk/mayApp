@@ -73,3 +73,7 @@ body {
   margin-bottom: 10px;
   color: #ccc;
 }
+
+table, th, td {
+  border:1px solid black;
+}

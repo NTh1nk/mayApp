@@ -7,6 +7,7 @@ export function processInput(event) {
     console.log("Location:", location);
     console.log("Amount:", amount);
 
+    alert(location);
     // Reset input fields
     document.getElementById("location").value = '';
     document.getElementById("amount").value = '';

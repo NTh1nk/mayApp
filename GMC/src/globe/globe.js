@@ -1,6 +1,6 @@
 import { TextureLoader, ShaderMaterial, Vector2 } from 'https://esm.sh/three';
 import * as solar from 'https://esm.sh/solar-calculator';
-
+import {coToMarker} from "./marker";
     const VELOCITY = 1; // minutes per frame
 
     // Custom shader:  Blends night and day images to simulate day/night cycle
@@ -67,16 +67,27 @@ import * as solar from 'https://esm.sh/solar-calculator';
             <circle fill="black" cx="14" cy="14" r="7"></circle>
         </svg>`;
 
-        // Gen random data
-        // make it import markers instead
-        const N = 30;
-        const gData = [...Array(N).keys()].map(() => ({
-            lat: (Math.random() - 0.5) * 180,
-            lng: (Math.random() - 0.5) * 360,
-            size: 7 + Math.random() * 30,
-            color: ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)]
-        }));
+     
+    let coordinates = 
+    //these should be imported from input.
+    { lat: 55.722842, lng: 12.579473, amount:35 }
 
+
+    let coordinateArray = [    
+      {lat: 15.722842, lng: 22.579473, amount:10 },
+      { lat: 55.722842, lng: 12.579473, amount:15 }
+
+];
+
+    //should maybe init as other
+    const gData = [];
+  
+
+    for(let i = 0; i < coordinateArray.length; i++){
+      gData.push(coToMarker(coordinateArray[i]));
+      
+    }
+   
   //end of markers
 
     const sunPosAt = dt => {

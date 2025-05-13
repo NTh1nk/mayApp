@@ -90,15 +90,35 @@
     </svg>`;
 
     // Use co() instead of random data
-    function co() {
-      return [
-        { lat: 40.7128, lng: -74.0060, size: 20, color: 'red' },
-        { lat: 51.5074, lng: -0.1278, size: 25, color: 'blue' },
-        { lat: 35.6895, lng: 139.6917, size: 30, color: 'green' }
-      ];
+    function coToMarker(coordinates) {
+    return {
+        lat: coordinates.lat,
+        lng: coordinates.lng,
+        size: coordinates.amount * 5,
+        color: ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)]
+    };
+}
+
+
+    coordinates = 
+    //these should be imported from input.
+    {lat: 15.722842, lng: 22.579473, amount:10 },
+    { lat: 55.722842, lng: 12.579473, amount:35 }
+    coordinateArray += [coordinates];
+
+    //should maybe init as other
+    const gData = 0;
+  
+
+    for(let i =0; i < coordinateArray.lenght(), i++;){
+      //Take a look here, appendchild may not be correct
+      gData.appendChild(coToMarker(coordinateArray[i])) ;
+      
     }
 
-    const gData = co();
+
+
+
     // End of markers
 
     const sunPosAt = dt => {

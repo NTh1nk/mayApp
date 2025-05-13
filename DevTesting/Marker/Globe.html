@@ -100,21 +100,26 @@
 }
 
 
-    coordinates = 
+    let coordinates = 
     //these should be imported from input.
-    {lat: 15.722842, lng: 22.579473, amount:10 },
     { lat: 55.722842, lng: 12.579473, amount:35 }
-    coordinateArray += [coordinates];
+
+
+    let coordinateArray = [    
+      {lat: 15.722842, lng: 22.579473, amount:10 },
+      { lat: 55.722842, lng: 12.579473, amount:35 }
+
+];
 
     //should maybe init as other
-    const gData = 0;
+    const gData = [];
   
 
-    for(let i =0; i < coordinateArray.lenght(), i++;){
-      //Take a look here, appendchild may not be correct
-      gData.appendChild(coToMarker(coordinateArray[i])) ;
+    for(let i = 0; i < coordinateArray.length; i++){
+      gData.push(coToMarker(coordinateArray[i]));
       
     }
+   
 
 
 

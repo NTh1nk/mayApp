@@ -1,3 +1,4 @@
+import { geocodeAddress } from "./geocodeAddress";
 export function processInput(event) {
     if (event) event.preventDefault();
 
@@ -18,6 +19,11 @@ export function processInput(event) {
     const amountCell = document.createElement("td")
 
 
+    //let coords = geocodeAddress(address);
+
+    //Place marker
+
+
     addressCell.textContent = location;
     amountCell.textContent = amount;
 
@@ -29,5 +35,7 @@ export function processInput(event) {
     document.getElementById("location").value = '';
     document.getElementById("amount").value = '';
 
-    return { address: location, amount };
+    return { address: location, amount};
+    //return { address: location, amount, coords };
+
 }

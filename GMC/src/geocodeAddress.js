@@ -1,6 +1,9 @@
 /*
+//Needs a rework, so that it can run on a webserver
+
 
 require('env/dotenv').config();  // Load environment variables from .env file
+
 
 
 //require doenst work in npm    

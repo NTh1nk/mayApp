@@ -18,6 +18,7 @@ List of stuff i need:
 let flawTotal = 0;
 
 
+//make an array of people. This is currently 1.
 const people = [
     //example
 
@@ -27,6 +28,7 @@ const people = [
 ]
 
 
+//Dont actually need UTCTime?
 function getLocalTime(UTCTime, timeZone)
 {
     const today = new Date(); //today
@@ -70,11 +72,18 @@ function totalflaw(people){
     for(let i = 0; i < people.length; i++){ 
         //inacurracy
 
+        let cTimeZone = getLocalTime(UTCTime, people.timeZone);
 
-        flawTotal += 0;
+        let cFlaw = inaccuracy(cTimeZone, people.workStart, people.workEnd);
+        //define working hours.¨
 
+        //let cFlaw = inaccuracy(people)
+        flawTotal += cFlaw;
+        console.log(flawTotal);
     }
     
 
 
 }
+
+totalflaw(people);

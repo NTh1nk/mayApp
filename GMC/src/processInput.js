@@ -40,11 +40,10 @@ export function processInput(event) {
     
     tableBody.appendChild(newRow);
         
-    // Reset input fields
-    /*
+   
     document.getElementById("location").value = '';
     document.getElementById("amount").value = '';
-    */
+
     return { address: location, amount};
     //return { address: location, amount, coords };
 

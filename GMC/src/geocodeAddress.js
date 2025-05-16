@@ -1,5 +1,7 @@
 require('env/dotenv').config();  // Load environment variables from .env file
 
+
+//require doenst work in npm
 const fetch = require("node-fetch");
 // Access the OpenCage API key from the environment variable
 const apiKey = process.env.OPENCAGE_API_KEY;

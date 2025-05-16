@@ -1,0 +1,1 @@
+Currently there is a bug with inserting the addreses into the table

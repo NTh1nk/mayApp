@@ -1,4 +1,8 @@
 import './style.css';
 import { processInput } from './processInput.js';
 
-window.processInput = processInput;
+// Wait for DOM ready to be safe
+window.addEventListener('DOMContentLoaded', () => {
+  window.processInput = processInput;
+  console.log("processInput is now global");
+});

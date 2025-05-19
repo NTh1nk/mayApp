@@ -1,7 +1,8 @@
 
 export function geocodeAddress(address){
     return new Promise((resolve, reject) =>{
-        fetch("/api/geocode?addres=${encodeURIComponent(address)}")
+       fetch(`/api/geocode?address=${encodeURIComponent(address)}`)
+
             .then(res => res.json())
             .then(data =>{
                 if(data.lat && data.lng){

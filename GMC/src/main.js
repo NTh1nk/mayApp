@@ -1,5 +1,5 @@
 import './style.css';
-import './globe.js';
+import '../public/globe.js';
 import { processInput } from './processInput.js';
 
 // Wait for DOM ready to be safe

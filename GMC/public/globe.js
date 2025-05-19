@@ -1,6 +1,6 @@
 import { TextureLoader, ShaderMaterial, Vector2 } from 'https://esm.sh/three';
 import * as solar from 'https://esm.sh/solar-calculator';
-import {coToMarker} from "./marker";
+import {coToMarker} from "../src/marker.js";
     const VELOCITY = 1; // minutes per frame
 
     // Custom shader:  Blends night and day images to simulate day/night cycle

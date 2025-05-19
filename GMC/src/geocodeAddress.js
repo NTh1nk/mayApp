@@ -19,7 +19,7 @@ export function geocodeAddress(address){
                 }
             })
             .catch(error => {
-                reject(new Error('Geocode failed: ' + error));
+                reject(new Error('Geocode failed: ' + error.message));
 
             });
 

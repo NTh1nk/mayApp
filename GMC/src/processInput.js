@@ -1,10 +1,8 @@
-//there is currently a bug, 16-05-2025, it doesnt insert into the table
-//could be from here...
 
-//import { geocodeAddress } from "./geocodeAddress";
+import { geocodeAddress } from "./geocodeAddress";
 
 
-export function processInput(event) {
+export async function processInput(event) {
     //This is because, the button is formatted weird, could fix later on ÆÆ
     if (event) event.preventDefault();
 
@@ -27,7 +25,7 @@ export function processInput(event) {
     const amountCell = document.createElement("td")
 
 
-    //let coords = geocodeAddress(address);
+    let coords = await geocodeAddress(location);
     
     //Place marker
 
@@ -44,7 +42,6 @@ export function processInput(event) {
     document.getElementById("location").value = '';
     document.getElementById("amount").value = '';
 
-    return { address: location, amount};
-    //return { address: location, amount, coords };
+    return { address: location, amount, coords};
 
 }

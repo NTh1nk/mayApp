@@ -26,7 +26,7 @@ export default async function handler(req, res){
 
     //url for opencage API
     //uses the address, and api key from early
-    const url = "https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(address)}&key=${apiKey}";
+    const url = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(address)}&key=${apiKey}`;
 
     //now we call the API
     try

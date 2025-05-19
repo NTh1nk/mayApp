@@ -45,7 +45,7 @@ export default async function handler(req, res){
             
             //if we dont have data results
         } else {
-            res.status(404).json({ error: "No results found"});
+            res.status(404).json({ error: "No results found", raw: data});
         }
 
         //catch the error

@@ -12,6 +12,10 @@
     "vite": "^6.3.5"
   },
   "dependencies": {
-    "dotenv": "^16.5.0"
+    "dotenv": "^16.5.0",
+    "globe.gl": "^2.41.4",
+    "solar-calculator": "^0.3.0",
+    "three": "^0.176.0",
+    "three-globe": "^2.42.4"
   }
 }

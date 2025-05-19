@@ -1,6 +1,8 @@
 import { TextureLoader, ShaderMaterial, Vector2 } from 'three';
 import * as solar from 'solar-calculator';
 import {coToMarker} from "./marker.js";
+
+export function initGlobe(){
     const VELOCITY = 1; // minutes per frame
 
     // Custom shader:  Blends night and day images to simulate day/night cycle
@@ -157,3 +159,4 @@ import {coToMarker} from "./marker.js";
         })()
       );
     });
+    }

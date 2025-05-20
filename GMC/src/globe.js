@@ -62,7 +62,7 @@ export function initGlobe({ coordinateArray = [] } = {}) {
   };
 
   // Setup marker data
-  const gData = coordinateArray.map(coToMarker);
+  const gData = coordinateArray;
   let dt = Date.now();
   const timeEl = document.getElementById('time') || { textContent: '' };
   // Initialize Globe

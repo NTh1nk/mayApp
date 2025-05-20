@@ -10,7 +10,7 @@ export async function processInput(event) {
     const amount = parseFloat(document.getElementById("amount").value);
     if (!location || isNaN(amount)) {
         alert("Please enter a valid location and amount.");
-        return;
+        return { error: "Invalid input" };
     }
     console.log("Location:", location);
     console.log("Amount:", amount);
@@ -29,7 +29,7 @@ export async function processInput(event) {
 
     if (!coords) {
         alert("Failed to get coordinates for " + location);
-    return null;
+        return { error: "Failed to get coordinates" };
     }
     
    

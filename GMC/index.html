@@ -14,10 +14,11 @@
     <h3 class="bar-item">Menu</h3>
     <input type="text" id="location" name="location" placeholder="Enter location..."><br><br>
     <input type="text" id="amount" name="amount" placeholder="Enter amount..."><br><br>
-    <a href="#" class="bar-item button" onclick="processInput(event)">Insert</a>
-    <a href="#" class="bar-item button">Reload</a>
-    <a href="#" class="bar-item button">Calculate optimal meeting time</a>
 
+    <button id="insertBtn" class="button">Insert</button>
+    <button id="reloadBtn" class="button">Reload</button>
+    <button id="calcBtn" class="button">Calculate optimal meeting time</button>
+    
    <table id="peopleTable">
     <thead>
   <tr>
@@ -29,15 +30,18 @@
     
    </tbody>
 </table>
-    
+  
   </div>
 
   <div style="margin-left:25%">
     <div class="topBar">
+      
       <h1>Visualisation tool</h1>
     </div>
 
     <div class="container">
+      <!--Here it should parse the markers into the initglobe func-->
+      <!--Parse the coords into globeviz-->
       <div id="globeViz"></div>
       <div id="time"></div>
     </div>

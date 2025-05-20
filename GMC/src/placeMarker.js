@@ -1,15 +1,15 @@
 import { geocodeAddress } from "./geocodeAddress";
 import { processInput } from "./processInput";
 
-export async function markers() {
-    const result = await processInput();
-
-    if (!result || !result.coords) {
-        console.error("Invalid result from processInput:", result);
+export async function markers(input) {
+    
+    if(!input || !input.coords) {
+        console.error("Invalid input to markers function:", input);
         return [];
     }
 
-    const { address, amount, coords } = result;
+
+    const { address, amount, coords } = input;
 
     try {
         coords.amount = amount;

@@ -9,12 +9,12 @@ async function handleInsert(event) {
   // Process input (adds row, returns data)
   const inputData = await processInput(event);
   if (inputData?.error) {
-    console.warn("Input error:", inputData.error);
+    console.warn("Input error:", inputData?.error);
     return; // Don't proceed further
   }
 
   // Get updated markers array including the new input
-  const updatedMarkers = await markers();
+  const updatedMarkers = await markers(inputData);
 
   // Reinitialize the globe with new markers
   initGlobe({ coordinateArray: updatedMarkers });

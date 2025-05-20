@@ -1,10 +1,14 @@
 
-async function markers() {
-    const { address, amount } = processInput();
+async function markers(input) {
+
+    if(!input||!input.coords) {
+        console.error("Invalid result from processInput:", input);
+        return [];
+    }
+    const { address, amount } = input;
 
     try {
-        const coordinates = await geocodeAddress(address);
-        coordinates.amount = amount;
+        coords.amount = amount;
 
         const marker = coToMarker(coordinates);
 

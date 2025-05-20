@@ -1,33 +1,35 @@
 import './style.css';
 import { processInput } from './processInput.js';
 import { initGlobe } from './globe.js';
-import { generateMarkers } from './markers.js';
+import { markers } from './placeMarker.js';
 
 async function handleInsert(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const inputData = await processInput();
-    if (!inputData) return;
+  // Process input (adds row, returns data)
+  const inputData = await processInput(event);
+  if (!inputData) return;
 
-    const { address, amount, coords } = inputData;
+  // Get updated markers array including the new input
+  const updatedMarkers = await markers();
 
-    // Insert into the table
-    const tableBody = document.querySelector("#peopleTable tbody");
-    const newRow = document.createElement("tr");
-    newRow.innerHTML = `<td>${address}</td><td>${amount}</td>`;
-    tableBody.appendChild(newRow);
+  // Reinitialize the globe with new markers
+  initGlobe({ coordinateArray: updatedMarkers });
 
-    // Generate markers and re-render globe
-    const allMarkers = generateMarkers({ amount, coords });
-    initGlobe({ coordinateArray: allMarkers });
+  // Clear inputs and refocus
+  const locationInput = document.getElementById("location");
+  const amountInput = document.getElementById("amount");
 
-    // Clear form inputs
-    document.getElementById("location").value = '';
-    document.getElementById("amount").value = '';
-    document.getElementById("location").focus();
+  locationInput.value = '';
+  amountInput.value = '';
+  locationInput.focus();
 }
 
+// Attach event listener after DOM is loaded
 window.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('insertBtn').addEventListener('click', handleInsert);
-    initGlobe({ coordinateArray: [] });
+  window.processInput = processInput;
+  document.getElementById('insertBtn').addEventListener('click', handleInsert);
+
+  // Initialize globe with no markers
+  initGlobe({ coordinateArray: [] });
 });

@@ -4,6 +4,9 @@ const markerSvg = `<svg viewBox="-4 0 36 36">
 </svg>`;
 
 export function coToMarker(coordinates) {
+    console.log('coToMarker input:', coordinates);
+    const amount = Number(coordinates.amount) || 1;
+    console.log('amount:', amount);
     return {
         lat: coordinates.lat,
         lng: coordinates.lng,

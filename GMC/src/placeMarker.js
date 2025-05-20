@@ -7,7 +7,7 @@ export async function markers() {
      if (!coords) {
     console.error("Coordinates undefined for address:", address);
     return [];
-  }
+    }
     try {
         coords.amount = amount;
 

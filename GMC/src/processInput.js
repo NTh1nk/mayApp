@@ -30,7 +30,7 @@ export async function processInput(event) {
     if (!coords) {
         alert("Failed to get coordinates for " + location);
     return null;
-}
+    }
     
     //Place marker
 

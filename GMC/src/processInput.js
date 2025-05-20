@@ -26,6 +26,11 @@ export async function processInput(event) {
 
 
     let coords = await geocodeAddress(location);
+
+    if (!coords) {
+        alert("Failed to get coordinates for " + location);
+    return null;
+}
     
     //Place marker
 

@@ -4,6 +4,10 @@ import { processInput } from "./processInput";
 export async function markers() {
     const { address, amount, coords } = await processInput();
 
+     if (!coords) {
+    console.error("Coordinates undefined for address:", address);
+    return [];
+  }
     try {
         coords.amount = amount;
 

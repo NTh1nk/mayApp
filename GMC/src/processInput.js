@@ -32,6 +32,7 @@ export async function processInput(event) {
     return null;
     }
     
+   
     //Place marker
 
 
@@ -46,7 +47,7 @@ export async function processInput(event) {
    
     document.getElementById("location").value = '';
     document.getElementById("amount").value = '';
-
+    console.log(location, amount, coords);
     return { address: location, amount, coords};
 
 }

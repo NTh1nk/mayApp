@@ -31,6 +31,9 @@ spend at least 40 hours a week on any projects a week, and it has to be open sou
 Still sorting out hoursing
 
 
+just have to hit the 100 hours before you come to sf
+
+
 SF has good public transit
 
 Vibe coding: is allowed, but you have to make it "high effort", dont ask it to build the whole project for you.

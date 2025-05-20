@@ -16,7 +16,7 @@ export async function markers(input) {
 
         const marker = coToMarker(coords);
 
-        // Optional: Add 5 random example markers
+        /* Optional: Add 5 random example markers
         const N = 5;
         const gData = [...Array(N).keys()].map(() => ({
             lat: (Math.random() - 0.5) * 180,
@@ -24,8 +24,8 @@ export async function markers(input) {
             size: 7 + Math.random() * 30,
             color: ['red', 'white', 'blue', 'green'][Math.floor(Math.random() * 4)]
         }));
-
-        return [marker, ...gData];
+        */
+        return [marker];
 
     } catch (error) {
         console.error("Geocoding failed in try block:", error);

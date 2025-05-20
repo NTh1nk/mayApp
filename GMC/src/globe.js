@@ -64,8 +64,7 @@ export function initGlobe({ coordinateArray = [] } = {}) {
   // Setup marker data
   const gData = coordinateArray.map(coToMarker);
   let dt = Date.now();
-  const timeEl = document.getElementById('time');
-
+  const timeEl = document.getElementById('time') || { textContent: '' };
   // Initialize Globe
   const world = new Globe(document.getElementById('globeViz'))
     .htmlElementsData(gData)

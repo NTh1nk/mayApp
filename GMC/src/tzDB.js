@@ -3,6 +3,7 @@ export function getTimeZone(lat, lng) {
         fetch(`/api/timeZoneDB?lat=${lat}&lng=${lng}`)
             .then(res => res.json())
             .then(data => {
+                console.log("Timezone data", data);
                 if (data.zoneName) {
                     resolve(data.zoneName);
                 } else {

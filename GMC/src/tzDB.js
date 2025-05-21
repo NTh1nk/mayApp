@@ -13,4 +13,4 @@ export function getTimeZone(lat, lng) {
                 reject(new Error('Timezone lookup failed: ' + error.message));
             });
     });
-}s
+}

@@ -20,6 +20,11 @@ export function cOMT(people) {
     }
 
     // Return the best time in minutes since midnight UTC
+
+    //for some reason it returns 0 rn.
+    console.log("Best time:", bestTime);
+    console.log("Flaw total:", flawTotal);
+    console.log("Best time in hours:", Math.floor(bestTime / 60), "minutes:", bestTime % 60);
     return bestTime;
 }
 

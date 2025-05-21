@@ -25,7 +25,7 @@ async function handleInsert(event) {
   // Get updated markers array including the new input
   updatedMarkers = updatedMarkers.concat(await markers(inputData));
   //the error is here, "inputData" is not defined
-  addressData.push(lastInputData.address);
+  addressData.push(lastInputData);
 
   console.log("Updated markers:", updatedMarkers);
   // Reinitialize the globe with new markers

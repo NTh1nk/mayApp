@@ -5,8 +5,8 @@ import { markers } from './placeMarker.js';
 import data from "./json/markers.json";
 
 console.log(data);
-let updatedMarkers = [...data];
-
+//let updatedMarkers = [...data];
+let updatedMarkers = [];
 
 async function handleInsert(event) {
   event.preventDefault();

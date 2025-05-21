@@ -3,6 +3,7 @@ import { processInput } from './processInput.js';
 import { initGlobe } from './globe.js';
 import { markers } from './placeMarker.js';
 import data from "./json/markers.json";
+import { cOMT } from './COMT.js';
 
 console.log(data);
 //let updatedMarkers = [...data];
@@ -35,9 +36,12 @@ async function handleInsert(event) {
   locationInput.focus();
 }
 
+
+
 function handleCalc(event) {
   event.preventDefault();
-  // Handle calculation logic here
+  
+  return cOMT(updatedMarkers);
   console.log("Calculation button clicked");
 }
 // Attach event listener after DOM is loaded

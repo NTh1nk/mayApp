@@ -23,6 +23,7 @@ async function handleInsert(event) {
   lastInputData = inputData;
 
   // Merge coords into the object for COMT
+  console.log("Input data:", inputData);
   addressData.push({
     ...inputData.coords,
     workStart: 480, // Could also get input here

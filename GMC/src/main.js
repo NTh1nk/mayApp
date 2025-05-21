@@ -44,6 +44,7 @@ function handleCalc(event) {
   const OMT = cOMT(updatedMarkers)
   console.log("OMT:", OMT);
   alert("Optimal meeting time is: " + OMT/60 + ":00 UTC");
+  //could alert the time in local time for each person.
   return OMT;
 }
 // Attach event listener after DOM is loaded

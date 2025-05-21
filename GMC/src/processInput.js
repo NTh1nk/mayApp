@@ -1,5 +1,11 @@
 
 import { geocodeAddress } from "./geocodeAddress";
+import { data } from "./json/markers.json";
+
+
+//update it so it gets all the markers
+//
+//going to add the output as a json.
 
 
 export async function processInput(event) {
@@ -14,6 +20,7 @@ export async function processInput(event) {
     }
     console.log("Location:", location);
     console.log("Amount:", amount);
+    console.log(data.lat, data.lng);
 
     //alert(location);  //Just for debugging
 

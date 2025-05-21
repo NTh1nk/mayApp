@@ -4,6 +4,7 @@ import { initGlobe } from './globe.js';
 import { markers } from './placeMarker.js';
 import data from "./json/markers.json";
 import { cOMT } from './COMT.js';
+import { add } from 'three/tsl';
 
 console.log(data);
 //let updatedMarkers = [...data];
@@ -45,11 +46,13 @@ async function handleInsert(event) {
 function handleCalc(event) {
   event.preventDefault();
   console.log("Calculation button clicked");
-  if (!lastInputData) {
+  if (addressData.length === 0) {
     alert("Please insert at least one location before calculating.");
     return;
   }
-  const OMT = cOMT(lastInputData);
+
+  const OMT = cOMT(addressData);
+  
   console.log("OMT:", OMT);
   alert("Optimal meeting time is: " + OMT/60 + ":00 UTC");
   //could alert the time in local time for each person.

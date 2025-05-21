@@ -11,7 +11,11 @@ export function cOMT(people) {
         let flaw = 0;
         for (let j = 0; j < people.length; j++) {
             const localMin = getLocalTime(dateUTC, people[j].timeZone);
-            flaw += inaccuracy(localMin, people[j].workStart, people[j].workEnd) ** 2;
+            //if workstart is undefined, set it to 8:00
+            const workStart = people[j].workStart ?? 480;
+            //if workend is undefined, set it to 20:00
+            const workEnd = people[j].workEnd ?? 1200;
+            flaw += inaccuracy(localMin, workStart, workEnd) ** 2;
         }
         if (flaw < flawTotal) {
             flawTotal = flaw;

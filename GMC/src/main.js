@@ -15,21 +15,23 @@ let lastInputData = null;
 async function handleInsert(event) {
   event.preventDefault();
 
-  // Process input (adds row, returns data)
   const inputData = await processInput(event);
   if (inputData?.error) {
     console.warn("Input error:", inputData?.error);
-    return; // Don't proceed further
+    return;
   }
-  lastInputData = inputData; // Store the last input data
+  lastInputData = inputData;
 
-  // Get updated markers array including the new input
+  // Merge coords into the object for COMT
+  addressData.push({
+    ...inputData.coords,
+    workStart: 480, // Could also get input here
+    workEnd: 1200,  // Could also get input here
+    // add other fields as needed
+  });
+
   updatedMarkers = updatedMarkers.concat(await markers(inputData));
-  //the error is here, "inputData" is not defined
-  addressData.push(lastInputData);
-
   console.log("Updated markers:", updatedMarkers)
-  // Reinitialize the globe with new markers
   initGlobe({ coordinateArray: updatedMarkers });
 
   // Clear inputs and refocus
@@ -41,9 +43,7 @@ async function handleInsert(event) {
   locationInput.focus();
 }
 
-
-
-function handleCalc(event) {
+async function handleCalc(event) {
   event.preventDefault();
   console.log("Calculation button clicked");
   if (addressData.length === 0) {
@@ -51,11 +51,10 @@ function handleCalc(event) {
     return;
   }
 
-  const OMT = cOMT(addressData);
-  
+  const OMT = await cOMT(addressData);
+
   console.log("OMT:", OMT);
   alert("Optimal meeting time is: " + OMT/60 + ":00 UTC");
-  //could alert the time in local time for each person.
   return OMT;
 }
 // Attach event listener after DOM is loaded

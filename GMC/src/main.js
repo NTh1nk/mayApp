@@ -5,6 +5,7 @@ import { markers } from './placeMarker.js';
 import data from "./json/markers.json";
 
 console.log(data);
+let updatedMarkers = [...data];
 
 
 async function handleInsert(event) {
@@ -19,7 +20,6 @@ async function handleInsert(event) {
 
   // Get updated markers array including the new input
   
-  let updatedMarkers = [...data];
 
   updatedMarkers = updatedMarkers.concat(await markers(inputData));
   console.log("Updated markers:", updatedMarkers);

@@ -21,7 +21,7 @@ async function handleInsert(event) {
   
   let updatedMarkers = data;
 
-  updatedMarkers += await markers(inputData);
+  updatedMarkers = updatedMarkers.concat(await markers(inputData));
   console.log("Updated markers:", updatedMarkers);
   // Reinitialize the globe with new markers
   initGlobe({ coordinateArray: updatedMarkers });

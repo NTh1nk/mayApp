@@ -19,7 +19,7 @@ async function handleInsert(event) {
 
   // Get updated markers array including the new input
   
-  let updatedMarkers = data;
+  let updatedMarkers = [...data];
 
   updatedMarkers = updatedMarkers.concat(await markers(inputData));
   console.log("Updated markers:", updatedMarkers);

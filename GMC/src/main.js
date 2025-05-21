@@ -43,7 +43,7 @@ function handleCalc(event) {
   console.log("Calculation button clicked");
   const OMT = cOMT(updatedMarkers)
   console.log("OMT:", OMT);
-  alert("Optimal meeting time is: " + OMT/60 + " hours");
+  alert("Optimal meeting time is: " + OMT/60 + ":00 UTC");
   return OMT;
 }
 // Attach event listener after DOM is loaded

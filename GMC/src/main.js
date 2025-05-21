@@ -2,6 +2,10 @@ import './style.css';
 import { processInput } from './processInput.js';
 import { initGlobe } from './globe.js';
 import { markers } from './placeMarker.js';
+import { data } from "./json/markers.json";
+
+console.log(data);
+
 
 async function handleInsert(event) {
   event.preventDefault();

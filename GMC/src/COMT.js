@@ -1,0 +1,62 @@
+// calculate optimal meeting time
+
+export function cOMT(people) {
+    let flawTotal = Infinity;
+    let bestTime = 0;
+
+    for (let i = 0; i < 24 * 60; i += 5) {
+        // Create a UTC Date object at midnight plus i minutes
+        const today = new Date();
+        const dateUTC = new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate(), 0, i));
+        let flaw = 0;
+        for (let j = 0; j < people.length; j++) {
+            const localMin = getLocalTime(dateUTC, people[j].timeZone);
+            flaw += inaccuracy(localMin, people[j].workStart, people[j].workEnd) ** 2;
+        }
+        if (flaw < flawTotal) {
+            flawTotal = flaw;
+            bestTime = i;
+        }
+    }
+
+    // Return the best time in minutes since midnight UTC
+    return bestTime;
+}
+
+
+
+
+
+
+
+//Dont actually need UTCTime?
+function getLocalTime(dateUTC, timeZone)
+{
+    // Format the UTC date to the local time in the specified time zone
+    const localStr = dateUTC.toLocaleTimeString("en-US", {hour12: false, timeZone});
+    const [hour, minute] = localStr.split(":").map(Number);
+    return hour * 60 + minute;
+}
+
+
+function inaccuracy(localMin, startMin, endMin) {
+    if(localMin >= startMin && localMin <= endMin)   return 0;
+
+
+    //js magic to get the difference between the working hours and meeting time.
+    return localMin < startMin
+    ? startMin - localMin
+    : localMin - endMin
+
+}
+
+
+
+/*
+function evaluate(UTCTime, timeZone){
+    
+
+}
+*/
+
+

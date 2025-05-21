@@ -35,10 +35,16 @@ async function handleInsert(event) {
   locationInput.focus();
 }
 
+function handleCalc(event) {
+  event.preventDefault();
+  // Handle calculation logic here
+  console.log("Calculation button clicked");
+}
 // Attach event listener after DOM is loaded
 window.addEventListener('DOMContentLoaded', () => {
   window.processInput = processInput;
   document.getElementById('insertBtn').addEventListener('click', handleInsert);
+  document.getElementById('calcBtn').addEventListener("click", handleCalc);
 
   // Initialize globe with no markers
   initGlobe({ coordinateArray: [] });

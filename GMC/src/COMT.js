@@ -1,5 +1,5 @@
 // calculate optimal meeting time
-import tzlookup from 'tzlookup';
+import find from find(lat, lng);
 
 
 export function cOMT(people) {
@@ -12,7 +12,7 @@ export function cOMT(people) {
         const dateUTC = new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate(), 0, i));
         let flaw = 0;
         for (let j = 0; j < people.length; j++) {
-            const timeZone = tzlookup(people[j].lat, people[j].lng);
+            const [timeZone] = find(people[j].lat, people[j].lng);
             const localMin = getLocalTime(timeZone);
             //if workstart is undefined, set it to 8:00
             const workStart = people[j].workStart ?? 480;

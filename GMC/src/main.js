@@ -41,7 +41,9 @@ async function handleInsert(event) {
 function handleCalc(event) {
   event.preventDefault();
   console.log("Calculation button clicked");
-  return cOMT(updatedMarkers);
+  const OMT = cOMT(updatedMarkers)
+  console.log("OMT:", OMT);
+  return OMT;
 }
 // Attach event listener after DOM is loaded
 window.addEventListener('DOMContentLoaded', () => {

@@ -8,6 +8,7 @@ import { cOMT } from './COMT.js';
 console.log(data);
 //let updatedMarkers = [...data];
 let updatedMarkers = [];
+let addressData = [];
 
 async function handleInsert(event) {
   event.preventDefault();
@@ -20,9 +21,8 @@ async function handleInsert(event) {
   }
 
   // Get updated markers array including the new input
-  
-
   updatedMarkers = updatedMarkers.concat(await markers(inputData));
+  addressData.push(inputData);
   console.log("Updated markers:", updatedMarkers);
   // Reinitialize the globe with new markers
   initGlobe({ coordinateArray: updatedMarkers });
@@ -41,7 +41,7 @@ async function handleInsert(event) {
 function handleCalc(event) {
   event.preventDefault();
   console.log("Calculation button clicked");
-  const OMT = cOMT(updatedMarkers)
+  const OMT = cOMT(inputData);
   console.log("OMT:", OMT);
   alert("Optimal meeting time is: " + OMT/60 + ":00 UTC");
   //could alert the time in local time for each person.

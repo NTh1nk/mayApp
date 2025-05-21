@@ -27,7 +27,7 @@ async function handleInsert(event) {
   //the error is here, "inputData" is not defined
   addressData.push(lastInputData);
 
-  console.log("Updated markers:", updatedMarkers);
+  console.log("Updated markers:", updatedMarkers)
   // Reinitialize the globe with new markers
   initGlobe({ coordinateArray: updatedMarkers });
 
@@ -45,7 +45,11 @@ async function handleInsert(event) {
 function handleCalc(event) {
   event.preventDefault();
   console.log("Calculation button clicked");
-  const OMT = cOMT(inputData);
+  if (!lastInputData) {
+    alert("Please insert at least one location before calculating.");
+    return;
+  }
+  const OMT = cOMT(lastInputData);
   console.log("OMT:", OMT);
   alert("Optimal meeting time is: " + OMT/60 + ":00 UTC");
   //could alert the time in local time for each person.

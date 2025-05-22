@@ -5,7 +5,7 @@ import { markers } from './placeMarker.js';
 import data from "./json/markers.json";
 import { cOMT } from './COMT.js';
 import { add } from 'three/tsl';
-import { getTimeZone, getLocalTime } from './tzDB.js';
+import { getTimeZone} from './tzDB.js';
 
 console.log(data);
 //let updatedMarkers = [...data];
@@ -57,7 +57,6 @@ async function handleCalc(event) {
 
   const OMT = await cOMT(addressData);
   console.log("Optimal Meeting Time (UTC):", OMT);
-  console.log("Optimal Meeting Time (Local):", getLocalTime(OMT));
   alert("Optimal meeting time is: " + OMT/60 + ":00 UTC");
   return OMT;
 }

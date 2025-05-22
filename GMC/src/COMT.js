@@ -11,9 +11,9 @@ export async function cOMT(people) {
         const dateUTC = new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate(), 0, i));
         let flaw = 0;
         for (let j = 0; j < people.length; j++) {
-            // Await the timezone lookup
-            //oh shit, this is looping, and i am gettign rate limited......
-            const timeZone = await getTimeZone(people[j].lat, people[j].lng);
+            //fixed now
+            //could prob remove the async, but i think it works for now
+            const timeZone = people[j].timezone;
             console.log("Time zone:", timeZone);
             const localMin = getLocalTime(dateUTC, timeZone);
             //if workstart is undefined, set it to 8:00

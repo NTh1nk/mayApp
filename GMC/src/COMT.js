@@ -14,7 +14,7 @@ export async function cOMT(people) {
             //fixed now
             //could prob remove the async, but i think it works for now
             const timeZone = people[j].timezone;
-            console.log("Time zone:", timeZone);
+            //console.log("Time zone:", timeZone);
             const localMin = getLocalTime(dateUTC, timeZone);
             //if workstart is undefined, set it to 8:00
             const workStart = people[j].workStart ?? 480;

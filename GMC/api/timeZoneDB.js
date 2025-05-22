@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
     // Accept lat and lng as query parameters
     const { lat, lng } = req.query;
-
+    console.log("Received lat:", lat, "lng:", lng);
     // Query validation
     if (!lat || !lng) {
         res.status(400).json({ error: "Missing lat or lng query parameter" });

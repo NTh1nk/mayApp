@@ -3,51 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GlobalScheduleCoordinator homepage</title>
+  <title>GMC Landing page</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="src/css/index.css">
+  <link rel="stylesheet" href="src/css/landingpage.css">
+  <style>
+    .hero-container {
+        position: relative;
+        width: 80vw;
+        margin: 0 auto;
+    }
 
+    .hero-container img {
+        width: 100%;
+        height: auto;
+        opacity: 60%;
+        display: block;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        text-align: center;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .hero-text {
+        color: white;
+        font-size: 6vw;
+        margin-bottom: 1vw;
+    }
+
+    .sub-text {
+        color: white;
+        font-size: 2vw;
+        margin-top: 0; /* Remove default margin */
+    }
+  </style>
 </head>
 <body>
-
-  <div class="sidebar" style="width:25%">
-    <h3 class="bar-item">Menu</h3>
-    <input type="text" id="location" name="location" placeholder="Enter location..."><br><br>
-    <input type="text" id="amount" name="amount" placeholder="Enter amount..."><br><br>
-
-    <button id="insertBtn" class="button">Insert</button>
-    <button id="reloadBtn" class="button">Reload</button>
-    <button id="calcBtn" class="button">Calculate optimal meeting time</button>
-
-   <table id="peopleTable">
-    <thead>
-  <tr>
-    <th>Address</th>
-    <th>Amount</th>
-  </tr>
-   </thead>
-   <tbody>
-    
-   </tbody>
-</table>
-  
-  </div>
-
-  <div style="margin-left:25%">
-    <div class="topBar">
-      
-      <h1>Visualisation tool</h1>
+    <div class="navbar" style="height: 7%">
+        <!--Logo-->
+        <img src=""> 
+        <div class="navbarText">
+            <h2>landing page</h2>
+            <!--All the pages-->
+        </div>
     </div>
-
-    <div class="container">
-      <!--Here it should parse the markers into the initglobe func-->
-      <!--Parse the coords into globeviz-->
-      <div id="globeViz"></div>
-      <div id="time"></div>
+    <!-- globe hero img-->
+    <div class="hero-container">
+        <img src="img/globe.png">
+        <div class="hero-text">GMC</div>
+        <div class="sub-text">Global Meeting Coordinator</div>
     </div>
-  </div>
 </body>
-  <!-- Include the main.js file -->
-  <script type="module" src="/src/main.js"></script>
-
 </html>

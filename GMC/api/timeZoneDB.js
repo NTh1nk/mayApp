@@ -18,10 +18,11 @@ export default async function handler(req, res) {
 
     const url = `https://api.timezonedb.com/v2.1/get-time-zone?key=${apiKey}&format=json&by=position&lat=${lat}&lng=${lng}`;
     
+    console.log("URL:", url);
     try {
         const response = await fetch(url);
         const data = await response.json();
-
+        console.log("Response Data:", data);
         if (data.status === "OK") {
             const { zoneName } = data;
             res.status(200).json({ zoneName });

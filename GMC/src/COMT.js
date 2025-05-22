@@ -12,7 +12,9 @@ export async function cOMT(people) {
         let flaw = 0;
         for (let j = 0; j < people.length; j++) {
             // Await the timezone lookup
+
             const timeZone = await getTimeZone(people[j].lat, people[j].lng);
+            console.log("Time zone:", timeZone);
             const localMin = getLocalTime(dateUTC, timeZone);
             //if workstart is undefined, set it to 8:00
             const workStart = people[j].workStart ?? 480;

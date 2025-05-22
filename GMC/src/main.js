@@ -53,8 +53,8 @@ async function handleCalc(event) {
   }
 
   const OMT = await cOMT(addressData);
-
-  console.log("OMT:", OMT);
+  console.log("Optimal Meeting Time (UTC):", OMT);
+  console.log("Optimal Meeting Time (Local):", getLocalTime(OMT));
   alert("Optimal meeting time is: " + OMT/60 + ":00 UTC");
   return OMT;
 }

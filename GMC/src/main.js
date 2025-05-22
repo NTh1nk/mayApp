@@ -5,7 +5,7 @@ import { markers } from './placeMarker.js';
 import data from "./json/markers.json";
 import { cOMT } from './COMT.js';
 import { add } from 'three/tsl';
-import { getTimeZone } from './tzDB.js';
+import { getTimeZone, getLocalTime } from './tzDB.js';
 
 console.log(data);
 //let updatedMarkers = [...data];

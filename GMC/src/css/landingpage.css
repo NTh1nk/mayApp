@@ -9,21 +9,7 @@ body{
 }
 
 
-.hero-container {
-    position: relative;
-    width: 80vw;
-    margin: 0 auto;
-}
 
-.hero-container img {
-    width: 100%;
-    height: auto;
-    opacity: 60%;
-    margin-left: auto; 
-    margin-right: auto;
-    display: block;
-
-}   
 
 .hero-text {
     position: absolute;
@@ -36,4 +22,38 @@ body{
     width: 100%;
     pointer-events: none;
     
-}
+}  .hero-container {
+        position: relative;
+        width: 80vw;
+        margin: 0 auto;
+    }
+
+    .hero-container img {
+        width: 100%;
+        height: auto;
+        opacity: 60%;
+        display: block;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        text-align: center;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .hero-text {
+        color: white;
+        font-size: 6vw;
+        margin-bottom: 1vw;
+    }
+
+    .sub-text {
+        color: white;
+        font-size: 2vw;
+        margin-top: 0; /* Remove default margin */
+    }

@@ -5,6 +5,7 @@ import { markers } from './placeMarker.js';
 import data from "./json/markers.json";
 import { cOMT } from './COMT.js';
 import { add } from 'three/tsl';
+import { getTimeZone } from './tzDB.js';
 
 console.log(data);
 //let updatedMarkers = [...data];
@@ -20,6 +21,7 @@ async function handleInsert(event) {
     console.warn("Input error:", inputData?.error);
     return;
   }
+  const timezone = await getTimeZone(inputData.coords.lat, inputData.coords.lng);
   lastInputData = inputData;
 
   // Merge coords into the object for COMT
@@ -28,6 +30,7 @@ async function handleInsert(event) {
     ...inputData.coords,
     workStart: 480, // Could also get input here
     workEnd: 1200,  // Could also get input here
+    timezone,       // Add timezone to address data
     // add other fields as needed
   });
 

@@ -12,7 +12,7 @@ export async function cOMT(people) {
         let flaw = 0;
         for (let j = 0; j < people.length; j++) {
             // Await the timezone lookup
-
+            //oh shit, this is looping, and i am gettign rate limited......
             const timeZone = await getTimeZone(people[j].lat, people[j].lng);
             console.log("Time zone:", timeZone);
             const localMin = getLocalTime(dateUTC, timeZone);

@@ -33,3 +33,10 @@ body{
 
 }
 
+.hero-text {
+    position: absolute;
+    left: 35%;
+    font-size: 2vw;
+    margin-bottom: 1vw;
+    text-align: center;
+}

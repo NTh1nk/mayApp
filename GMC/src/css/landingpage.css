@@ -122,3 +122,11 @@ body{
 
 }
 
+#main-text{
+    margin-bottom: 5vw;
+}
+
+#body-text {
+    display: block;
+    margin-top: 0;
+}

@@ -104,17 +104,19 @@ body{
 
 .info-body{
     color:white;
-    max-width: 80%;
+    padding-left: 5vw;
+    padding-right: 5vw;
     padding-top: 5vw;
+    border-bottom: 0.1vw solid white;
+   
 }
 
 .bottom-bar{
-    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
 
-    background-color: #222;
+    background-color: #000000;
     color: white;
     text-align: center;
     padding: 1em 0;
@@ -124,9 +126,12 @@ body{
 
 #main-text{
     margin-bottom: 5vw;
+    margin-left: 4vw;
 }
 
 #body-text {
     display: block;
     margin-top: 0;
+    margin-left: 8vw;
+    margin-bottom: 5vw;
 }

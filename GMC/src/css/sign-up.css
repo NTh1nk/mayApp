@@ -5,6 +5,7 @@ body{
     background-repeat: no-repeat;     /* prevents tiling */
     min-height: 100vh;             /* ensures the image covers the full height */
     margin: 0;
+    color:white;
 }
 
 .bg-overlay{
@@ -15,7 +16,7 @@ body{
     height: 100vh;
     background: rgba(0, 0, 0, 0.6);
     pointer-events: none;
-    z-index: 0;
+    z-index: -1;
 }
 
 .signup{
@@ -31,3 +32,4 @@ body{
     text-decoration: underline;
 
 }
+

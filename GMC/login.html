@@ -7,6 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="src/css/sign-up.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
 
 </head>
 
@@ -23,10 +25,18 @@
   <div class="hero-center">
     <div class="hero-text">
       <p>Login</p>
-      <button class="google-signin-btn">
-        <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" class="google-logo">
-        Sign in with Google
-      </button>
+          <div id="g_id_onload"
+        data-client_id="YOUR_CLIENT_ID_HERE"
+        data-login_uri="http://localhost:5173"  
+        data-callback="handleCredentialResponse">
+    </div>
+    <div class="g_id_signin"
+        data-type="standard"
+        data-shape="rectangular"
+        data-theme="outline"
+        data-text="sign_in_with"
+        data-size="large">
+    </div>
     </div>
   </div>
 </body>

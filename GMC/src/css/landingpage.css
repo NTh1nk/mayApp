@@ -11,6 +11,7 @@ body{
 
 
 
+
 .hero-text {
     position: absolute;
     top: 36%;
@@ -65,3 +66,16 @@ body{
         width: 100%;
         pointer-events: none;
     }
+   
+
+.signup-button {
+    top: 60%;
+    left: 50%;
+    position: absolute;
+}
+
+.login-button {
+    top: 60%;
+    left: 45%   ;
+    position: absolute;
+}

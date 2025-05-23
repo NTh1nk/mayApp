@@ -33,10 +33,61 @@ body{
 
 }
 
+.hero-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh; /* Adjust as needed */
+    position: relative;
+    z-index: 1;
+}
+
 .hero-text {
-    position: absolute;
-    left:38%;
     font-size: 2vw;
-    margin-bottom: 1vw;
+    margin-bottom: 2vw;
     text-align: center;
+    color: white;
+    position: static; /* Remove absolute */
+}
+
+.signup {
+    text-align: center;
+    font-size: 1.5vw;
+    width: 100%;
+    margin-top: 1vw;
+    position: static; /* Remove absolute */
+    pointer-events: auto;
+    text-decoration: underline;
+}
+
+.navbar{
+    border-bottom:0.1vw solid white;
+    box-sizing: border-box;
+    color: white;
+}
+
+.google-signin-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    background: #fff;
+    color: #444;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.5em 1.5em;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+    margin: 1em auto;
+}
+
+.google-signin-btn:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.google-logo {
+    height: 24px;
+    width: 24px;
 }

@@ -11,23 +11,56 @@
 </head>
 
 <body>
-    <div class="bg-overlay"></div>
-    <div class="navbar" style="height: 7%">
-        <!--Logo-->
-        <img src=""> 
-        <div class="navbarText">
-            <h2>Register</h2>
-            <!--All the pages here-->
-        </div>
+  <div class="bg-overlay"></div>
+  <div class="navbar" style="height: 7%">
+    <!--Logo-->
+    <img src=""> 
+    <div class="navbarText">
+      <h2>Register</h2>
+      <!--All the pages here-->
     </div>
-        <div class="hero-text">
-            <p>Register to access your account</p>
-            <button class="signup-button">Register with Google</button>
+  </div>
+  <div class="hero-center">
+    <div class="hero-text">
+      <p>Sign up</p>
+      <button class="google-signin-btn">
+        <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" class="google-logo">
+        Sign in with Google
+      </button>
+    </div>
+    <div class="signup">
+      <button class="signup-button">Sign Up</button>
+      <button class="login-button">Login</button>
+    </div>
+  </div>
+  <style>
+    .hero-center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 80vh; /* Adjust as needed */
+        position: relative;
+        z-index: 1;
+    }
 
-        </div>
-        <div class="signup">
-            <button class="signup-button">Sign Up</button>
-            <button class="login-button">Login</button>
-        </div>
+    .hero-text {
+        font-size: 2vw;
+        margin-bottom: 2vw;
+        text-align: center;
+        color: white;
+        position: static; /* Remove absolute */
+    }
+
+    .signup {
+        text-align: center;
+        font-size: 1.5vw;
+        width: 100%;
+        margin-top: 1vw;
+        position: static; /* Remove absolute */
+        pointer-events: auto;
+        text-decoration: underline;
+    }
+  </style>
 </body>
 </html>

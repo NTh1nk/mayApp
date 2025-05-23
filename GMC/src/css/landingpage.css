@@ -85,3 +85,19 @@ body{
 .navbar {
     align-items:flex-end;
 }
+
+.video-gallery {
+    display:flex;
+    flex-wrap: wrap;
+    gap: 2vw;
+    justify-content: center;
+    margin: 2vw 0;
+}
+
+.video-gallery video{
+    width: 300vw;
+    max-width: 400px;
+    height: auto;
+    border-radius: 1vw;
+    box-shadow: 0 2px 8px rgba(rgb(0, 0, 0,0.3));
+}

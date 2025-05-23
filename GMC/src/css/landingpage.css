@@ -72,10 +72,16 @@ body{
     top: 60%;
     left: 50%;
     position: absolute;
+    background-color: rgb(49, 49, 49);
+    color: white;
 }
 
 .login-button {
     top: 60%;
     left: 45%   ;
     position: absolute;
+}
+
+.navbar {
+    align-items:flex-end;
 }

@@ -1,0 +1,6 @@
+body{
+    background-image: url('/img/globe.png');
+    background-size: cover;           /* makes the image cover the whole area */
+    background-position: center;      /* centers the image */
+    background-repeat: no-repeat;     /* prevents tiling */
+}

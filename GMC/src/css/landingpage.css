@@ -101,3 +101,7 @@ body{
     border-radius: 1vw;
     box-shadow: 0 2px 8px rgba(rgb(0, 0, 0,0.3));
 }
+
+.info-body{
+    color:white;
+}

@@ -106,3 +106,10 @@ table, th, td {
     font-weight: 600;
     letter-spacing: 1px;
 }
+
+.omt-result {
+  display: auto;
+  margin: 20px auto;
+  width: 30%;
+  font-size: 1.2em;    
+} 

@@ -1,11 +1,10 @@
 import './style.css';
-import { processInput } from './processInput.js';
-import { initGlobe } from './globe.js';
-import { markers } from './placeMarker.js';
-import data from "./json/markers.json";
-import { cOMT } from './COMT.js';
-import { add } from 'three/tsl';
-import { getTimeZone} from './tzDB.js';
+import { processInput } from '../../src/processInput.js';
+import { initGlobe } from '../../src/globe.js';
+import { markers } from '../../src/placeMarker.js';
+import data from "../../src/json/markers.json";
+import { cOMT } from '../../src/COMT.js';
+import { getTimeZone} from '../../src/tzDB.js';
 
 console.log(data);
 //let updatedMarkers = [...data];

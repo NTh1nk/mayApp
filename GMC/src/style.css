@@ -89,3 +89,19 @@ table, th, td {
     margin: 40px 2px;
     cursor: pointer;
 }
+.topBar {
+    display: flex;
+    align-items: center;
+    gap: 2vw; /* space between the texts */
+    background: #000000;
+    padding: 20px 30px;
+    border-bottom: 1px solid #444;
+    margin-bottom: 20px;
+}
+
+.vis-text, .landing-text {
+    color: #fff;
+    font-size: 2em;
+    font-weight: 600;
+    letter-spacing: 1px;
+}

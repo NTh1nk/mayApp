@@ -61,12 +61,7 @@ body{
     text-decoration: underline;
 }
 
-.navbar{
-    border-bottom:0.1vw solid white;
-    box-sizing: border-box;
-    color: white;
-    text-align: right;
-}
+
 
 .google-signin-btn {
     display: flex;

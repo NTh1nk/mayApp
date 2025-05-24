@@ -1,4 +1,5 @@
-import { loadBottombar } from '../modules/navbarimport.js';
+import { loadBottomBar } from '../modules/navbarimport.js';
 window.addEventListener('DOMContentLoaded', () => {
-  loadBottombar();
+  loadBottomBar();
 });
+

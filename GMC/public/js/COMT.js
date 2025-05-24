@@ -1,5 +1,5 @@
 // calculate optimal meeting time
-import { getTimeZone } from "./tzDB";
+import { getTimeZone } from "../public/js/tzDB";
 
 export async function cOMT(people) {
     let flawTotal = Infinity;

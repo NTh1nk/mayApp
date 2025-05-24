@@ -1,11 +1,11 @@
 import './style.css';
 import { processInput } from '../../src/processInput.js';
 import { initGlobe } from '../../src/globe.js';
-import { markers } from '../../src/placeMarker.js';
+import { markers } from './placeMarker.js';
 import data from "../../src/json/markers.json";
 import { cOMT } from '../../src/COMT.js';
 import * as THREE from 'https://unpkg.com/three@0.152.2/build/three.module.js';
-import { getTimeZone} from '../../src/tzDB.js';
+import { getTimeZone} from './tzDB.js';
 
 console.log(data);
 //let updatedMarkers = [...data];

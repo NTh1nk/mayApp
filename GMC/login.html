@@ -9,30 +9,26 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script type="module" src="src/pages/navbar.js"></script>
-
 </head>
 
 <body>
-
   <div id="navbar-placeholder"></div>
-
-      
-  </div>
+  <div class="bg-overlay"></div>
   <div class="hero-center">
     <div class="hero-text">
-      <p>Login</p>
-          <div id="g_id_onload"
+      <h1>Login</h1>
+      <div id="g_id_onload"
         data-client_id="YOUR_CLIENT_ID_HERE"
-        data-login_uri="http://localhost:5173"  
+        data-login_uri="http://localhost:5173"
         data-callback="handleCredentialResponse">
-    </div>
-    <div class="g_id_signin"
+      </div>
+      <div class="g_id_signin"
         data-type="standard"
         data-shape="rectangular"
         data-theme="outline"
         data-text="sign_in_with"
         data-size="large">
-    </div>
+      </div>
     </div>
   </div>
 </body>

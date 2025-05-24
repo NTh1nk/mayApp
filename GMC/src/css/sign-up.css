@@ -60,6 +60,11 @@ body{
     pointer-events: auto;
     text-decoration: underline;
 }
+.navbar {
+    border-bottom:0.1vw solid white;
+    box-sizing: border-box;
+    color: white;
+}
 
 
 

@@ -8,3 +8,15 @@ export function loadNavbar(placeholderId="navbar-placeholder") {
             }
         });
 }
+
+
+export function loadBottomBar(placeholderId="bottombar-placeholder") {   
+   fetch("/src/html/bottombar.html")
+        .then(res => res.text())
+        .then(html => {
+            const placeholder = document.getElementById(placeholderId);
+            if (placeholder) {
+                placeholder.innerHTML = html;
+            }
+        });
+}

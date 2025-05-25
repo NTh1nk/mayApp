@@ -1,4 +1,3 @@
-import '../src/css/style.css';
 import { processInput } from './processInput.js';
 import { initGlobe } from './globe.js';
 import { markers } from './placeMarker.js';

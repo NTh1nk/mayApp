@@ -1,5 +1,5 @@
-import { geocodeAddress } from "../../src/geocodeAddress";
-import { processInput } from "./processInput";
+import { geocodeAddress } from "./geocodeAddress.js";
+import { processInput } from "./processInput.js";
 
 export async function markers(input) {
     

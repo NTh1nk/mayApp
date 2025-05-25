@@ -1,5 +1,5 @@
 
-import { geocodeAddress } from "./geocodeAddress";
+import { geocodeAddress } from "./geocodeAddress.js";
 
 
 //update it so it gets all the markers

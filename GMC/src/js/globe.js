@@ -1,7 +1,7 @@
-import Globe from '/globe.gl';
-import { TextureLoader, ShaderMaterial, Vector2 } from '/three';
-import * as solar from '/solar-calculator';
-import { coToMarker } from './marker.js';
+import Globe from 'globe.gl';
+import { TextureLoader, ShaderMaterial, Vector2 } from 'three';
+import * as solar from 'solar-calculator';
+//import { coToMarker } from './marker.js';
 
 export function initGlobe({ coordinateArray = [] } = {}) {
   const VELOCITY = 1; // minutes per frame

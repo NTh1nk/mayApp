@@ -58,7 +58,9 @@ async function handleCalc(event) {
   const OMTBox = document.getElementById("omtResult");
   const OMT = await cOMT(addressData);
   console.log("Optimal Meeting Time (UTC):", OMT);
+  alert("Optimal Meeting Time (UTC): " + OMT/60 + ":00");
   OMTBox.value = OMT/60 + ":00 UTC";
+  OMTBox.style.color = "white";
   return OMT;
 }
 // Attach event listener after DOM is loaded

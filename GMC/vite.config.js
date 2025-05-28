@@ -6,7 +6,8 @@ export default {
         home: 'homePage.html',
         globe: 'globe.html',
         login: 'login.html',
-        signup: 'sign-up.html'
+        signup: 'sign-up.html',
+        profile: 'profile.html'
       }
     }
   }

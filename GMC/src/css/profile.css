@@ -1,0 +1,10 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+.navbar {
+    border-bottom:0.1vw solid white;
+    box-sizing: border-box;
+    color: white;
+}

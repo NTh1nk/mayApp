@@ -1,5 +1,5 @@
 export function loadNavbar(placeholderId="navbar-placeholder") {   
-   fetch("/src/html/navbar.html")
+   fetch("/html/navbar.html")
         .then(res => res.text())
         .then(html => {
             const placeholder = document.getElementById(placeholderId);
@@ -11,7 +11,7 @@ export function loadNavbar(placeholderId="navbar-placeholder") {
 
 
 export function loadBottomBar(placeholderId="bottombar-placeholder") {   
-   fetch("/src/html/bottombar.html")
+   fetch("/html/bottombar.html")
         .then(res => res.text())
         .then(html => {
             const placeholder = document.getElementById(placeholderId);

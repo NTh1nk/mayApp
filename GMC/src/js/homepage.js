@@ -5,7 +5,8 @@ import { markers } from './placeMarker.js';
 import { cOMT } from './COMT.js';
 import * as THREE from 'three';
 import { getTimeZone } from './tzDB.js';
-
+import "../css/style.css";
+import "../css/index.css";
 //console.log(data);
 //let updatedMarkers = [...data];
 let updatedMarkers = [];

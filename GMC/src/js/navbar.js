@@ -1,4 +1,4 @@
-import { loadNavbar } from '/pages/navbarimport.js';
+import { loadNavbar } from '/src/js/navbarimport.js';
 window.addEventListener('DOMContentLoaded', () => {
   loadNavbar();
 });

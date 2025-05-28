@@ -8,3 +8,16 @@ body{
     box-sizing: border-box;
     color: white;
 }
+
+.hero-text {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-size: 2vw;
+    width: 100%;
+    pointer-events: none;
+    text-decoration: underline;
+}

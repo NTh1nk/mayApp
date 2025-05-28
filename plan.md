@@ -15,4 +15,5 @@ V.2
 
 2. Get markers to persist by login
 
-d. Do some frontend stuff, f.ex making the omt text white when calculated
+done. Do some frontend stuff, f.ex making the omt text white when calculated
+

@@ -2,11 +2,13 @@ export function showProfile( ) {
     const userName = localStorage.getItem("userName");
     const welcomeEl =  document.getElementById("welcomeMessage");
 
+    console.log("User profile initialized");
     if (welcomeEl && userName) {
         welcomeEl.textContent = `Welcome, ${userName}!`;
+        console.log("User profile displayed:", userName);
+
     }
 
-    console.log("User profile displayed:", userName);
 
 }
 

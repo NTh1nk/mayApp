@@ -21,3 +21,25 @@ body{
     pointer-events: none;
     text-decoration: underline;
 }
+
+#logoutButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: #313131;
+    color: rgb(122, 122, 122);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#logoutButton:hover {
+    background-color: #444;
+    color: white;
+}
+
+#logoutButton:active {
+    background-color: #555;
+    color: white;
+}

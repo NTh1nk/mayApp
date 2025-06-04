@@ -7,7 +7,8 @@ export default {
         globe: 'globe.html',
         login: 'login.html',
         signup: 'sign-up.html',
-        profile: 'profile.html'
+        profile: 'profile.html',
+        contact: 'contact.html',
       }
     }
   }

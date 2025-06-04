@@ -1,3 +1,5 @@
+import { showProfile, logout } from "./profile.js";
+
 const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("g_id_onload").setAttribute("data-client_id", clientId);
@@ -9,3 +11,5 @@ window.handleCredentialResponse = (response) => {
   localStorage.setItem('userName', data.name || '');
   alert(`Welcome, ${data.name}!`);
 };
+
+//showProfile();

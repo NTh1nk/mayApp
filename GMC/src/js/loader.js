@@ -1,3 +1,6 @@
+import '../css/loader.css';
+
+
 window.addEventListener('DOMContentLoaded', () => {
 
   // Hide the loader

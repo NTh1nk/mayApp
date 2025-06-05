@@ -9,6 +9,8 @@ window.addEventListener("DOMContentLoaded", () => {
 window.handleCredentialResponse = (response) => {
   const data = JSON.parse(atob(response.credential.split('.')[1]));
   localStorage.setItem('userName', data.name || '');
+  localStorage.setItem('userEmail', data.email || '');
+  localStorage.setItem('userPicture', data.picture || '');
   alert(`Welcome, ${data.name}!`);
 };
 

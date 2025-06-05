@@ -1,4 +1,4 @@
-import { showWelcomeMessage, logout } from './profile';
+import { showWelcomeMessage, logout } from './profile.js';
 
 window.addEventListener("DOMContentLoaded", () => {
   const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;

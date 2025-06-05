@@ -113,3 +113,22 @@ table, th, td {
   width: 30%;
   font-size: 1.2em;    
 } 
+
+#globeViz {
+  position: fixed; /* or absolute */
+  bottom: 0;
+  right: 0;
+  width: 86vw;
+  height: 93vh;
+  overflow: hidden;
+  z-index: -1; /* adjust depending on your layout */
+}
+#time {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}

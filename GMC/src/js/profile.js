@@ -7,6 +7,8 @@ export function showProfile( ) {
 
     if (!userName) {
         console.log("No user is logged in.");
+        profileEmailEl.textContent = "No user is logged in.";
+        profilePictureEl.innerHTML = "No profile picture available.";
         return;
     }
     if (welcomeEl && userName) {

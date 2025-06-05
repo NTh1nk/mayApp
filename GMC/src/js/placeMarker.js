@@ -42,7 +42,7 @@ function coToMarker(coordinates) {
     return {
         lat: coordinates.lat,
         lng: coordinates.lng,
-        size: coordinates.amount * 5,
+        size: 10 + (coordinates.amount * 2),
         color: ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)],
         markerSvg
     };

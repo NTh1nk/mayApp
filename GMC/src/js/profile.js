@@ -3,6 +3,7 @@ export function showProfile( ) {
     const welcomeEl =  document.getElementById("welcomeMessage");
     const profileEmailEl = document.getElementById("profileEmail");
     const profilePictureEl = document.getElementById("profilePicture");
+    const profilePictureNavEl = document.getElementById("profilePictureNav");
     console.log("User profile initialized");
 
     if (!userName) {
@@ -22,6 +23,8 @@ export function showProfile( ) {
         const userPicture = localStorage.getItem("userPicture")
         profileEmailEl.textContent = `Email: ${userEmail}`;
         profilePictureEl.innerHTML = `Profile Picture: <img id="picture" src="${userPicture}" alt="Profile Picture">`;
+        profilePictureNavEl.innerHTML = `Profile Picture: <img id="picture" src="${userPicture}" alt="Profile Picture">`;
+
     }
 }
 

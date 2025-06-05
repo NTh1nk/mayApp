@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Charts: GMC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <script type="module" src="/src/js/charts.js"></script></head>
+
+<body>
+
+    <p>Charts</p>
+    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+</body>    
+
+
+</html>
+<script>
+const xValues = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00'];
+const yValues = [65, 59, 80, 81, 56, 55, 40];
+
+new Chart("myChart", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{
+      fill: false,
+      lineTension: 0,
+      backgroundColor: "rgba(0,0,255,1.0)",
+      borderColor: "rgba(0,0,255,0.1)",
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    scales: {
+      yAxes: [{ticks: {min: 0, max:100}}],
+    }
+  }
+});
+</script>

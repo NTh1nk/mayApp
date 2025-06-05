@@ -11,18 +11,21 @@
 
 <body>
 
-    <p>Charts</p>
-    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+    <canvas id="flawChart" style="width:100%;"></canvas>
 
 </body>    
 
 
 </html>
 <script>
-const xValues = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00'];
-const yValues = [65, 59, 80, 81, 56, 55, 40];
+const xValues = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00',
+                 '07:00', '08:00', '09:00', '10:00', '11:00', '12:00',
+                 '13:00', '14:00', '15:00', '16:00', '17:00', '18:00',
+                 '19:00', '20:00', '21:00', '22:00', '23:00'];
+const yValues = [65, 59, 80, 81, 56, 55, 40, 55, 60, 70, 75, 80, 85, 90, 95, 100, 95, 90, 85, 80, 75, 70, 65, 60];
 
-new Chart("myChart", {
+
+new Chart("flawChart", {
   type: "line",
   data: {
     labels: xValues,
@@ -30,7 +33,7 @@ new Chart("myChart", {
       fill: false,
       lineTension: 0,
       backgroundColor: "rgba(0,0,255,1.0)",
-      borderColor: "rgba(0,0,255,0.1)",
+      borderColor: "rgba(0,200,255,0.1)",
       data: yValues
     }]
   },
@@ -42,3 +45,17 @@ new Chart("myChart", {
   }
 });
 </script>
+<style>
+    body{
+        background-color: black;
+        color: white;
+    }
+    .flawChart {
+        width: 100%;
+        
+        margin: auto;
+        color: white;
+        max-height: 90vh;
+        overflow: hidden;
+    }
+</style>

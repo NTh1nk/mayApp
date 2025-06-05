@@ -21,6 +21,16 @@ body{
     pointer-events: none;
     text-decoration: underline;
 }
+.profile-info {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-size: 1.5vw;
+    width: 100%;
+}
 
 #logoutButton {
     position: absolute;

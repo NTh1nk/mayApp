@@ -20,7 +20,10 @@ export async function cOMT(people) {
             const workStart = people[j].workStart ?? 480;
             //if workend is undefined, set it to 20:00
             const workEnd = people[j].workEnd ?? 1200;
-            flaw += inaccuracy(localMin, workStart, workEnd) ** 2;
+            let localFlaw = inaccuracy(localMin, workStart, workEnd) ** 2;
+            flaw += localFlaw
+            localStorage.setItem(i + "time",localFlaw);
+            console.log("Local flaw for person", j, "at time", i, ":", localFlaw);
         }
         if (flaw < flawTotal) {
             flawTotal = flaw;

@@ -24,20 +24,24 @@
 
 </html>
 <script>
-  
+ 
   const btn = document.getElementById("openCanvasBtn");
   const overlay = document.getElementById("canvasOverlay");
 
   btn.addEventListener("click", () => {
-    overlay.classList.add("active");
+    const isActive = overlay.classList.contains("active");
+    overlay.classList.toggle("active");
+
+    // Toggle button text
+    btn.textContent = isActive ? "+" : "–";
   });
 
+  // Optional: also allow closing by clicking the overlay
   overlay.addEventListener("click", () => {
     overlay.classList.remove("active");
+    btn.textContent = "+";
   });
-
-  // Resize canvas
-  const canvas = document.getElementById("flawChart");
+    const canvas = document.getElementById("flawChart");
   const ctx = canvas.getContext("2d");
 
   function resizeCanvas() {
@@ -47,6 +51,7 @@
 
   window.addEventListener("resize", resizeCanvas);
   resizeCanvas();
+
 const xValues = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00',
                  '07:00', '08:00', '09:00', '10:00', '11:00', '12:00',
                  '13:00', '14:00', '15:00', '16:00', '17:00', '18:00',

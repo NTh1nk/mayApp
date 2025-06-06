@@ -11,13 +11,42 @@
 
 <body>
 
-    <canvas id="flawChart" style="width:100%;"></canvas>
+  <div id="openCanvasBtn">+</div>
+
+  <!-- Fullscreen canvas overlay -->
+  <div id="canvasOverlay">
+    <canvas id="flawChart"></canvas>
+  </div>
+
 
 </body>    
 
 
 </html>
 <script>
+  
+  const btn = document.getElementById("openCanvasBtn");
+  const overlay = document.getElementById("canvasOverlay");
+
+  btn.addEventListener("click", () => {
+    overlay.classList.add("active");
+  });
+
+  overlay.addEventListener("click", () => {
+    overlay.classList.remove("active");
+  });
+
+  // Resize canvas
+  const canvas = document.getElementById("flawChart");
+  const ctx = canvas.getContext("2d");
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
 const xValues = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00',
                  '07:00', '08:00', '09:00', '10:00', '11:00', '12:00',
                  '13:00', '14:00', '15:00', '16:00', '17:00', '18:00',
@@ -57,5 +86,58 @@ new Chart("flawChart", {
         color: white;
         max-height: 90vh;
         overflow: hidden;
+    }
+    
+    /* + Button styling */
+    #openCanvasBtn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-size: 32px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1001;
+      background-color: #3f3f3f;
+      border: 2px solid #000;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    /* Fullscreen canvas container */
+   #canvasOverlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 4px solid rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+    z-index: 1000;
+    overflow: hidden;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
+    transition: all 0.5s ease;
+    pointer-events: none;
+  }
+
+  /* When active, canvas expands */
+  #canvasOverlay.active {
+    width: 100vw;
+    height: 100vh;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+  }
+
+    #flawChart {
+      width: 100%;
+      height: 100%;
+      display: block;
     }
 </style>

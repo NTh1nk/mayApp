@@ -40,6 +40,7 @@ for (let i = 0; i < xValues.length; i++) {
     yValues.push(localStorage.getItem(i*60 + "time") || 0);
 }
 
+const maxFlaw = Math.max(...yValues);
 
 
 new Chart("flawChart", {
@@ -57,7 +58,7 @@ new Chart("flawChart", {
   options: {
     legend: {display: false},
     scales: {
-      yAxes: [{ticks: {min: 0, max:100}}],
+      yAxes: [{ticks: {min: 0, max:maxFlaw}}],
     }
   }
 }); 

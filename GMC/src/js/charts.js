@@ -56,9 +56,36 @@ new Chart("flawChart", {
     }]
   },
   options: {
-    legend: {display: false},
+    legend: {
+      display: false,
+      labels: {
+        fontColor: 'white' // legend label color if legend is ever enabled
+      }
+    },
     scales: {
-      yAxes: [{ticks: {min: 0, max:maxFlaw}}],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          max: maxFlaw,
+          fontColor: 'white' // Y-axis label color
+        },
+        gridLines: {
+          color: 'rgba(255, 255, 255, 0.1)' // optional: faint grid lines
+        }
+      }],
+      xAxes: [{
+        ticks: {
+          fontColor: 'white' // X-axis label color
+        },
+        gridLines: {
+          color: 'rgba(255, 255, 255, 0.1)'
+        }
+      }]
+    },
+    tooltips: {
+      bodyFontColor: 'white',
+      titleFontColor: 'white',
+      backgroundColor: '#333'
     }
   }
-}); 
+});

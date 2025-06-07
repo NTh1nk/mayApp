@@ -1,3 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
 body{
     background-image: url('/img/globe.png');
     background-size: cover;           /* makes the image cover the whole area */

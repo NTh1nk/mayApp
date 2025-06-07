@@ -1,6 +1,8 @@
 // calculate optimal meeting time
 //import { getTimeZone } from "../public/js/tzDB.js";
 
+import { loadChart } from "./charts.js";
+
 export async function cOMT(people) {
     let flawTotal = Infinity;
     let bestTime = 0;
@@ -41,6 +43,7 @@ export async function cOMT(people) {
     console.log("Best time:", bestTime);
     console.log("Flaw total:", flawTotal);
     console.log("Best time in hours:", Math.floor(bestTime / 60), "minutes:", bestTime % 60);
+    loadChart();
     return bestTime;
 }
 

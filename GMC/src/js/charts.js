@@ -16,7 +16,7 @@ overlay.addEventListener("click", () => {
     btn.textContent = "+";
 });
 
-function loadChart() {
+export function loadChart() {
   
   const canvas = document.getElementById("flawChart");
   const ctx = canvas.getContext("2d");

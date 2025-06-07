@@ -41,7 +41,7 @@ for (let i = 0; i < xValues.length; i++) {
 }
 
 const maxFlaw = Math.max(...yValues);
-
+console.log("Max flaw:", maxFlaw);
 
 new Chart("flawChart", {
   type: "line",

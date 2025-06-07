@@ -3,6 +3,7 @@
 
 import { loadChart } from "./loadChart.js";
 
+//COMT - Calculate Optimal Meeting Time
 export async function cOMT(people) {
     let flawTotal = Infinity;
     let bestTime = 0;

@@ -25,8 +25,11 @@ export async function cOMT(people) {
            
             //console.log("Local flaw for person", j, "at time", i, ":", localFlaw);
         }
-        localStorage.setItem(i + "time",flaw);
-        console.log("Flaw for time", i, ":", flaw);
+        if( i % 60 === 0) {
+            console.log("Evaluating time:", i / 60, "hours");
+            localStorage.setItem(i/60 + "time",flaw);
+            console.log("Flaw for time", i/60, ":", flaw);
+        }   
         if (flaw < flawTotal) {
             flawTotal = flaw;
             bestTime = i;

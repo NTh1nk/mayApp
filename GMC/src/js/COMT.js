@@ -22,9 +22,11 @@ export async function cOMT(people) {
             const workEnd = people[j].workEnd ?? 1200;
             let localFlaw = inaccuracy(localMin, workStart, workEnd) ** 2;
             flaw += localFlaw
-            localStorage.setItem(i + "time",localFlaw);
-            console.log("Local flaw for person", j, "at time", i, ":", localFlaw);
+           
+            //console.log("Local flaw for person", j, "at time", i, ":", localFlaw);
         }
+        localStorage.setItem(i + "time",flaw);
+        console.log("Flaw for time", i, ":", flaw);
         if (flaw < flawTotal) {
             flawTotal = flaw;
             bestTime = i;

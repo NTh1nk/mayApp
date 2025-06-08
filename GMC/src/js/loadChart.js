@@ -23,7 +23,7 @@ export function loadChart() {
   for (let i = 0; i < xValues.length; i++) {
       //const hour = i.toString().padStart(2, '0') + ":00";
       //const storedValue = localStorage.getItem(hour) || 0;
-      yValues.push(localStorage.getItem(i*60 + "time") || 0);
+      yValues.push(localStorage.getItem(i + "time") || 0);
   }
 
   const maxFlaw = Math.max(...yValues);

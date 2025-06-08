@@ -29,7 +29,8 @@ export async function cOMT(people) {
             //console.log("Local flaw for person", j, "at time", i, ":", localFlaw);
         }
         if( i % 60 === 0) {
-            localStorage.setItem(i/60 + "time",flaw);
+            localStorage.setItem(i/60 + "time",flaw/ (people.length + 1));
+            console.log("Flaw for time div people", i/60, ":", flaw/ (people.length + 1));
             console.log("Flaw for time", i/60, ":", flaw);
         }   
         if (flaw < flawTotal) {

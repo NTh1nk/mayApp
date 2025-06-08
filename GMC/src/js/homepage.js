@@ -66,9 +66,16 @@ async function handleCalc(event) {
 // Attach event listener after DOM is loaded
 window.addEventListener('DOMContentLoaded', () => {
   window.processInput = processInput;
-  document.getElementById('insertBtn').addEventListener('click', handleInsert);
+  
   document.getElementById('calcBtn').addEventListener("click", handleCalc);
 
+  const form = document.getElementById("dataForm");
+    form.addEventListener("submit", (event) => {
+    event.preventDefault(); // Prevents default page reload
+
+    // Simulate clicking the Insert button or call its function
+    document.getElementById("insertBtn").click();
+  });
   // Initialize globe with no markers
   initGlobe({ coordinateArray: [] });
 });

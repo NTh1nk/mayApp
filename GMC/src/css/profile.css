@@ -68,14 +68,14 @@ body{
     top: 10vh;
     right: 1vh;
     padding: 0px 20px;
-    background-color: #313131;
-    color: rgb(122, 122, 122);
+    background-color: #000000;
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 .profile-nav:hover {
-    background-color: #444;
+    background-color: #131313;
     color: rgb(255, 255, 255);
 }
 

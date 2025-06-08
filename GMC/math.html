@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="/src/css/styles.css">
     <link rel="stylesheet" href="/src/css/math.css">
     <script type="module" src="/src/js/navbar.js"></script>
     <script type="module" src="/src/js/loader.js"></script>
+    
     <title>Math Page</title>
 </head>
 <body>
@@ -20,19 +23,42 @@
   <div id="navbar-placeholder"></div>
   
     
-    <div style="margin: auto; text-align: center; padding: 20px;">
-        <h1>Math Page</h1>
-    <div>
+    <div style="margin: auto; text-align: center; padding: 20px; text-decoration: underline;">
+        <h1>Welcome to the Math Page</h1>
+    </div>
+    <div class="page-content">
+        <p>This page explains the math behind the COMT algorithm.</p>
+        <p>The COMT algorithm is designed to find the optimal meeting time for a group of people based on their availability.</p>
+        <p>It uses a combination of linear programming and optimization techniques to determine the best time slot that accommodates the maximum number of participants.</p>
+
+        <!-- 
       <div class="video-gallery">        
         <video src="/videos/herovid.mp4" controls></video>
     </div>
-    <main>
-        <section>
-            <h2>Welcome to the Math Page</h2>
-            <p>This page explains the math behind the COMT algorithm</p>
-        </section>
-    </main>
-    <footer>
+    -->
+
+    <div class="english-formula">
+        <h2>Mathematical Representation</h2>
+        <p>The algorithm can be represented mathematically as follows:</p>
+        <p>
+            <strong>Objective Function:</strong> Minimize the total flaw<br>
+            <strong>Constraints:</strong> Each participant has a time zone, and the meetings should be scheduled within or as close to their availability timeslots
+        </p>
+        <p>
+            The solution involves iterating through possible time slots in 5 minute intervals and calculating the total flaw for each slot. The flaw is defined as the sum of the absolute differences between the ideal meeting time and each participant's availability.
+        </p>
+    </div>
+      <math>
+            <span class="math-equation">
+                <!-- <p>Subject to: \( T \in [T_{\text{min}}, T_{\text{max}}] \)</p> -->
+
+                <p>Individual flaw: \( F_j = (T - T_j)^2 \)</p>
+                <p>Minimize total flaw: \( F = \sum F_j \)</p>
+
+            </span>
+        </math>   
+
+    <footer class="footer">
         <p>&copy; Math Page</p>
     </footer>
 </body>

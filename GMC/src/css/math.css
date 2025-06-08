@@ -14,3 +14,42 @@
     border-radius: 1vw;
     box-shadow: 0 2px 8px rgba(rgb(0, 0, 0,0.3));
 }
+.page-content {
+    padding: 1vw;
+    background-color: #000000;
+    color: white;
+    min-height: 100vh;
+    padding-left: 20vw;
+    padding-right: 20vw;
+    line-height: 1.8;
+    
+}
+.math-equation {
+  padding: 5vw;
+  padding-top: 5vw;
+  place-items: center;
+  font-size: 1.5vw;
+
+}
+
+.english-formula {
+ 
+  padding-top: 2vw;
+  padding-bottom: 2vw;
+  line-height: 1.8;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000;
+    color: rgb(110, 110, 110);
+    text-align: center;
+    padding: 1vw;
+    font-size: 1.2vw;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
+ 
+}
+

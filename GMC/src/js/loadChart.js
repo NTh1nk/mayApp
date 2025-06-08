@@ -52,7 +52,7 @@ export function loadChart() {
         yAxes: [{
           ticks: {
             min: 0,
-            max: maxFlaw,
+            max: maxFlaw * 1.2, // 20% more than max flaw
             fontColor: 'white' // Y-axis label color
           },
           gridLines: {

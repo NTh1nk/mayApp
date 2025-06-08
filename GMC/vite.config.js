@@ -9,6 +9,9 @@ export default {
         signup: 'sign-up.html',
         profile: 'profile.html',
         contact: 'contact.html',
+        math: 'math.html',
+        underConstruction: 'underCon.html',
+
       }
     }
   }

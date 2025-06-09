@@ -17,3 +17,11 @@ V.2
 
 done. Do some frontend stuff, f.ex making the omt text white when calculated
 
+
+Plan 6/8/2025
+
+* Update the profile page, make it look nice
+
+* Implement the profile pic in the homepage
+
+* Record a vid explaning the math

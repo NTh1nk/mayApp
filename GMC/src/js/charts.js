@@ -2,7 +2,7 @@ import { loadChart } from "./loadChart.js";
 
 const overlay = document.getElementById("canvasOverlay");
 const btn = document.getElementById("openCanvasBtn");
-const reload = document.getElementById("reloadBtn");
+//const reload = document.getElementById("reloadBtn");
 btn.addEventListener("click", () => {
     loadChart();
     const isActive = overlay.classList.contains("active");
@@ -29,4 +29,4 @@ function reloadPage() {
 
 
 loadChart();
-reload.addEventListener("click", reloadPage);
+//reload.addEventListener("click", reloadPage);

@@ -71,7 +71,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
   const form = document.getElementById("dataForm");
-    form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", (event) => {
     event.preventDefault(); // Prevents default page reload
 
     // Simulate clicking the Insert button or call its function

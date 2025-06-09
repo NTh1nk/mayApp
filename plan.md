@@ -25,3 +25,8 @@ Plan 6/8/2025
 * Implement the profile pic in the homepage
 
 * Record a vid explaning the math
+
+
+6/9/2025
+
+Create an opengraph for the website

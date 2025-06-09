@@ -75,7 +75,7 @@ window.addEventListener('DOMContentLoaded', () => {
     event.preventDefault(); // Prevents default page reload
 
     // Simulate clicking the Insert button or call its function
-    document.getElementById("insertBtn").click();
+    document.getElementById("insertBtn").addEventListener("click", handleInsert);
   });
   // Initialize globe with no markers
   initGlobe({ coordinateArray: [] });

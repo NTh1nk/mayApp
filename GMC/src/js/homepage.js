@@ -69,7 +69,10 @@ window.addEventListener('DOMContentLoaded', () => {
   
   document.getElementById('calcBtn').addEventListener("click", handleCalc);
 
-  console.log(document.getAnimations("dataForm"));
+  if (!document.getElementById("dataForm")){
+    console.log("couldnt find the dataform");
+    return;
+  }
   const form = document.getElementById("dataForm");
     form.addEventListener("submit", (event) => {
     event.preventDefault(); // Prevents default page reload

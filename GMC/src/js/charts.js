@@ -4,10 +4,12 @@ const overlay = document.getElementById("canvasOverlay");
 const btn = document.getElementById("openCanvasBtn");
 const reload = document.getElementById("reloadBtn");
 btn.addEventListener("click", () => {
+    loadChart();
     const isActive = overlay.classList.contains("active");
     overlay.classList.toggle("active");
 
     // Toggle button text
+    
     btn.textContent = isActive ? "+" : "–";
 });
 

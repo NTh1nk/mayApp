@@ -118,12 +118,19 @@ async function handlecOMP(){
   console.log("Updated markers:", updatedMarkers)
 
     // 2. Create routes from OMP to all addressData points
-  const ompRoutes = addressData.map(loc => ({
-    startLat: ompCoords.lat,
-    startLng: ompCoords.lng,
-    endLat: loc.lat,
-    endLng: loc.lng,
-    color: 'gold'
+      // Define ompCoords here
+  const ompCoords = {
+    lat: inputCity.coords.lat,
+    lng: inputCity.coords.lng,
+    name: OMP,
+  };
+
+  const ompRoutes = addressData.map(addr => ({
+    srcAirport: { lat: ompCoords.lat, lng: ompCoords.lng },
+    dstAirport: { lat: addr.lat, lng: addr.lng },
+    airline: "OMP Route",
+    srcIata: "OMP",
+    dstIata: addr.name || "User Location",
   }));
 
   initGlobe({ 

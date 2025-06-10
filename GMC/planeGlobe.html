@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta property="og:title" content="GMC – Global Meeting Coordinator" />
+    <meta property="og:site_name" content="GMC" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gmc-eta.vercel.app/" />
+    <meta property="og:image" content="/Logo.svg" />
+    <meta property="og:description" content="Coordinate meetings seamlessly with GMC. Say goodbye to scheduling conflicts – just input your availability, and GMC handles the rest." />
+  <title>GMC homepage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <script type="module" src="/src/js/routesPage.js"></script>
+  <script type="module" src="/src/js/loader.js"></script>
+  <script type="module" src="/src/js/charts.js"></script>
+</head>
+<body>
+  <div id="loader">
+      <div class="spinner"></div>
+      <p>Loading...</p>
+  </div>
+  <div class="sidebar" style="width:25%">
+    <h3 class="bar-item">Menu</h3>
+      <form id="dataForm">
+        <input type="text" id="location" name="location" placeholder="Enter location..." required><br><br>
+        <input type="text" id="amount" name="amount" placeholder="Enter amount..." required><br><br>
+        <button  type="submit" id="insertBtn" class="button">Insert</button>
+    </form>
+   
+    
+    <!-- #region 
+    <button id="reloadBtn" class="button">Reload</button>
+    -->
+    <button id="calcBtn" class="button">Calculate optimal meeting time</button>
+    <input
+      type="text"
+      class="omt-result"
+      id="omtResult"
+      value="OMT..."
+      readonly
+      style="margin-bottom: 1em; font-size: 1.2em; justify-content: center; color: rgb(104, 104, 104);"
+    />
+   <table id="peopleTable">
+    <thead>
+  <tr>
+    <th>Address</th>
+    <th>Amount</th>
+  </tr> 
+   </thead>
+   <tbody>
+    
+   </tbody>
+</table>
+  
+  </div>
+
+  <div style="margin-left:25%">
+    <div class="topBar">
+      <span class="vis-text">Visualisation tool</span>
+      <a href="index.html" class="landing-text" style="text-decoration: underline; color: inherit;">Back to landing page</a>
+      <div id="openCanvasBtn">+</div>
+
+    </div>
+    <div id="canvasOverlay">
+      <canvas id="flawChart"></canvas>
+    </div>
+    <div class="container">
+      <!--Here it should parse the markers into the initglobe func-->
+      <!--Parse the coords into globeviz-->
+      <div id="globeViz"></div>
+      <div id="time"></div> 
+    </div>
+  </div>
+</body>
+  <!-- Include the main.js file -->
+
+
+</html>

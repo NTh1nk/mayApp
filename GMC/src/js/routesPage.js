@@ -92,7 +92,7 @@ function handlecOMP(){
   // Add more capitals here
 ];
   const OMPBox = document.getElementById("ompResult");
-  const OMP = cOMP(addressData, candidateCities);
+  const OMP = cOMP(candidateCities, addressData);
   console.log("Optimal Meeting Time (UTC):", OMP);
   //alert("Optimal Meeting Place: " + OMP);
   OMPBox.value = OMP;

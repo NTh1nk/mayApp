@@ -7,7 +7,7 @@ import indexBy from 'https://esm.sh/index-array-by';
 
 export function initGlobe({ coordinateArray = [], arcArray = [] } = {}) {
 
-  const COUNTRY = 'Denmark';
+  //const COUNTRY = 'Denmark';
   const OPACITY = 0.5;
 
   const VELOCITY = 1; // minutes per frame
@@ -150,9 +150,9 @@ export function initGlobe({ coordinateArray = [], arcArray = [] } = {}) {
   // load data
 
     const airportParse = ([airportId, name, city, country, iata, icao, lat, lng, alt, timezone, dst, tz, type, source]) => ({ airportId, name, city, country, iata, icao, lat, lng, alt, timezone, dst, tz, type, source });
-    const routeParse = ([airline, airlineId, srcIata, srcAirportId, dstIata, dstAirportId, codeshare, stops, equipment]) => ({ airline, airlineId, srcIata, srcAirportId, dstIata, dstAirportId, codeshare, stops, equipment});
+    //const routeParse = ([airline, airlineId, srcIata, srcAirportId, dstIata, dstAirportId, codeshare, stops, equipment]) => ({ airline, airlineId, srcIata, srcAirportId, dstIata, dstAirportId, codeshare, stops, equipment});
 
-        
+    /*    
     Promise.all([
         fetch('https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat').then(res => res.text())
         .then(d => csvParseRows(d, airportParse)),
@@ -170,6 +170,12 @@ export function initGlobe({ coordinateArray = [], arcArray = [] } = {}) {
             dstAirport: byIata[d.dstIata]
         }))
         .filter(d => d.srcAirport.country === COUNTRY && d.dstAirport.country !== COUNTRY); // international routes from country
+      */
+     // Fetch only airports, no routes
+      fetch('https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat')
+        .then(res => res.text())
+        .then(data => {
+          const airports = csvParseRows(data, airportParse);
 
         world
         .pointsData(airports)

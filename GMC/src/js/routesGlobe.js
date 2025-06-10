@@ -5,7 +5,7 @@ import * as solar from 'solar-calculator';
 import { csvParseRows } from 'https://esm.sh/d3-dsv';
 import indexBy from 'https://esm.sh/index-array-by';
 
-export function initGlobe({ coordinateArray = [] } = {}) {
+export function initGlobe({ coordinateArray = [], arcArray = [] } = {}) {
 
   const COUNTRY = 'Denmark';
   const OPACITY = 0.5;
@@ -175,7 +175,7 @@ export function initGlobe({ coordinateArray = [] } = {}) {
         .pointsData(airports)
         //when this is commented out, there is no routes by default
         //.arcsData(filteredRoutes);
-        .arcsData([]);
+        .arcsData(arcArray);
     });
 
     });

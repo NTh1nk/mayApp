@@ -109,7 +109,7 @@ async function handlecOMP(){
   });*/
 
   //add a custon infobox
-  inputCity.coords.infoBox = "Optimal Meeting Place";
+  inputCity.coords.infoBox = "Optimal Meeting Point";
 
   console.log("Input City: ", inputCity);
 

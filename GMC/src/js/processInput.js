@@ -54,10 +54,8 @@ export async function processInput(eventOrData) {
         document.getElementById("amount").value = '';
         console.log(location, amount, coords);
         return { address: location, amount, coords};
-    }
-        
-   else if (eventOrData && typeof eventOrData === "object") {
-    // eventOrData is a data object (e.g. OMP)
+    } else if (eventOrData && typeof eventOrData === "object") {
+        // eventOrData is a data object (e.g. OMP)
         const data = eventOrData;
 
         // If data already has coords, just return it

@@ -84,7 +84,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 
-function handlecOMP(){
+async function handlecOMP(){
   const candidateCities = [
   { name: 'London', lat: 51.5074, lng: -0.1278, amount: 15 },
   { name: 'New York', lat: 40.7128, lng: -74.0060, amount: 15 },
@@ -93,14 +93,25 @@ function handlecOMP(){
   ];
   const OMPBox = document.getElementById("ompResult");
   const OMP = cOMP(candidateCities, addressData);
-  console.log("Optimal Meeting Time (UTC):", OMP);
-  //alert("Optimal Meeting Place: " + OMP);
   OMPBox.value = OMP;
   OMPBox.style.color = "white";
   addressData.push({
     ...OMP.coords,
 
   });
+  
+  const inputCity = await processInput(OMP);
+  if (inputCity?.error) {
+    console.warn("Input error:", inputCity?.error);
+    return;
+  }
+
+  console.log("Input City: ", inputCity);
+
+
+  updatedMarkers = updatedMarkers.concat(await markers(inputCity));
+  console.log("Updated markers:", updatedMarkers)
   initGlobe({ coordinateArray: updatedMarkers });
 
 }
+

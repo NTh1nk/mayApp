@@ -1,3 +1,5 @@
+import { compress } from "three/examples/jsm/libs/fflate.module.js";
+
 const candidateCities = [
   { name: 'London', lat: 51.5074, lng: -0.1278 },
   { name: 'New York', lat: 40.7128, lng: -74.0060 },
@@ -16,7 +18,7 @@ function distance(lat1, lon1, lat2, lon2) {
 }
 
 // Assuming `participants` is an array of objects with {lat, lng}
-function calculateOptimalMeetingCity(candidateCities, participants) {
+export function cOMP(candidateCities, participants) {
   const cityScores = candidateCities.map(city => {
     let totalDistance = 0;
     for (const p of participants) {
@@ -38,4 +40,4 @@ const participants = [
   { lat: 40.7128, lng: -74.0060 }, // NYC
 ];
 
-calculateOptimalMeetingCity(candidateCities, participants);
+cOMP(candidateCities, participants);

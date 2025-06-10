@@ -3,6 +3,7 @@ import { initGlobe } from './routesGlobe.js';
 import { markers } from './placeMarker.js';
 //import data from './markers.json';
 import { cOMT } from './COMT.js';
+import { cOMP } from './COMP.js';
 import * as THREE from 'three';
 import { getTimeZone } from './tzDB.js';
 import "../css/style.css";
@@ -61,6 +62,7 @@ async function handleCalc(event) {
   alert("Optimal Meeting Time (UTC): " + OMT/60 + ":00");
   OMTBox.value = OMT/60 + ":00 UTC";
   OMTBox.style.color = "white";
+  handlecOMP();
   return OMT;
 }
 // Attach event listener after DOM is loaded
@@ -80,3 +82,20 @@ window.addEventListener('DOMContentLoaded', () => {
   // Initialize globe with no markers
   initGlobe();
 });
+
+
+function handlecOMP(){
+  const candidateCities = [
+  { name: 'London', lat: 51.5074, lng: -0.1278 },
+  { name: 'New York', lat: 40.7128, lng: -74.0060 },
+  { name: 'Singapore', lat: 1.3521, lng: 103.8198 },
+  // Add more capitals here
+];
+  const OMPBox = document.getElementById("ompResult");
+  const OMP = cOMP(addressData, candidateCities);
+  console.log("Optimal Meeting Time (UTC):", OMP);
+  //alert("Optimal Meeting Place: " + OMP);
+  OMPBox.value = OMP;
+  OMPBox.style.color = "white";
+  cOMP(addressData, candidateCities);
+}

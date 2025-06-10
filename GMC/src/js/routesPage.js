@@ -97,8 +97,8 @@ async function handlecOMP(){
   OMPBox.style.color = "white";
 
   
-  const inputCity = await processInput(OMP);
-
+  const inputCity = await processInput({ address: OMP });
+  
   if (inputCity?.error) {
     console.warn("Input error:", inputCity?.error);
     return;

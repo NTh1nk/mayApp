@@ -8,7 +8,7 @@ import indexBy from 'https://esm.sh/index-array-by';
 export function initGlobe({ coordinateArray = [] } = {}) {
 
   const COUNTRY = 'Denmark';
-  const OPACITY = 0.22;
+  const OPACITY = 0.5;
 
   const VELOCITY = 1; // minutes per frame
   const dayNightShader = {

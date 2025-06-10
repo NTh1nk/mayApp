@@ -86,9 +86,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
 async function handlecOMP(){
   const candidateCities = [
-  { name: 'London', lat: 51.5074, lng: -0.1278, amount: 5 },
-  { name: 'New York', lat: 40.7128, lng: -74.0060, amount: 5 },
-  { name: 'Singapore', lat: 1.3521, lng: 103.8198, amount: 5 },
+  { name: 'London', lat: 51.5074, lng: -0.1278, amount: 2 },
+  { name: 'New York', lat: 40.7128, lng: -74.0060, amount: 2 },
+  { name: 'Singapore', lat: 1.3521, lng: 103.8198, amount: 2 },
   // Add more capitals here
   ];
   const OMPBox = document.getElementById("ompResult");

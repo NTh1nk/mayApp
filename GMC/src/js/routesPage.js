@@ -48,8 +48,8 @@ async function handleInsert(event) {
   locationInput.focus();
 }
 
-async function handleCalc(event) {
-  event.preventDefault();
+async function handleCalc() {
+  //event.preventDefault();
   console.log("Calculation button clicked");
   if (addressData.length === 0) {
     alert("Please insert at least one location before calculating.");

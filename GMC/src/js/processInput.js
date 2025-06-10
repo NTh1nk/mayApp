@@ -7,51 +7,76 @@ import { geocodeAddress } from "./geocodeAddress.js";
 //going to add the output as a json.
 
 
-export async function processInput(event) {
+export async function processInput(eventOrData) {
     //This is because, the button is formatted weird, could fix later on ÆÆ
-    if (event) event.preventDefault();
-
-    const location = document.getElementById("location").value;
-    const amount = parseFloat(document.getElementById("amount").value);
-    if (!location || isNaN(amount)) {
-        alert("Please enter a valid location and amount.");
-        return { error: "Invalid input" };
-    }
-    console.log("Location:", location);
-    console.log("Amount:", amount);
-    //alert(location);  //Just for debugging
-
-    //Insert the input into the table
-    const tableBody = document.querySelector("#peopleTable tbody");
-
-    const newRow = document.createElement("tr");
-    const addressCell = document.createElement("td");
-    const amountCell = document.createElement("td")
-
-
-    let coords = await geocodeAddress(location);
-
-    if (!coords) {
-        alert("Failed to get coordinates for " + location);
-        return { error: "Failed to get coordinates" };
-    }
+    if (eventOrData && typeof eventOrData.preventDefault == "function") {
+        eventOrData.preventDefault();
     
-   
-    //Place marker
+        const location = document.getElementById("location").value;
+        const amount = parseFloat(document.getElementById("amount").value);
+        if (!location || isNaN(amount)) {
+            alert("Please enter a valid location and amount.");
+            return { error: "Invalid input" };
+        }
+        console.log("Location:", location);
+        console.log("Amount:", amount);
+        //alert(location);  //Just for debugging
+
+        //Insert the input into the table
+        const tableBody = document.querySelector("#peopleTable tbody");
+
+        const newRow = document.createElement("tr");
+        const addressCell = document.createElement("td");
+        const amountCell = document.createElement("td")
 
 
-    addressCell.textContent = location;
-    amountCell.textContent = amount;
+        let coords = await geocodeAddress(location);
 
-    newRow.appendChild(addressCell);
-    newRow.appendChild(amountCell);
-    
-    tableBody.appendChild(newRow);
+        if (!coords) {
+            alert("Failed to get coordinates for " + location);
+            return { error: "Failed to get coordinates" };
+        }
         
-   
-    document.getElementById("location").value = '';
-    document.getElementById("amount").value = '';
-    console.log(location, amount, coords);
-    return { address: location, amount, coords};
+    
+        //Place marker
 
+
+        addressCell.textContent = location;
+        amountCell.textContent = amount;
+
+        newRow.appendChild(addressCell);
+        newRow.appendChild(amountCell);
+        
+        tableBody.appendChild(newRow);
+            
+    
+        document.getElementById("location").value = '';
+        document.getElementById("amount").value = '';
+        console.log(location, amount, coords);
+        return { address: location, amount, coords};
+    }
+        
+   else if (eventOrData && typeof eventOrData === "object") {
+    // eventOrData is a data object (e.g. OMP)
+        const data = eventOrData;
+
+        // If data already has coords, just return it
+        if (data.coords) {
+        return data;
+        }
+
+        // If it has address but no coords, try to geocode
+        if (data.address) {
+        const coords = await geocodeAddress(data.address);
+        if (!coords) {
+            return { error: "Failed to get coordinates" };
+        }
+        return { ...data, coords };
+        }
+
+        return { error: "Invalid data input" };
+
+    } else {
+        return { error: "No input provided" };
+    }
 }

@@ -97,5 +97,4 @@ function handlecOMP(){
   //alert("Optimal Meeting Place: " + OMP);
   OMPBox.value = OMP;
   OMPBox.style.color = "white";
-  cOMP(addressData, candidateCities);
 }

@@ -98,7 +98,7 @@ async function handlecOMP(){
 
   
   const inputCity = await processInput({ address: OMP });
-  
+
   if (inputCity?.error) {
     console.warn("Input error:", inputCity?.error);
     return;
@@ -107,6 +107,9 @@ async function handlecOMP(){
     ...inputCity.coords,
 
   });*/
+
+  //add a custon infobox
+  inputCity.infoBox = "Optimal Meeting Place";
 
   console.log("Input City: ", inputCity);
 

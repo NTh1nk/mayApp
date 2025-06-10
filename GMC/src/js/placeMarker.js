@@ -43,7 +43,7 @@ function coToMarker(coordinates) {
         lat: coordinates.lat,
         lng: coordinates.lng,
         size: 25 + (coordinates.amount * 5), // Adjust size based on amount
-        info: `${coordinates.amount}`,
+        info: coordinates.infoBox ?? `${coordinates.amount}`,
         //info: `${coordinates.amount} at ${coordinates.lat.toFixed(2)}, ${coordinates.lng.toFixed(2)}`,
         color: ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)],
         markerSvg

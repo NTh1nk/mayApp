@@ -62,7 +62,7 @@ async function handleCalc(event) {
   alert("Optimal Meeting Time (UTC): " + OMT/60 + ":00");
   OMTBox.value = OMT/60 + ":00 UTC";
   OMTBox.style.color = "white";
-  handlecOMP();
+  await handlecOMP();
   return OMT;
 }
 // Attach event listener after DOM is loaded
@@ -71,13 +71,13 @@ window.addEventListener('DOMContentLoaded', () => {
   
   document.getElementById('calcBtn').addEventListener("click", handleCalc);
 
+    // Simulate clicking the Insert button or call its function
+  document.getElementById("insertBtn").addEventListener("click", handleInsert);
 
   const form = document.getElementById("dataForm");
   form.addEventListener("submit", (event) => {
     event.preventDefault(); // Prevents default page reload
 
-    // Simulate clicking the Insert button or call its function
-    document.getElementById("insertBtn").addEventListener("click", handleInsert);
   });
   // Initialize globe with no markers
   initGlobe({ coordinateArray: [] });
@@ -95,16 +95,18 @@ async function handlecOMP(){
   const OMP = cOMP(candidateCities, addressData);
   OMPBox.value = OMP;
   OMPBox.style.color = "white";
-  addressData.push({
-    ...OMP.coords,
 
-  });
   
   const inputCity = await processInput(OMP);
+
   if (inputCity?.error) {
     console.warn("Input error:", inputCity?.error);
     return;
   }
+    /*addressData.push({
+    ...inputCity.coords,
+
+  });*/
 
   console.log("Input City: ", inputCity);
 

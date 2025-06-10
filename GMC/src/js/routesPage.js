@@ -90,7 +90,7 @@ function handlecOMP(){
   { name: 'New York', lat: 40.7128, lng: -74.0060 },
   { name: 'Singapore', lat: 1.3521, lng: 103.8198 },
   // Add more capitals here
-];
+  ];
   const OMPBox = document.getElementById("ompResult");
   const OMP = cOMP(candidateCities, addressData);
   console.log("Optimal Meeting Time (UTC):", OMP);

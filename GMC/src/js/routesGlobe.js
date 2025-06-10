@@ -173,7 +173,9 @@ export function initGlobe({ coordinateArray = [] } = {}) {
 
         world
         .pointsData(airports)
-        .arcsData(filteredRoutes);
+        //when this is commented out, there is no routes by default
+        //.arcsData(filteredRoutes);
+        .arcsData([]);
     });
 
     });

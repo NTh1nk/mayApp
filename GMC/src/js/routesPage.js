@@ -35,9 +35,9 @@ async function handleInsert(event) {
     // add other fields as needed
   });
 
-  //updatedMarkers = updatedMarkers.concat(await markers(inputData));
-  //console.log("Updated markers:", updatedMarkers)
-  initGlobe();
+  updatedMarkers = updatedMarkers.concat(await markers(inputData));
+  console.log("Updated markers:", updatedMarkers)
+  initGlobe({ coordinateArray: updatedMarkers });
 
   // Clear inputs and refocus
   const locationInput = document.getElementById("location");
@@ -80,7 +80,7 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById("insertBtn").addEventListener("click", handleInsert);
   });
   // Initialize globe with no markers
-  initGlobe();
+  initGlobe({ coordinateArray: [] });
 });
 
 

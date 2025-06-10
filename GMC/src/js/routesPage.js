@@ -116,7 +116,20 @@ async function handlecOMP(){
 
   updatedMarkers = updatedMarkers.concat(await markers(inputCity));
   console.log("Updated markers:", updatedMarkers)
-  initGlobe({ coordinateArray: updatedMarkers });
+
+    // 2. Create routes from OMP to all addressData points
+  const ompRoutes = addressData.map(loc => ({
+    startLat: ompCoords.lat,
+    startLng: ompCoords.lng,
+    endLat: loc.lat,
+    endLng: loc.lng,
+    color: 'gold'
+  }));
+
+  initGlobe({ 
+    coordinateArray: updatedMarkers,
+    arcArray: ompRoutes
+   });
 
 }
 

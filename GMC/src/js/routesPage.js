@@ -1,5 +1,5 @@
 import { processInput } from './processInput.js';
-import { initGlobeRoute } from './routesGlobe.js';
+import { initGlobe } from './routesGlobe.js';
 import { markers } from './placeMarker.js';
 //import data from './markers.json';
 import { cOMT } from './COMT.js';
@@ -36,7 +36,7 @@ async function handleInsert(event) {
 
   //updatedMarkers = updatedMarkers.concat(await markers(inputData));
   //console.log("Updated markers:", updatedMarkers)
-  initGlobeRoute();
+  initGlobe();
 
   // Clear inputs and refocus
   const locationInput = document.getElementById("location");
@@ -78,5 +78,5 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById("insertBtn").addEventListener("click", handleInsert);
   });
   // Initialize globe with no markers
-  initGlobeRoute();
+  initGlobe();
 });

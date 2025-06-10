@@ -86,9 +86,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
 function handlecOMP(){
   const candidateCities = [
-  { name: 'London', lat: 51.5074, lng: -0.1278 },
-  { name: 'New York', lat: 40.7128, lng: -74.0060 },
-  { name: 'Singapore', lat: 1.3521, lng: 103.8198 },
+  { name: 'London', lat: 51.5074, lng: -0.1278, amount: 15 },
+  { name: 'New York', lat: 40.7128, lng: -74.0060, amount: 15 },
+  { name: 'Singapore', lat: 1.3521, lng: 103.8198, amount: 15 },
   // Add more capitals here
   ];
   const OMPBox = document.getElementById("ompResult");
@@ -101,4 +101,6 @@ function handlecOMP(){
     ...OMP.coords,
 
   });
+  initGlobe({ coordinateArray: updatedMarkers });
+
 }

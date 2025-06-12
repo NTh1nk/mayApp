@@ -126,8 +126,8 @@ async function handlecOMP(){
   };
 
   const ompRoutes = addressData.map(addr => ({
-    srcAirport: { lat: ompCoords.lat, lng: ompCoords.lng },
-    dstAirport: { lat: addr.lat, lng: addr.lng },
+    srcAirport: { lat: addr.lat, lng: addr.lng },
+    dstAirport: { lat: ompCoords.lat, lng: ompCoords.lng },
     airline: "OMP Route",
     srcIata: "OMP",
     dstIata: addr.name || "User Location",

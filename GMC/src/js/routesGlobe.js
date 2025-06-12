@@ -172,17 +172,18 @@ export function initGlobe({ coordinateArray = [], arcArray = [] } = {}) {
         .filter(d => d.srcAirport.country === COUNTRY && d.dstAirport.country !== COUNTRY); // international routes from country
       */
      // Fetch only airports, no routes
+     /*
       fetch('https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat')
         .then(res => res.text())
         .then(data => {
           const airports = csvParseRows(data, airportParse);
-
+        */
         world
-        .pointsData(airports)
+        .pointsData(coordinateArray)
         //when this is commented out, there is no routes by default
         //.arcsData(filteredRoutes);
         .arcsData(arcArray);
-    });
+    
 
     });
 }

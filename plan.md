@@ -29,7 +29,4 @@ Plan 6/8/2025
 
 6/9/2025
 
-Create an opengraph for the website -Finished
-
-
-Make it so it can suggest one of the input citys as OMP
+Create an opengraph for the website

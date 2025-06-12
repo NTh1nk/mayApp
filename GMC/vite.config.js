@@ -10,7 +10,6 @@ export default {
         profile: 'profile.html',
         contact: 'contact.html',
         math: 'math.html',
-        planeGlobe: 'planeGlobe.html',
         underConstruction: 'underCon.html',
 
 

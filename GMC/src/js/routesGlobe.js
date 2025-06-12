@@ -8,7 +8,7 @@ import indexBy from 'https://esm.sh/index-array-by';
 export function initGlobe({ coordinateArray = [], arcArray = [] } = {}) {
 
   //const COUNTRY = 'Denmark';
-  const OPACITY = 0.6;
+  const OPACITY = 0.7;
 
   const VELOCITY = 1; // minutes per frame
   const dayNightShader = {
@@ -111,7 +111,7 @@ export function initGlobe({ coordinateArray = [], arcArray = [] } = {}) {
     .pointAltitude(0)
     .pointRadius(0.02)
     .pointsMerge(true)
-    .arcStroke(1.5)
+    .arcStroke(0.75)
     //.pointOfView({ lat: 39.6, lng: -98.5, altitude: 2 }); //this is the point of view
 
   // Load textures and start animation

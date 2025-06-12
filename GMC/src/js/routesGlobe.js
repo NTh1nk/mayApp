@@ -111,7 +111,7 @@ export function initGlobe({ coordinateArray = [], arcArray = [] } = {}) {
     .pointAltitude(0)
     .pointRadius(0.02)
     .pointsMerge(true)
-    .arcStroke(0.75)
+    //.arcStroke(0.75)
     //.pointOfView({ lat: 39.6, lng: -98.5, altitude: 2 }); //this is the point of view
 
   // Load textures and start animation

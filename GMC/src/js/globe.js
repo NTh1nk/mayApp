@@ -2,8 +2,14 @@ import Globe from 'globe.gl';
 import { TextureLoader, ShaderMaterial, Vector2 } from 'three';
 import * as solar from 'solar-calculator';
 //import { coToMarker } from './marker.js';
+import { csvParseRows } from 'https://esm.sh/d3-dsv';
+import indexBy from 'https://esm.sh/index-array-by';
 
-export function initGlobe({ coordinateArray = [] } = {}) {
+export function initGlobe({ coordinateArray = [], arcArray = [] } = {}) {
+
+  //const COUNTRY = 'Denmark';
+  const OPACITY = 0.7;
+
   const VELOCITY = 1; // minutes per frame
   const dayNightShader = {
     vertexShader: `
@@ -67,6 +73,9 @@ export function initGlobe({ coordinateArray = [] } = {}) {
   const timeEl = document.getElementById('time') || { textContent: '' };
   // Initialize Globe
   const world = new Globe(document.getElementById('globeViz'))
+
+
+
     .htmlElementsData(gData)
     .htmlElement(d => {
       const el = document.createElement('div');
@@ -81,7 +90,29 @@ export function initGlobe({ coordinateArray = [] } = {}) {
       el.appendChild(infoBox);
       return el;
     })
-    .htmlElementVisibilityModifier((el, v) => el.style.opacity = v ? 1 : 0);
+    .htmlElementVisibilityModifier((el, v) => el.style.opacity = v ? 1 : 0)
+
+    //arc routes
+
+    
+    .arcLabel(d => `${d.airline}: ${d.srcIata} &#8594; ${d.dstIata}`)
+    .arcStartLat(d => +d.srcAirport.lat)
+    .arcStartLng(d => +d.srcAirport.lng)
+    .arcEndLat(d => +d.dstAirport.lat)
+    .arcEndLng(d => +d.dstAirport.lng)
+    .arcDashLength(0.25)
+    .arcDashGap(1)
+    .arcDashInitialGap(() => Math.random())
+    .arcDashAnimateTime(4000)
+    .arcColor(d => [`rgba(0, 255, 0, ${OPACITY})`, `rgba(255, 0, 0, ${OPACITY})`])
+    .arcsTransitionDuration(0)
+
+    .pointColor(() => 'orange')
+    .pointAltitude(0)
+    .pointRadius(0.02)
+    .pointsMerge(true)
+    //.arcStroke(0.75)
+    //.pointOfView({ lat: 39.6, lng: -98.5, altitude: 2 }); //this is the point of view
 
   // Load textures and start animation
   Promise.all([
@@ -114,5 +145,45 @@ export function initGlobe({ coordinateArray = [] } = {}) {
       material.uniforms.sunPosition.value.set(...sunPos);
       requestAnimationFrame(animate);
     })();
-  });
+
+    
+  // load data
+
+    const airportParse = ([airportId, name, city, country, iata, icao, lat, lng, alt, timezone, dst, tz, type, source]) => ({ airportId, name, city, country, iata, icao, lat, lng, alt, timezone, dst, tz, type, source });
+    //const routeParse = ([airline, airlineId, srcIata, srcAirportId, dstIata, dstAirportId, codeshare, stops, equipment]) => ({ airline, airlineId, srcIata, srcAirportId, dstIata, dstAirportId, codeshare, stops, equipment});
+
+    /*    
+    Promise.all([
+        fetch('https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat').then(res => res.text())
+        .then(d => csvParseRows(d, airportParse)),
+        fetch('https://raw.githubusercontent.com/jpatokal/openflights/master/data/routes.dat').then(res => res.text())
+        .then(d => csvParseRows(d, routeParse))
+    ]).then(([airports, routes]) => {
+
+        const byIata = indexBy(airports, 'iata', false);
+
+        const filteredRoutes = routes
+        .filter(d => byIata.hasOwnProperty(d.srcIata) && byIata.hasOwnProperty(d.dstIata)) // exclude unknown airports
+        .filter(d => d.stops === '0') // non-stop flights only
+        .map(d => Object.assign(d, {
+            srcAirport: byIata[d.srcIata],
+            dstAirport: byIata[d.dstIata]
+        }))
+        .filter(d => d.srcAirport.country === COUNTRY && d.dstAirport.country !== COUNTRY); // international routes from country
+      */
+     // Fetch only airports, no routes
+     /*
+      fetch('https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat')
+        .then(res => res.text())
+        .then(data => {
+          const airports = csvParseRows(data, airportParse);
+        */
+        world
+        .pointsData(coordinateArray)
+        //when this is commented out, there is no routes by default
+        //.arcsData(filteredRoutes);
+        .arcsData(arcArray);
+    
+
+    });
 }

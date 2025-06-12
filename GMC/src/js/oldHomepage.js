@@ -1,9 +1,8 @@
 import { processInput } from './processInput.js';
-import { initGlobe } from './routesGlobe.js';
+import { initGlobe } from './globe.js';
 import { markers } from './placeMarker.js';
 //import data from './markers.json';
 import { cOMT } from './COMT.js';
-import { cOMP } from './COMP.js';
 import * as THREE from 'three';
 import { getTimeZone } from './tzDB.js';
 import "../css/style.css";
@@ -62,7 +61,6 @@ async function handleCalc(event) {
   alert("Optimal Meeting Time (UTC): " + OMT/60 + ":00");
   OMTBox.value = OMT/60 + ":00 UTC";
   OMTBox.style.color = "white";
-  await handlecOMP();
   return OMT;
 }
 // Attach event listener after DOM is loaded
@@ -71,72 +69,14 @@ window.addEventListener('DOMContentLoaded', () => {
   
   document.getElementById('calcBtn').addEventListener("click", handleCalc);
 
-    // Simulate clicking the Insert button or call its function
-  document.getElementById("insertBtn").addEventListener("click", handleInsert);
 
   const form = document.getElementById("dataForm");
   form.addEventListener("submit", (event) => {
     event.preventDefault(); // Prevents default page reload
 
+    // Simulate clicking the Insert button or call its function
+    document.getElementById("insertBtn").addEventListener("click", handleInsert);
   });
   // Initialize globe with no markers
   initGlobe({ coordinateArray: [] });
 });
-
-
-async function handlecOMP(){
-  const candidateCities = [
-  { name: 'London', lat: 51.5074, lng: -0.1278, amount: 2 },
-  { name: 'New York', lat: 40.7128, lng: -74.0060, amount: 2 },
-  { name: 'Singapore', lat: 1.3521, lng: 103.8198, amount: 2 },
-  // Add more capitals here
-  ];
-  const OMPBox = document.getElementById("ompResult");
-  const OMP = cOMP(candidateCities, addressData);
-  OMPBox.value = OMP;
-  OMPBox.style.color = "white";
-
-  
-  const inputCity = await processInput({ address: OMP });
-
-  if (inputCity?.error) {
-    console.warn("Input error:", inputCity?.error);
-    return;
-  }
-    /*addressData.push({
-    ...inputCity.coords,
-
-  });*/
-
-  //add a custon infobox
-  inputCity.coords.infoBox = "OMP";
-
-  console.log("Input City: ", inputCity);
-
-
-  updatedMarkers = updatedMarkers.concat(await markers(inputCity));
-  console.log("Updated markers:", updatedMarkers)
-
-    // 2. Create routes from OMP to all addressData points
-      // Define ompCoords here
-  const ompCoords = {
-    lat: inputCity.coords.lat,
-    lng: inputCity.coords.lng,
-    name: OMP,
-  };
-
-  const ompRoutes = addressData.map(addr => ({
-    srcAirport: { lat: addr.lat, lng: addr.lng },
-    dstAirport: { lat: ompCoords.lat, lng: ompCoords.lng },
-    airline: "OMP Route",
-    srcIata: "OMP",
-    dstIata: addr.name || "User Location",
-  }));
-
-  initGlobe({ 
-    coordinateArray: updatedMarkers,
-    arcArray: ompRoutes
-   });
-
-}
-

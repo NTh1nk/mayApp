@@ -17,9 +17,19 @@ function distance(lat1, lon1, lat2, lon2) {
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
-// Assuming `participants` is an array of objects with {lat, lng}
+// Merge candidateCities and participants as options
 export function cOMP(candidateCities, participants) {
-  const cityScores = candidateCities.map(city => {
+  // Convert participants to city objects if needed
+  const participantCities = participants.map((p, i) => ({
+    name: p.name || `Participant ${i + 1}`,
+    lat: p.lat,
+    lng: p.lng
+  }));
+
+  // Merge and remove duplicates (optional, if names/coords may overlap)
+  const allOptions = [...candidateCities, ...participantCities];
+
+  const cityScores = allOptions.map(city => {
     let totalDistance = 0;
     for (const p of participants) {
       totalDistance += distance(p.lat, p.lng, city.lat, city.lng);

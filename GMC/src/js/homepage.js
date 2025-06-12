@@ -1,5 +1,5 @@
 import { processInput } from './processInput.js';
-import { initGlobe } from './routesGlobe.js';
+import { initGlobe } from './globe.js';
 import { markers } from './placeMarker.js';
 //import data from './markers.json';
 import { cOMT } from './COMT.js';

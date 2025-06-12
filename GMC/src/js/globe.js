@@ -2,8 +2,6 @@ import Globe from 'globe.gl';
 import { TextureLoader, ShaderMaterial, Vector2 } from 'three';
 import * as solar from 'solar-calculator';
 //import { coToMarker } from './marker.js';
-import { csvParseRows } from 'https://esm.sh/d3-dsv';
-import indexBy from 'https://esm.sh/index-array-by';
 
 export function initGlobe({ coordinateArray = [], arcArray = [] } = {}) {
 

@@ -59,12 +59,15 @@ async function handleCalc(event) {
   const OMTBox = document.getElementById("omtResult");
   const OMT = await cOMT(addressData);
   console.log("Optimal Meeting Time (UTC):", OMT);
-  alert("Optimal Meeting Time (UTC): " + OMT/60 + ":00");
-  OMTBox.value = OMT/60 + ":00 UTC";
+  //convert OMT to hours and minutes
+  const OMTStandardized = minutesToStandardTime(OMT);
+  alert("Optimal Meeting Time (UTC): " + OMTStandardized);
+  OMTBox.value = OMTStandardized + " UTC";
   OMTBox.style.color = "white";
   await handlecOMP();
   return OMT;
 }
+
 // Attach event listener after DOM is loaded
 window.addEventListener('DOMContentLoaded', () => {
   window.processInput = processInput;
@@ -140,3 +143,13 @@ async function handlecOMP(){
 
 }
 
+
+
+function minutesToStandardTime(totalMinutes) {
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = Math.round(totalMinutes % 60);
+  // Pad with leading zeros if needed
+  const hh = hours.toString().padStart(2, '0');
+  const mm = minutes.toString().padStart(2, '0');
+  return `${hh}:${mm}`;
+}

@@ -22,7 +22,7 @@ export function cOMP(candidateCities, participants) {
   const cityScores = candidateCities.map(city => {
     let totalDistance = 0;
     for (const p of participants) {
-      totalDistance += distance(p.lat, p.lng, city.lat, city.lng);
+      totalDistance += distance(p.lat, p.lng, city.lat, city.lng) * p.amount;
     }
     return { city: city.name, totalDistance };
   });

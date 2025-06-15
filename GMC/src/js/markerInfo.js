@@ -10,6 +10,6 @@ export function localTimeMarkerInfo(markers, OMT) {
       timeZone,
       hour12: false
     });
-    marker.infoBox = `Local Time: ${marker.localTime} (${timeZone})`;
+    marker.coords.infoBox = `Local Time: ${marker.localTime} (${timeZone})`;
   });
 }

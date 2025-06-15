@@ -65,7 +65,7 @@ async function handleCalc(event) {
   alert("Optimal Meeting Time (UTC): " + OMTStandardized);
   OMTBox.value = OMTStandardized + " UTC";
   OMTBox.style.color = "white";
-  updatedMarkers = reloadMarkers(updatedMarkers, OMTStandardized);
+  updatedMarkers = reloadMarkers(updatedMarkers, OMT);
   await handlecOMP();
 
 

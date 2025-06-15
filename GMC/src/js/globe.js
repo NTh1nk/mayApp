@@ -111,7 +111,7 @@ export function initGlobe({ coordinateArray = [], arcArray = [] } = {}) {
     .pointsMerge(true)
     //.arcStroke(0.75)
     //.pointOfView({ lat: 39.6, lng: -98.5, altitude: 2 }); //this is the point of view
-
+s
   // Load textures and start animation
   Promise.all([
     new TextureLoader().loadAsync('//cdn.jsdelivr.net/npm/three-globe/example/img/earth-day.jpg'),

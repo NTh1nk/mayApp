@@ -6,6 +6,7 @@ import { cOMT } from './COMT.js';
 import { cOMP } from './COMP.js';
 import * as THREE from 'three';
 import { getTimeZone } from './tzDB.js';
+import { localTimeMarkerInfo } from './markerInfo.js';
 import "../css/style.css";
 import "../css/index.css";
 //console.log(data);
@@ -65,6 +66,7 @@ async function handleCalc(event) {
   OMTBox.value = OMTStandardized + " UTC";
   OMTBox.style.color = "white";
   await handlecOMP();
+  localTimeMarkerInfo(updatedMarkers, OMT);
   return OMT;
 }
 

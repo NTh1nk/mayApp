@@ -11,6 +11,5 @@ export function localTimeMarkerInfo(markers, OMT) {
       hour12: false
     });
     console.log(`Marker at ${marker.lat}, ${marker.lng} - Local Time: ${marker.localTime} (${timeZone})`);
-    marker.coords.infoBox = `Local Time: ${marker.localTime} (${timeZone})`;
   });
 }

@@ -30,8 +30,8 @@ async function handleInsert(event) {
   console.log("Input data:", inputData);
   addressData.push({
     ...inputData.coords,
-    workStart: 480, // Could also get input here
-    workEnd: 1200,  // Could also get input here
+    workStart: 540, // Could also get input here
+    workEnd: 1260,  // Could also get input here
     timezone,       // Add timezone to address data
     // add other fields as needed
   });

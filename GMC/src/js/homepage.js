@@ -67,6 +67,10 @@ async function handleCalc(event) {
   OMTBox.style.color = "white";
   await handlecOMP();
   localTimeMarkerInfo(updatedMarkers, OMT);
+  updatedMarkers.forEach(marker => {
+    marker.infoBox = `Local Time: ${marker.localTime} (${marker.timezone})`;
+  });
+
   return OMT;
 }
 

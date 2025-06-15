@@ -19,10 +19,10 @@ export async function cOMT(people) {
             const timeZone = people[j].timezone;
             //console.log("Time zone:", timeZone);
             const localMin = getLocalTime(dateUTC, timeZone);
-            //if workstart is undefined, set it to 8:00
-            const workStart = people[j].workStart ?? 480;
-            //if workend is undefined, set it to 20:00
-            const workEnd = people[j].workEnd ?? 1200;
+            //if workstart is undefined, set it to 9:00
+            const workStart = people[j].workStart ?? 540;
+            //if workend is undefined, set it to 21:00
+            const workEnd = people[j].workEnd ?? 1260;
             let localFlaw = inaccuracy(localMin, workStart, workEnd) ** 2;
             flaw += localFlaw
            

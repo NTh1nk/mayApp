@@ -65,11 +65,12 @@ async function handleCalc(event) {
   alert("Optimal Meeting Time (UTC): " + OMTStandardized);
   OMTBox.value = OMTStandardized + " UTC";
   OMTBox.style.color = "white";
-  await handlecOMP();
-  localTimeMarkerInfo(updatedMarkers, OMT);
+    localTimeMarkerInfo(updatedMarkers, OMT);
   updatedMarkers.forEach(marker => {
     marker.infoBox = `Local Time: ${marker.localTime} (${marker.timezone})`;
   });
+  await handlecOMP();
+
 
   return OMT;
 }

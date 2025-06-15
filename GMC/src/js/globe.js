@@ -129,6 +129,7 @@ export function initGlobe({ coordinateArray = [], arcArray = [] } = {}) {
     });
 
     world
+      .pointLabel("infoBox")
       .globeMaterial(material)
       .backgroundImageUrl('//cdn.jsdelivr.net/npm/three-globe/example/img/night-sky.png')
       .onZoom(({ lng, lat }) => material.uniforms.globeRotation.value.set(lng, lat));

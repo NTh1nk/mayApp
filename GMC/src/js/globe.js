@@ -1,7 +1,7 @@
 import Globe from 'globe.gl';
 import { TextureLoader, ShaderMaterial, Vector2 } from 'three';
 import * as solar from 'solar-calculator';
-import '/src/css/globe.css';
+//import '/src/css/globe.css';
 //import { coToMarker } from './marker.js';
 
 export function initGlobe({ coordinateArray = [], arcArray = [] } = {}) {
@@ -130,7 +130,21 @@ export function initGlobe({ coordinateArray = [], arcArray = [] } = {}) {
     });
 
     world
-      .pointLabel("infoBox")
+      .pointLabel((d =>
+        `<div style="
+          background: #222;
+          color: #fff;
+          font-size: 1.1em;
+          border-radius: 8px;
+          padding: 10px 16px;
+          border: 1px solid #0078d7;
+          box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+          max-width: 300px;
+          z-index: 9999;
+        ">
+          ${d.infoBox}
+        </div>`
+      ))
       .globeMaterial(material)
       .backgroundImageUrl('//cdn.jsdelivr.net/npm/three-globe/example/img/night-sky.png')
       .onZoom(({ lng, lat }) => material.uniforms.globeRotation.value.set(lng, lat));

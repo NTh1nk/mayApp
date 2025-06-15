@@ -65,10 +65,7 @@ async function handleCalc(event) {
   alert("Optimal Meeting Time (UTC): " + OMTStandardized);
   OMTBox.value = OMTStandardized + " UTC";
   OMTBox.style.color = "white";
-    localTimeMarkerInfo(updatedMarkers, OMT);
-  updatedMarkers.forEach(marker => {
-    marker.infoBox = `Local Time: ${marker.localTime} (${marker.timezone})`;
-  });
+  updatedMarkers = reloadMarkers(updatedMarkers, OMTStandardized);
   await handlecOMP();
 
 
@@ -159,4 +156,27 @@ function minutesToStandardTime(totalMinutes) {
   const hh = hours.toString().padStart(2, '0');
   const mm = minutes.toString().padStart(2, '0');
   return `${hh}:${mm}`;
+}
+
+
+function reloadMarkers(markers, OMT) {
+  // This function can be used to reload markers, and update their infobox
+
+  if (!markers || !Array.isArray(markers)) {
+    console.error("Invalid markers array:", markers);
+    return;
+  }
+  if(!OMT || typeof OMT !== 'number') {
+    console.error("Invalid OMT value:", OMT);
+    return;
+  }
+  localTimeMarkerInfo(markers, OMT);
+
+  let updatedMarkers = markers.map(marker => {
+    marker.infoBox = `Local Time: ${marker.localTime} (${marker.timezone})`;
+    return marker;
+  });
+  console.log("Updated markers with local time info:", updatedMarkers);
+  
+  return updatedMarkers
 }

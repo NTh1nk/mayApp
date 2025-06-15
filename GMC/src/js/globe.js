@@ -1,7 +1,6 @@
 import Globe from 'globe.gl';
 import { TextureLoader, ShaderMaterial, Vector2 } from 'three';
 import * as solar from 'solar-calculator';
-import '/src/css/globe.css';
 //import { coToMarker } from './marker.js';
 
 export function initGlobe({ coordinateArray = [], arcArray = [] } = {}) {

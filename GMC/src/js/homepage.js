@@ -173,7 +173,7 @@ function reloadMarkers(markers, OMT) {
   localTimeMarkerInfo(markers, OMT);
 
   let updatedMarkers = markers.map(marker => {
-    marker.info = `Local Time: ${marker.localTime} (${marker.timezone})`;
+    marker.info = `Local Time: ${marker.localTime}`;
     return marker;
   });
   console.log("Updated markers with local time info:", updatedMarkers);

@@ -38,6 +38,8 @@ export function initSlider(id = 'slider', outputId = 'output') {
   // Listen for updates and save to localStorage
   sliderElement.noUiSlider.on('update', ([start, end]) => {
     outputElement.textContent = `Available: ${formatTime(start)} – ${formatTime(end)}`;
+    console.log(`Availability range updated: ${start} to ${end}`);
+    console.log(`Work start: ${start * 60} minutes, Work end: ${end * 60} minutes`);
     localStorage.setItem('availabilityRange', JSON.stringify([start, end]));
     localStorage.setItem('workStart', start * 60); // convert to minutes
     localStorage.setItem('workEnd', end * 60);

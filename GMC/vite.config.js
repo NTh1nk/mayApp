@@ -1,5 +1,3 @@
-import { VitePWA } from 'vite-plugin-pwa';
-
 export default {
   build: {
     rollupOptions: {
@@ -13,17 +11,9 @@ export default {
         contact: 'contact.html',
         math: 'math.html',
         underConstruction: 'underCon.html',
+
+
       }
     }
-  },
-  plugins: [
-    VitePWA({
-      registerType: 'autoUpdate',
-      manifest: {
-        name: 'Global Meeting Coordinator',
-        short_name: 'GMC',
-        theme_color: '#000000',
-      }
-    })
-  ]
+  }
 }

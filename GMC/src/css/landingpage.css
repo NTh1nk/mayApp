@@ -218,3 +218,66 @@ body{
           transform: rotate(360deg);
         }
         }
+
+@media (max-width: 768px) {
+  .hero-container {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .hero-container img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    opacity: 0.6;
+  }
+
+  .hero-text {
+    font-size: 25vw;
+    top: 28%;
+  }
+
+  .sub-text {
+    font-size: 8vw;
+    top: 45%;
+  }
+
+  .guest-button {
+    font-size: 5vw;
+    top: 72%;
+  }
+
+  .signup-button,
+  .signup-button:hover,
+  .signup-button:active,
+  .login-button {
+    font-size: 5vw;
+    padding: 2vw 7vw;
+    border-radius: 2.5vw;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .video-gallery video {
+    max-width: 95vw;
+  }
+
+  .info-body {
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-top: 10vw;
+  }
+
+  #main-text {
+    margin-left: 2vw;
+    margin-bottom: 6vw;
+    font-size: 6vw;
+  }
+
+  #body-text {
+    margin-left: 4vw;
+    margin-bottom: 6vw;
+    font-size: 4.5vw;
+  }
+}

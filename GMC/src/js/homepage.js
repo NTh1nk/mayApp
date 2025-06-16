@@ -59,14 +59,7 @@ async function handleCalc(event) {
   }
 
   const OMTBox = document.getElementById("omtResult");
-  let availability;
-    if(localStorage.getItem("availabilityRange")) {
-      availability = JSON.parse(localStorage.getItem("availabilityRange"));
-    }
-    else {
-      availability = [8, 20]; // Default availability range
-    }
-  const OMT = await cOMT(addressData, availability);
+  const OMT = await cOMT(addressData);
   console.log("Optimal Meeting Time (UTC):", OMT);
   //convert OMT to hours and minutes
   const OMTStandardized = minutesToStandardTime(OMT);

@@ -276,3 +276,81 @@ table, th, td {
   user-select: none;
 }
   
+@media (max-width: 768px) {
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+
+  .sidebar .bar-item {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .sidebar a {
+    padding: 8px 0;
+  }
+
+  .sidebar input[type="text"] {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .topBar {
+    flex-direction: column;
+    gap: 1vh;
+    padding: 15px;
+  }
+
+  .vis-text, .landing-text {
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  .topBar h1 {
+    font-size: 24px;
+  }
+
+  .container h2 {
+    font-size: 20px;
+  }
+
+  .container p {
+    font-size: 14px;
+  }
+
+  .omt-result {
+    width: 90%;
+    font-size: 1em;
+  }
+
+  #globeViz {
+    width: 100vw;
+    height: 70vh;
+    position: relative;
+  }
+
+  #openCanvasBtn {
+    top: 2vh;
+    right: 2vh;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+
+  .button {
+    padding: 10px 24px;
+    font-size: 18px;
+    margin: 15px 2px;
+  }
+
+  #output {
+    font-size: 16px;
+  }
+}

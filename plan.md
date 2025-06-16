@@ -30,3 +30,7 @@ Plan 6/8/2025
 6/9/2025
 
 Create an opengraph for the website
+
+Create a mobile version
+
+s

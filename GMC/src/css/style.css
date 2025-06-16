@@ -205,3 +205,74 @@ table, th, td {
       height: 100%;
       display: block;
     }
+#slider {
+  background: #000000;
+  border: 2px solid #141414;
+  height: 10px;
+  border-radius: 8px;
+  margin-top: 20px;
+  position: relative; /* ensure proper stacking */
+}
+
+.noUi-connect {
+  background: #1e90ff; /* Slightly softer blue */
+  border-radius: 8px 0 0 8px; /* Rounded left corners on fill */
+}
+
+.noUi-handle {
+  background: #3a3a3a; /* dark gray */
+  border: 2px solid #1e90ff; /* match .noUi-connect blue */
+  height: 16px !important;  /* bigger for easier drag */
+  width: 16px !important;
+  top: -4px !important; /* vertically center */
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* subtle shadow */
+  cursor: grab;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  margin: 0 !important; /* remove default margin */
+  padding: 0 !important; /* remove default padding */
+  box-sizing: border-box; /* ensure border included in size */
+  z-index: 1; /* keep above track */
+}
+
+/* Hover and focus states */
+.noUi-handle:hover,
+.noUi-handle:focus {
+  background-color: #0056b3;
+  border-color: #004080;
+  cursor: grabbing;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Remove default grip lines */
+.noUi-handle:before,
+.noUi-handle:after {
+  display: none;
+  content: none !important;
+}
+
+/* Remove any extra background or border on the origin wrapper */
+.noUi-origin {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Keep base background consistent */
+.noUi-base {
+  background: #000000 !important;
+  border: 2px solid #141414 !important;
+  border-radius: 8px;
+}
+
+/* Output styling */
+#output {
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e90ff;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  user-select: none;
+}
+  

@@ -9,6 +9,7 @@ import { getTimeZone } from './tzDB.js';
 import { localTimeMarkerInfo } from './markerInfo.js';
 import "../css/style.css";
 import "../css/index.css";
+import { initSlider } from './slider.js';
 //console.log(data);
 //let updatedMarkers = [...data];
 let updatedMarkers = [];
@@ -86,6 +87,7 @@ window.addEventListener('DOMContentLoaded', () => {
     event.preventDefault(); // Prevents default page reload
 
   });
+  initSlider();
   // Initialize globe with no markers
   initGlobe({ coordinateArray: [] });
 });

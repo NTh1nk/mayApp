@@ -11,8 +11,13 @@ export function initSlider(id = 'slider', outputId = 'output') {
     return;
   }
 
+  // Load saved values if they exist, otherwise use default
+  const savedRange = JSON.parse(localStorage.getItem('availabilityRange'));
+  const defaultRange = [8, 20];
+  const initialRange = savedRange || defaultRange;
+
   noUiSlider.create(sliderElement, {
-    start: [8, 20],
+    start: initialRange,
     connect: true,
     step: 1,
     range: {
@@ -25,8 +30,16 @@ export function initSlider(id = 'slider', outputId = 'output') {
     }
   });
 
+  const formatTime = val => String(val).padStart(2, '0') + ':00';
+
+  // Initial update of output display
+  outputElement.textContent = `Available: ${formatTime(initialRange[0])} – ${formatTime(initialRange[1])}`;
+
+  // Listen for updates and save to localStorage
   sliderElement.noUiSlider.on('update', ([start, end]) => {
-    const formatTime = val => String(val).padStart(2, '0') + ':00';
     outputElement.textContent = `Available: ${formatTime(start)} – ${formatTime(end)}`;
+    localStorage.setItem('availabilityRange', JSON.stringify([start, end]));
+    localStorage.setItem('workStart', start * 60); // convert to minutes
+    localStorage.setItem('workEnd', end * 60);
   });
 }

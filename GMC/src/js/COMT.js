@@ -7,6 +7,8 @@ import { loadChart } from "./loadChart.js";
 export async function cOMT(people) {
     let flawTotal = Infinity;
     let bestTime = 0;
+    const workStart = parseInt(localStorage.getItem('workStart')) || 480; // 08:00
+    const workEnd = parseInt(localStorage.getItem('workEnd')) || 1200;   // 20:00
 
     for (let i = 0; i < 24 * 60; i += 5) {
         // Create a UTC Date object at midnight plus i minutes
@@ -20,9 +22,10 @@ export async function cOMT(people) {
             //console.log("Time zone:", timeZone);
             const localMin = getLocalTime(dateUTC, timeZone);
             //if workstart is undefined, set it to 9:00
-            const workStart = people[j].workStart ?? 540;
+            //const workstart = availability.workStart ?? 540; // 9:00 AM
+            //const workStart = people[j].workStart ?? 540;
             //if workend is undefined, set it to 21:00
-            const workEnd = people[j].workEnd ?? 1260;
+            //const workEnd = availability.workEnd ?? 1260;
             let localFlaw = inaccuracy(localMin, workStart, workEnd) ** 2;
             flaw += localFlaw
            

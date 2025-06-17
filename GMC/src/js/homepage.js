@@ -10,6 +10,7 @@ import { localTimeMarkerInfo } from './markerInfo.js';
 import "../css/style.css";
 import "../css/index.css";
 import { initSlider } from './slider.js';
+import { loadChart } from './loadChart.js';
 //console.log(data);
 //let updatedMarkers = [...data];
 let updatedMarkers = [];
@@ -66,6 +67,8 @@ async function handleCalc(event) {
   alert("Optimal Meeting Time (UTC): " + OMTStandardized);
   OMTBox.value = OMTStandardized + " UTC";
   OMTBox.style.color = "white";
+  loadChart();
+  console.log("loaded chart");
   updatedMarkers = reloadMarkers(updatedMarkers, OMT);
   await handlecOMP();
 

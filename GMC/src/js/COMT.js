@@ -49,6 +49,7 @@ export async function cOMT(people) {
     console.log("Flaw total:", flawTotal);
     console.log("Best time in hours:", Math.floor(bestTime / 60), "minutes:", bestTime % 60);
     loadChart();
+    console.log("updated chart");
     return bestTime;
 }
 

@@ -3,6 +3,10 @@ export function loadChart() {
   const overlay = document.getElementById("canvasOverlay");
   const canvas = document.getElementById("flawChart");
   const ctx = canvas.getContext("2d");
+  if(window.Chart)  {
+    window.Chart.destroy();
+    console.log("Chart destroyed");
+  }
 
     function resizeCanvas() {
       canvas.width = window.innerWidth;

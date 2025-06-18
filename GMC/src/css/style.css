@@ -146,11 +146,12 @@ table, th, td {
 #hQOverlay {
   display: none;
   position: fixed;
-  z-index: 2000;
+  z-index: 1000;
   left: 0; top: 0; width: 100vw; height: 100vh;
   background: rgba(0,0,0,0.7);
   justify-content: center;
   align-items: center;
+  color: black;
 }
 #hQOverlay.active {
   display: flex;
@@ -168,6 +169,13 @@ table, th, td {
   top: 10px; right: 20px;
   font-size: 2em;
   cursor: pointer;
+}
+
+#openHQBtn
+{
+  z-index: 1001;
+
+
 }
 
 .flawChart {

@@ -11,6 +11,7 @@ import "../css/style.css";
 import "../css/index.css";
 import { initSlider } from './slider.js';
 import { loadChart } from './loadChart.js';
+import { loadHQ } from './loadHQ.js';
 //console.log(data);
 //let updatedMarkers = [...data];
 let updatedMarkers = [];
@@ -82,6 +83,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Simulate clicking the Insert button or call its function
   document.getElementById("insertBtn").addEventListener("click", handleInsert);
+
+  //handle the click of the HQ button
+  document.getElementById("openHQBtn").addEventListener("click", HQ);
+
+
 
   const form = document.getElementById("dataForm");
   form.addEventListener("submit", (event) => {
@@ -182,4 +188,12 @@ function reloadMarkers(markers, OMT) {
   console.log("Updated markers with local time info:", updatedMarkers);
   
   return updatedMarkers
+}
+
+
+
+function HQ() {
+  // HQ button click handler
+  console.log("HQ button clicked");
+  loadHQ();
 }

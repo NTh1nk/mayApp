@@ -151,13 +151,23 @@ table, th, td {
   background: rgba(0,0,0,0.7);
   justify-content: center;
   align-items: center;
-  color: black;
+
 }
+.hQOverlay-content input[type="text"] {
+  width: 90%;
+  padding: 8px;
+  margin-top: 10px;
+  background-color: #222;
+  border: 1px solid #555;
+  color: #fff;
+}
+
+
 #hQOverlay.active {
   display: flex;
 }
 .hQOverlay-content {
-  background: #fff;
+  background: #1c1c1c;
   padding: 2em;
   border-radius: 8px;
   min-width: 300px;

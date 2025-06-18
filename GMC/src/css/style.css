@@ -276,39 +276,7 @@ table, th, td {
   user-select: none;
 }
   
-@media (max-width: 368px) {
-
-  /* Hide main app content */
-  .sidebar,
-  .topBar,
-  .container,
-  #globeViz,
-  #openCanvasBtn {
-    display: none !important;
-  }
-
-  /* Show full screen message */
-  body::before {
-    content: "This application is not compatible with mobile devices at the moment.";
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    background: #111;
-    padding: 20px 30px;
-    font-size: 1.5em;
-    font-family: 'Inter', sans-serif;
-    text-align: center;
-    z-index: 9999;
-    max-width: 90vw;
-    border-radius: 12px;
-  }
-}
-
-
-
-  /*
+@media (max-width: 768px) {
   .sidebar {
     position: static;
     width: 100%;
@@ -364,14 +332,14 @@ table, th, td {
 
 @media (max-width: 768px) {
   #globeViz {
-    position: fixed;     /* Keep fixed to stay visible 
+    position: fixed;     /* Keep fixed to stay visible */
     bottom: 0;
     right: 0;
     width: 100vw;
     height: 70vh;
-    z-index: 10;         /* Bring it above background, below UI 
+    z-index: 10;         /* Bring it above background, below UI */
     overflow: hidden;
-    pointer-events: auto; /* Ensure pointer events are enabled 
+    pointer-events: auto; /* Ensure pointer events are enabled */
   }
   #openCanvasBtn {
     top: 2vh;
@@ -392,4 +360,3 @@ table, th, td {
   }
 }
 }
-

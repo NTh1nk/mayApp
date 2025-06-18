@@ -29,6 +29,7 @@
         <input type="text" id="location" name="location" placeholder="Enter location..." required><br><br>
         <input type="text" id="amount" name="amount" placeholder="Enter amount..." required><br><br>
         <button  type="submit" id="insertBtn" class="button">Insert</button>
+        <button  id="openHQBtn" class="button">Add HQ</button>
     </form>
 
   
@@ -79,6 +80,15 @@
     </div>
     <div id="canvasOverlay">
       <canvas id="flawChart"></canvas>
+    </div>
+    <div id ="hQOverlay">
+      <div class="hQOverlay-content">
+        <span class="close">&times;</span>
+        <h2>Headquarters</h2>
+        <p>Coordinates: 37.7749° N, 122.4194° W</p>
+        <p>Address: San Francisco, CA, USA</p>
+        <p>Timezone: UTC-8</p>
+      </div>
     </div>
     <div class="container">
       <!--Here it should parse the markers into the initglobe func-->

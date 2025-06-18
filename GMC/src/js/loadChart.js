@@ -3,8 +3,8 @@ export function loadChart() {
   const overlay = document.getElementById("canvasOverlay");
   const canvas = document.getElementById("flawChart");
   const ctx = canvas.getContext("2d");
-  if(window.Chart)  {
-    window.Chart.destroy();
+  if(window.myChart)  {
+    window.myChart.destroy();
     console.log("Chart destroyed");
   }
 
@@ -33,7 +33,7 @@ export function loadChart() {
   const maxFlaw = Math.max(...yValues);
   console.log("Max flaw:", maxFlaw);
 
-  new Chart("flawChart", {
+  window.myChart = new Chart("flawChart", {
     type: "line",
     data: {
       labels: xValues,

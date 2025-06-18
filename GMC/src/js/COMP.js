@@ -30,6 +30,7 @@ export function cOMP(candidateCities, participants) {
   cityScores.sort((a, b) => a.totalDistance - b.totalDistance);
 
   console.log('Optimal meeting city:', cityScores[0].city);
+  console.log("cityScores:", cityScores);
   return cityScores[0].city;
 }
 

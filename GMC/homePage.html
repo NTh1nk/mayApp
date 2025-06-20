@@ -85,7 +85,10 @@
       <div class="hQOverlay-content">
         <span class="close">&times;</span>
         <h2>Headquarters</h2>
-         <input type="text" id="hQLocation" name="hQlocation" placeholder="Enter location..." required><br><br>
+            <form id="hqForm" autocomplete="off">
+              <input type="text" id="hQLocation" name="hQlocation" placeholder="Enter location..." required>
+              <button type="submit" style="display:none"></button> <!-- Hidden submit button for Enter key -->
+            </form>
             <table id="hQTable">
               <thead>
             <tr>

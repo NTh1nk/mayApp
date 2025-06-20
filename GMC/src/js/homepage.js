@@ -124,7 +124,7 @@ async function handlecOMP() {
   }
 
   if (candidateCities.length === 0) {
-    alert("No HQs with coordinates found in localStorage.");
+    console.log("No HQs with coordinates found in localStorage.");
     return;
   }
 

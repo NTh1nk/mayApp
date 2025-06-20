@@ -12,6 +12,7 @@ import "../css/index.css";
 import { initSlider } from './slider.js';
 import { loadChart } from './loadChart.js';
 import { handleHQInsert, loadHQ } from './loadHQ.js';
+import { geocodeAddress } from './geocodeAddress.js';
 //console.log(data);
 //let updatedMarkers = [...data];
 let updatedMarkers = [];

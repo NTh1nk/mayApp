@@ -99,41 +99,54 @@ document.getElementById("hqForm").addEventListener("submit", handleHQInsert);
 });
 
 
-async function handlecOMP(){
-  const candidateCities = [
-  { name: 'London', lat: 51.5074, lng: -0.1278, amount: 2 },
-  { name: 'New York', lat: 40.7128, lng: -74.0060, amount: 2 },
-  { name: 'Singapore', lat: 1.3521, lng: 103.8198, amount: 2 },
-  // Add more capitals here
-  ];
+async function handlecOMP() {
+  // 1. Load HQs from localStorage
+  let candidateCities = [];
+  const hqList = JSON.parse(localStorage.getItem('hqList')) || [];
+  // Each HQ should have at least address, timezone, and ideally lat/lng
+  // If you have lat/lng saved, use them; otherwise, you may need to geocode here
+  candidateCities = hqList
+    .filter(hq => hq.lat && hq.lng) // Only use HQs with coordinates
+    .map(hq => ({
+      name: hq.address,
+      lat: hq.lat,
+      lng: hq.lng,
+      amount: 2 // or use hq.amount if you store it
+    }));
+
+  // If you don't have lat/lng in localStorage, you need to geocode each HQ here (async)
+  // Example (if needed):
+  for (const hq of hqList) {
+    if (!hq.lat || !hq.lng) {
+      const geo = await geocodeAddress(hq.address);
+      candidateCities.push({ name: hq.address, lat: geo.lat, lng: geo.lng, amount: 2 });
+    }
+  }
+
+  if (candidateCities.length === 0) {
+    alert("No HQs with coordinates found in localStorage.");
+    return;
+  }
+
   const OMPBox = document.getElementById("ompResult");
   const OMP = cOMP(candidateCities, addressData);
   OMPBox.value = OMP;
   OMPBox.style.color = "white";
 
-  
   const inputCity = await processInput({ address: OMP });
 
   if (inputCity?.error) {
     console.warn("Input error:", inputCity?.error);
     return;
   }
-    /*addressData.push({
-    ...inputCity.coords,
 
-  });*/
-
-  //add a custon infobox
   inputCity.coords.infoBox = "OMP";
-
   console.log("Input City: ", inputCity);
 
-
   updatedMarkers = updatedMarkers.concat(await markers(inputCity));
-  console.log("Updated markers:", updatedMarkers)
+  console.log("Updated markers:", updatedMarkers);
 
-    // 2. Create routes from OMP to all addressData points
-      // Define ompCoords here
+  // 2. Create routes from OMP to all addressData points
   const ompCoords = {
     lat: inputCity.coords.lat,
     lng: inputCity.coords.lng,
@@ -151,8 +164,7 @@ async function handlecOMP(){
   initGlobe({ 
     coordinateArray: updatedMarkers,
     arcArray: ompRoutes
-   });
-
+  });
 }
 
 

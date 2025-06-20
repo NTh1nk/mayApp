@@ -89,6 +89,10 @@
               <input type="text" id="hQLocation" name="hQLocation" placeholder="Enter location..." required>
               <button id="hQBtn" type="submit" style="display:none"></button> <!-- Hidden submit button for Enter key -->
             </form>
+              <button id="openHQGraphBtn" class="button" style="margin-bottom: 1em;">Show HQ Graph</button>
+              <div id="hqGraphContainer" style="display:none; margin-bottom: 1em;">
+                <canvas id="hqGraph" width="400" height="200"></canvas>
+              </div>
             <table id="hQTable">
               <thead>
             <tr>

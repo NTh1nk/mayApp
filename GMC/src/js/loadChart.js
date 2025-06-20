@@ -80,3 +80,32 @@ export function loadChart() {
     }
   });
 }
+
+
+export function loadHQChart() {
+  const hqList = JSON.parse(localStorage.getItem('hqList')) || [];
+  const ctx = document.getElementById('hqGraph').getContext('2d');
+  const labels = hqList.map(hq => hq.address);
+  const data = hqList.map(hq => 1); // Or use a real metric if you have one
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'HQs',
+        data: data,
+        backgroundColor: 'rgba(30, 144, 255, 0.7)'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false }
+      },
+      scales: {
+        y: { beginAtZero: true }
+      }
+    }
+  });
+}

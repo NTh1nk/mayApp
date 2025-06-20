@@ -10,7 +10,7 @@ import { localTimeMarkerInfo } from './markerInfo.js';
 import "../css/style.css";
 import "../css/index.css";
 import { initSlider } from './slider.js';
-import { loadChart } from './loadChart.js';
+import { loadChart, loadHQChart } from './loadChart.js';
 import { handleHQInsert, loadHQ } from './loadHQ.js';
 import { geocodeAddress } from './geocodeAddress.js';
 //console.log(data);
@@ -85,8 +85,22 @@ window.addEventListener('DOMContentLoaded', () => {
     // Simulate clicking the Insert button or call its function
   document.getElementById("insertBtn").addEventListener("click", handleInsert);
 
+  document.getElementById("openHQGraphBtn").addEventListener("click", handleHQChartClick);
+    const openHQGraphBtn = document.getElementById('openHQGraphBtn');
+  const hqGraphContainer = document.getElementById('hqGraphContainer');
+
+  openHQGraphBtn.addEventListener('click', () => {
+    // Toggle visibility
+    if (hqGraphContainer.style.display === 'none' || hqGraphContainer.style.display === '') {
+      hqGraphContainer.style.display = 'block';
+      loadHQChart(); // Draw the chart when shown
+    } else {
+      hqGraphContainer.style.display = 'none';
+    }
+  });
   //handle the click of the HQ button
   loadHQ();
+  
 
 document.getElementById("hqForm").addEventListener("submit", handleHQInsert);
   const form = document.getElementById("dataForm");
@@ -213,3 +227,11 @@ function HQ() {
 function hQClick(){
   handleHQInsert();
 }
+
+
+function handleHQChartClick() {
+  // Handle HQ chart click
+  console.log("HQ chart clicked");
+  loadHQChart();
+}
+

@@ -12,6 +12,26 @@ body {
   color: #fff;
   font-size: 16px;
 }
+.delete-hq-btn {
+  background: #ff4d4f;
+  color: #fff !important;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 12px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-left: 8px;
+}
+
+.delete-hq-btn:hover {
+  background: #d9363e;
+}
+
+.delete-hq-btn:active {
+  background: #a8272e;
+}
+
 
 /* Sidebar styling */
 .sidebar {

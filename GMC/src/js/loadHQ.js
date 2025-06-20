@@ -12,6 +12,8 @@ export function loadHQ() {
   closeBtn.addEventListener("click", () => {
     overlay.classList.remove("active");
   });
+  loadHQTableFromStorage();
+
 }
 
 export async function handleHQInsert(event) {

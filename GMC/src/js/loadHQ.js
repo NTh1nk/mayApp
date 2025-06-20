@@ -11,3 +11,20 @@ export function loadHQ() {
     overlay.classList.remove("active");
   });
 }
+
+export function handleHQInsert(event) {
+  event.preventDefault();
+  
+  const hqInput = document.getElementById("hqInput");
+  const hqValue = hqInput.value.trim();
+
+  if (!hqValue) {
+    alert("Please enter a valid HQ location.");
+    return;
+  }
+
+  // Process the HQ input (e.g., geocode it, add to markers)
+  
+  // Clear the input field
+  hqInput.value = '';
+}

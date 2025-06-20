@@ -15,7 +15,7 @@ export function loadHQ() {
 export function handleHQInsert(event) {
   event.preventDefault();
   
-  const hqInput = document.getElementById("hqInput");
+  const hqInput = document.getElementById("hQLocation");
   const hqValue = hqInput.value.trim();
 
   if (!hqValue) {

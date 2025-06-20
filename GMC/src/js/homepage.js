@@ -11,7 +11,7 @@ import "../css/style.css";
 import "../css/index.css";
 import { initSlider } from './slider.js';
 import { loadChart } from './loadChart.js';
-import { loadHQ } from './loadHQ.js';
+import { handleHQInsert, loadHQ } from './loadHQ.js';
 //console.log(data);
 //let updatedMarkers = [...data];
 let updatedMarkers = [];
@@ -87,8 +87,7 @@ window.addEventListener('DOMContentLoaded', () => {
   //handle the click of the HQ button
   loadHQ();
 
-
-
+document.getElementById("hqForm").addEventListener("submit", handleHQInsert);
   const form = document.getElementById("dataForm");
   form.addEventListener("submit", (event) => {
     event.preventDefault(); // Prevents default page reload
@@ -196,4 +195,8 @@ function HQ() {
   // HQ button click handler
   console.log("HQ button clicked");
   loadHQ();
+}
+
+function hQClick(){
+  handleHQInsert();
 }

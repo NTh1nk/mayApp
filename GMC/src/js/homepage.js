@@ -85,7 +85,7 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById("insertBtn").addEventListener("click", handleInsert);
 
   //handle the click of the HQ button
-  document.getElementById("openHQBtn").addEventListener("click", HQ);
+  loadHQ();
 
 
 

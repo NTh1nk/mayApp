@@ -43,9 +43,26 @@ export function loadHQTableFromStorage() {
   hqTableBody.innerHTML = ""; // Clear existing rows
 
   const hqList = JSON.parse(localStorage.getItem('hqList')) || [];
-  hqList.forEach(hq => {
+  hqList.forEach((hq, idx) => {
     const row = document.createElement("tr");
-    row.innerHTML = `<td>${hq.address}</td><td>${hq.timezone}</td>`;
+    row.innerHTML = `
+      <td>${hq.address}</td>
+      <td>${hq.timezone}</td>
+      <td>
+        <button class="delete-hq-btn" data-idx="${idx}" style="color:red;">Delete</button>
+      </td>
+    `;
     hqTableBody.appendChild(row);
+  });
+
+  // Add event listeners for delete buttons
+  hqTableBody.querySelectorAll('.delete-hq-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const idx = parseInt(this.getAttribute('data-idx'));
+      let hqList = JSON.parse(localStorage.getItem('hqList')) || [];
+      hqList.splice(idx, 1); // Remove the HQ at this index
+      localStorage.setItem('hqList', JSON.stringify(hqList));
+      loadHQTableFromStorage(); // Refresh the table
+    });
   });
 }

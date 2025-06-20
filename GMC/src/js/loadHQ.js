@@ -1,3 +1,5 @@
+import { geocodeAddress } from './geocodeAddress.js'; // adjust path as needed
+
 export function loadHQ() {
   const overlay = document.getElementById("hQOverlay");
   const btn = document.getElementById("openHQBtn");
@@ -12,7 +14,7 @@ export function loadHQ() {
   });
 }
 
-export function handleHQInsert(event) {
+export async function handleHQInsert(event) {
   event.preventDefault();
 
   const hqInput = document.getElementById("hQLocation");
@@ -23,15 +25,24 @@ export function handleHQInsert(event) {
     return;
   }
 
+  // Call geocode function to get timezone (and optionally lat/lng)
+  let timezone = "—";
+  try {
+    const geoResult = await geocodeAddress(hqValue); // your async geocode function
+    timezone = geoResult.timezone || "—";
+  } catch (err) {
+    alert("Could not determine timezone for this location.");
+  }
+
   // 1. Get current HQs from localStorage or start with empty array
   let hqList = JSON.parse(localStorage.getItem('hqList')) || [];
 
-  // 2. Add the new HQ
-  hqList.push({ address: hqValue, timezone: "—" });
+  // 2. Add the new HQ with timezone
+  hqList.push({ address: hqValue, timezone });
 
   // 3. Save back to localStorage
   localStorage.setItem('hqList', JSON.stringify(hqList));
-
+  console.log("HQ List updated:", hqList);
   // 4. Refresh the table
   loadHQTableFromStorage();
 

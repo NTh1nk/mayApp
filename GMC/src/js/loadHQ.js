@@ -14,7 +14,7 @@ export function loadHQ() {
 
 export function handleHQInsert(event) {
   event.preventDefault();
-  
+
   const hqInput = document.getElementById("hQLocation");
   const hqValue = hqInput.value.trim();
 
@@ -23,14 +23,29 @@ export function handleHQInsert(event) {
     return;
   }
 
+  // 1. Get current HQs from localStorage or start with empty array
+  let hqList = JSON.parse(localStorage.getItem('hqList')) || [];
 
-  const hqTableBody = document.getElementById("hQTable").querySelector("tbody");
-  const row = document.createElement("tr");
-  row.innerHTML = `<td>${hqValue}</td><td>—</td>`;
-  hqTableBody.appendChild(row);
+  // 2. Add the new HQ
+  hqList.push({ address: hqValue, timezone: "—" });
 
-  // Process the HQ input (e.g., geocode it, add to markers)
-  
-  // Clear the input field
+  // 3. Save back to localStorage
+  localStorage.setItem('hqList', JSON.stringify(hqList));
+
+  // 4. Refresh the table
+  loadHQTableFromStorage();
+
   hqInput.value = '';
+}
+
+export function loadHQTableFromStorage() {
+  const hqTableBody = document.getElementById("hQTable").querySelector("tbody");
+  hqTableBody.innerHTML = ""; // Clear existing rows
+
+  const hqList = JSON.parse(localStorage.getItem('hqList')) || [];
+  hqList.forEach(hq => {
+    const row = document.createElement("tr");
+    row.innerHTML = `<td>${hq.address}</td><td>${hq.timezone}</td>`;
+    hqTableBody.appendChild(row);
+  });
 }

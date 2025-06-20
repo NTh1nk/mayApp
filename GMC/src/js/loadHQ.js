@@ -23,6 +23,12 @@ export function handleHQInsert(event) {
     return;
   }
 
+
+  const hqTableBody = document.getElementById("hQTable").querySelector("tbody");
+  const row = document.createElement("tr");
+  row.innerHTML = `<td>${hqValue}</td><td>—</td>`;
+  hqTableBody.appendChild(row);
+
   // Process the HQ input (e.g., geocode it, add to markers)
   
   // Clear the input field

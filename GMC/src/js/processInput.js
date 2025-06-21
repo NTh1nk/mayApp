@@ -33,12 +33,7 @@ export async function processInput(eventOrData) {
 
         deleteBtn.textContent = "Delete";
         deleteBtn.className = "delete-location-btn";
-        deleteBtn.style.background = "#ff4d4f";
-        deleteBtn.style.color = "#fff";
-        deleteBtn.style.border = "none";
-        deleteBtn.style.borderRadius = "4px";
-        deleteBtn.style.padding = "4px 12px";
-        deleteBtn.style.cursor = "pointer";
+
         deleteBtn.addEventListener("click", () => {
             newRow.remove();
         });
@@ -62,7 +57,7 @@ export async function processInput(eventOrData) {
         
         deleteCell.appendChild(deleteBtn);
         newRow.appendChild(deleteCell);
-        
+
         tableBody.appendChild(newRow);
             
     

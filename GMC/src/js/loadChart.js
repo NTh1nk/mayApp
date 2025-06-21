@@ -91,6 +91,7 @@ export function loadHQChart() {
   for (let i = 0; i < hqList.length; i++) {
     const storedValue = localStorage.getItem(`hQ_${i}`) || 0;
     data.push(storedValue);
+    console.log(`HQ ${i}: ${hqList[i].address}, Value: ${storedValue}`);
   }
 
   new Chart(ctx, {

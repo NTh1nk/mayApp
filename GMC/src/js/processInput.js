@@ -28,7 +28,20 @@ export async function processInput(eventOrData) {
         const newRow = document.createElement("tr");
         const addressCell = document.createElement("td");
         const amountCell = document.createElement("td")
+        const deleteCell = document.createElement("td");
+        const deleteBtn = document.createElement("button");
 
+        deleteBtn.textContent = "Delete";
+        deleteBtn.className = "delete-location-btn";
+        deleteBtn.style.background = "#ff4d4f";
+        deleteBtn.style.color = "#fff";
+        deleteBtn.style.border = "none";
+        deleteBtn.style.borderRadius = "4px";
+        deleteBtn.style.padding = "4px 12px";
+        deleteBtn.style.cursor = "pointer";
+        deleteBtn.addEventListener("click", () => {
+            newRow.remove();
+        });
 
         let coords = await geocodeAddress(location);
 
@@ -46,6 +59,9 @@ export async function processInput(eventOrData) {
 
         newRow.appendChild(addressCell);
         newRow.appendChild(amountCell);
+        
+        deleteCell.appendChild(deleteBtn);
+        newRow.appendChild(deleteCell);
         
         tableBody.appendChild(newRow);
             

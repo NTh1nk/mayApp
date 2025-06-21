@@ -1,4 +1,3 @@
-
 export function loadChart() {
   const overlay = document.getElementById("canvasOverlay");
   const canvas = document.getElementById("flawChart");
@@ -81,6 +80,7 @@ export function loadChart() {
   });
 }
 
+let hqChartInstance = null; // Place this at module/global scope
 
 export function loadHQChart() {
   const hqList = JSON.parse(localStorage.getItem('hqList')) || [];
@@ -89,17 +89,31 @@ export function loadHQChart() {
   let data = []; 
 
   for (let i = 0; i < hqList.length; i++) {
-    const storedValue = localStorage.getItem(`hQ_${i}`) || 0;
-    data.push(storedValue);
-    console.log(`HQ ${i}: ${hqList[i].address}, Value: ${storedValue}`);
+    const storedValue = localStorage.getItem(`hQ_${i}`);
+    let totalDistance = 0;
+    if (storedValue) {
+      try {
+        const parsed = JSON.parse(storedValue);
+        totalDistance = typeof parsed.totalDistance === "number" ? parsed.totalDistance : 0;
+      } catch (e) {
+        totalDistance = 0;
+      }
+    }
+    data.push(totalDistance);
+    console.log(`HQ ${i}: ${hqList[i]?.address}, Value: ${totalDistance}`);
   }
 
-  new Chart(ctx, {
+  // Destroy previous chart instance if it exists
+  if (hqChartInstance) {
+    hqChartInstance.destroy();
+  }
+
+  hqChartInstance = new Chart(ctx, {
     type: 'bar',
     data: {
       labels: labels,
       datasets: [{
-        label: 'HQs',
+        label: 'Total Distance (km)',
         data: data,
         backgroundColor: 'rgba(30, 144, 255, 0.7)'
       }]

@@ -44,7 +44,7 @@ body {
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
   background-image:
-    linear-gradient(#1c1c1c, #1c1c1c),
+    linear-gradient(#610d0d66, #86111170),
     linear-gradient(90deg, #ff4d4f, #ffb347);
   background-origin: border-box;
   background-clip: padding-box, border-box;

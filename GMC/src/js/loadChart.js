@@ -86,7 +86,12 @@ export function loadHQChart() {
   const hqList = JSON.parse(localStorage.getItem('hqList')) || [];
   const ctx = document.getElementById('hqGraph').getContext('2d');
   const labels = hqList.map(hq => hq.address);
-  const data = hqList.map(hq => 1); // Or use a real metric if you have one
+  let data = []; 
+
+  for (let i = 0; i < hqList.length; i++) {
+    const storedValue = localStorage.getItem(`hQ_${i}`) || 0;
+    data.push(storedValue);
+  }
 
   new Chart(ctx, {
     type: 'bar',

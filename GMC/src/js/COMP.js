@@ -30,7 +30,9 @@ export function cOMP(candidateCities, participants) {
   cityScores.sort((a, b) => a.totalDistance - b.totalDistance);
 
   for (let i = 0; i < cityScores.length; i++) {
+    localStorage.setItem(`hQ_${i}`, JSON.stringify(cityScores[i]));
     console.log(`City: ${cityScores[i].city}, Total Distance: ${cityScores[i].totalDistance.toFixed(2)} km`);
+
   }
   console.log('Optimal meeting city:', cityScores[0].city);
   return cityScores[0].city;

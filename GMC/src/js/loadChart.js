@@ -102,6 +102,7 @@ export function loadHQChart() {
     data.push(totalDistance);
     console.log(`HQ ${i}: ${hqList[i]?.address}, Value: ${totalDistance}`);
   }
+  const maxFlaw = Math.max(...data);
 
   // Destroy previous chart instance if it exists
   if (hqChartInstance) {
@@ -123,6 +124,11 @@ export function loadHQChart() {
       plugins: {
         legend: { display: false }
       },
+      ticks: {
+            min: 0,
+            max: data * 1.2, // 20% more than max flaw
+            fontColor: 'white' // Y-axis label color
+          },
       scales: {
         y: { beginAtZero: true }
       }

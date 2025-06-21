@@ -78,3 +78,27 @@ export async function processInput(eventOrData) {
         return { error: "No input provided" };
     }
 }
+
+
+export async function processHQ(HQData) {
+    // This function processes HQ data, which is expected to be an object with address and timezone
+    if (!HQData || !HQData.address) {
+        console.warn("Invalid HQ data:", HQData);
+        return { error: "Invalid HQ data" };
+    }
+
+    // Geocode the HQ address to get coordinates
+    const coords = await geocodeAddress(HQData.address);
+    if (!coords) {
+        console.warn("Failed to get coordinates for HQ:", HQData.address);
+        return { error: "Failed to get coordinates" };
+    }
+
+
+
+
+    // Return the processed HQ data with coordinates
+    return { ...HQData, coords };
+
+    
+}

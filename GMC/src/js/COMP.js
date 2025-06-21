@@ -22,7 +22,7 @@ export function cOMP(candidateCities, participants) {
   const cityScores = candidateCities.map(city => {
     let totalDistance = 0;
     for (const p of participants) {
-      totalDistance += distance(p.lat, p.lng, city.lat, city.lng) * p.amount;
+      totalDistance += distance(p.lat, p.lng, city.lat, city.lng) * (p.amount || 1);
     }
     return { city: city.name, totalDistance };
   });
@@ -30,6 +30,11 @@ export function cOMP(candidateCities, participants) {
   cityScores.sort((a, b) => a.totalDistance - b.totalDistance);
 
   console.log("cityScores:", cityScores);
+  for (let i = 0; i < cityScores.length; i++) {
+    localStorage.setItem(`hQ_${i}`, JSON.stringify(cityScores[i]));
+    console.log(`City: ${cityScores[i].city}, Total Distance: ${cityScores[i].totalDistance.toFixed(2)} km`);
+
+  }
   console.log('Optimal meeting city:', cityScores[0].city);
   
   return cityScores[0].city;

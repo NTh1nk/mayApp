@@ -25,12 +25,13 @@
   </div>
   <div class="sidebar" style="width:25%">
     <h3 class="bar-item">Menu</h3>
-      <form id="dataForm">
+      <form id="dataForm"  style="display: inline;">
         <input type="text" id="location" name="location" placeholder="Enter location..." required><br><br>
         <input type="text" id="amount" name="amount" placeholder="Enter amount..." required><br><br>
         <button  type="submit" id="insertBtn" class="button">Insert</button>
-    </form>
-
+      </form>
+      <button  id="openHQBtn" class="button">Add HQ</button>
+    
   
     <h2>Select your availability</h2>
     <div id="slider"></div>
@@ -79,6 +80,31 @@
     </div>
     <div id="canvasOverlay">
       <canvas id="flawChart"></canvas>
+    </div>
+    <div id ="hQOverlay">
+      <div class="hQOverlay-content">
+        <span class="close">&times;</span>
+        <h2>Headquarters</h2>
+            <form id="hqForm" autocomplete="off">
+              <input type="text" id="hQLocation" name="hQLocation" placeholder="Enter location..." required>
+              <button id="hQBtn" type="submit" style="display:none"></button> <!-- Hidden submit button for Enter key -->
+            </form>
+              <button id="openHQGraphBtn" class="button" style="margin-bottom: 1em;">Show HQ Graph</button>
+              <div id="hqGraphContainer" style="display:none; margin-bottom: 1em;">
+                <canvas id="hqGraph" width="400" height="200"></canvas>
+              </div>
+            <table id="hQTable">
+              <thead>
+            <tr>
+              <th>Address</th>
+              <th>Time Zone</th>
+            </tr> 
+            </thead>
+            <tbody>
+              
+            </tbody>
+          </table>
+      </div>
     </div>
     <div class="container">
       <!--Here it should parse the markers into the initglobe func-->

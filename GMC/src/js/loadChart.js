@@ -1,4 +1,3 @@
-
 export function loadChart() {
   const overlay = document.getElementById("canvasOverlay");
   const canvas = document.getElementById("flawChart");
@@ -76,6 +75,65 @@ export function loadChart() {
         bodyFontColor: 'white',
         titleFontColor: 'white',
         backgroundColor: '#333'
+      }
+    }
+  });
+}
+
+let hqChartInstance = null; // Place this at module/global scope
+
+export function loadHQChart() {
+  const hqList = JSON.parse(localStorage.getItem('hqList')) || [];
+  const ctx = document.getElementById('hqGraph').getContext('2d');
+  const labels = hqList.map(hq => hq.address);
+  let data = []; 
+
+  for (let i = 0; i < hqList.length; i++) {
+    const storedValue = localStorage.getItem(`hQ_${i}`);
+    let totalDistance = 0;
+    if (storedValue) {
+      try {
+        const parsed = JSON.parse(storedValue);
+        totalDistance = typeof parsed.totalDistance === "number" ? parsed.totalDistance : 0;
+      } catch (e) {
+        totalDistance = 0;
+      }
+    }
+    data.push(totalDistance);
+    console.log(`HQ ${i}: ${hqList[i]?.address}, Value: ${totalDistance}`);
+  }
+  const hQMaxFlaw = data.length ? Math.max(...data) : 1;
+
+  // Destroy previous chart instance if it exists
+  if (hqChartInstance) {
+    hqChartInstance.destroy();
+  }
+
+  hqChartInstance = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Total Distance (km)',
+        data: data,
+        backgroundColor: 'rgba(30, 144, 255, 0.7)'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          min: 0,
+          max: hQMaxFlaw * 1.2,
+          ticks: { color: 'white' }
+        },
+        x: {
+          ticks: { color: 'white' }
+        }
       }
     }
   });

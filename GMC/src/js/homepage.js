@@ -131,17 +131,19 @@ document.getElementById("hqForm").addEventListener("submit", handleHQInsert);
       lat = person.lat;
       lng = person.lng;
     }
+    // Default amount to 1 if missing or invalid
+    let amount = (typeof person.amount === "number" && !isNaN(person.amount)) ? person.amount : 1;
+
     if (typeof lat === "number" && typeof lng === "number") {
-      // Add to addressData for calculations
       addressData.push({
         lat,
         lng,
+        amount,
         workStart: person.workStart || 540,
         workEnd: person.workEnd || 1260,
         timezone: person.timezone || "",
-        ...person.coords // include any extra info if needed
+        ...(person.coords || {})
       });
-      // Add to updatedMarkers for globe
       updatedMarkers.push({ lat, lng });
     }
   }

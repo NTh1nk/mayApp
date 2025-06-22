@@ -144,7 +144,13 @@ document.getElementById("hqForm").addEventListener("submit", handleHQInsert);
         timezone: person.timezone || "",
         ...(person.coords || {})
       });
-      updatedMarkers.push({ lat, lng });
+      updatedMarkers.push({
+        lat,
+        lng,
+        name: person.address || person.name || "", // Add a name for the marker
+        infoBox: person.infoBox || "",             // Optional: add infoBox if your globe uses it
+        amount
+      });
     }
   }
   console.log("updatedMarkers:", updatedMarkers);

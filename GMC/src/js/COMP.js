@@ -48,10 +48,11 @@ export function cOMP(candidateCities, participants) {
 }
 
 // Example usage:
+/*
 const participants = [
   { lat: 55.6761, lng: 12.5683 }, // Copenhagen
   { lat: 48.8566, lng: 2.3522 },  // Paris
   { lat: 40.7128, lng: -74.0060 }, // NYC
-];
+];*/
 
 //cOMP(candidateCities, participants);

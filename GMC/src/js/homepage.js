@@ -86,7 +86,7 @@ async function handleCalc(event) {
 }
 
 // Attach event listener after DOM is loaded
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', async () => {
   window.processInput = processInput;
   
   document.getElementById('calcBtn').addEventListener("click", handleCalc);
@@ -121,7 +121,7 @@ document.getElementById("hqForm").addEventListener("submit", handleHQInsert);
    // --- LOAD PEOPLE FROM LOCALSTORAGE AND INIT GLOBE ---
   let peopleList = JSON.parse(localStorage.getItem('peopleList')) || [];
   addressData = [];
-  updatedMarkers = [];
+  let rawMarkers = [];
   for (const person of peopleList) {
     let lat, lng;
     if (person.coords && typeof person.coords.lat === "number" && typeof person.coords.lng === "number") {
@@ -131,7 +131,6 @@ document.getElementById("hqForm").addEventListener("submit", handleHQInsert);
       lat = person.lat;
       lng = person.lng;
     }
-    // Default amount to 1 if missing or invalid
     let amount = (typeof person.amount === "number" && !isNaN(person.amount)) ? person.amount : 1;
 
     if (typeof lat === "number" && typeof lng === "number") {
@@ -144,22 +143,36 @@ document.getElementById("hqForm").addEventListener("submit", handleHQInsert);
         timezone: person.timezone || "",
         ...(person.coords || {})
       });
-      updatedMarkers.push({
+      rawMarkers.push({
         lat,
         lng,
         workStart: person.workStart || 540,
         workEnd: person.workEnd || 1260,
         name: person.address || person.name || "",
-        //infoBox: person.infoBox || "",
         amount
       });
     }
   }
-  console.log("updatedMarkers:", updatedMarkers);
+
+  // --- NEW: Process markers through your markers() function ---
+  // This ensures all marker objects have the correct texture and properties
+  let processedMarkers = [];
+  for (const marker of rawMarkers) {
+    // markers() may be async and may return an array, so await and flatten
+    const result = await markers(marker);
+    if (Array.isArray(result)) {
+      processedMarkers = processedMarkers.concat(result);
+    } else if (result) {
+      processedMarkers.push(result);
+    }
+  }
+
+  // Get current UTC minutes
   const now = new Date();
   const utcMinutes = now.getUTCHours() * 60 + now.getUTCMinutes();
-  let finalMarkers = reloadMarkers(updatedMarkers, utcMinutes); // Initialize with OMT 60 = 01:00 UTC
-  initGlobe({ coordinateArray: finalMarkers }); 
+
+  let finalMarkers = reloadMarkers(processedMarkers, utcMinutes);
+  initGlobe({ coordinateArray: finalMarkers });
 });
 
 

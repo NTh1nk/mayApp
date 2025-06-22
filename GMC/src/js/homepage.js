@@ -1,4 +1,4 @@
-import { processInput } from './processInput.js';
+import { processInput, renderPeopleTable } from './processInput.js';
 import { initGlobe } from './globe.js';
 import { markers } from './placeMarker.js';
 //import data from './markers.json';
@@ -39,6 +39,13 @@ async function handleInsert(event) {
     timezone,       // Add timezone to address data
     // add other fields as needed
   });
+
+    // --- Save to localStorage ---
+  let peopleList = JSON.parse(localStorage.getItem('peopleList')) || [];
+  peopleList.push(personObj);
+  localStorage.setItem('peopleList', JSON.stringify(peopleList));
+  // ----------------------------
+
 
   updatedMarkers = updatedMarkers.concat(await markers(inputData));
   console.log("Updated markers:", updatedMarkers)
@@ -100,7 +107,7 @@ window.addEventListener('DOMContentLoaded', () => {
   });
   //handle the click of the HQ button
   loadHQ();
-  
+  renderPeopleTable();
 
 document.getElementById("hqForm").addEventListener("submit", handleHQInsert);
   const form = document.getElementById("dataForm");

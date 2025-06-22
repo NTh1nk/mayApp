@@ -147,6 +147,8 @@ document.getElementById("hqForm").addEventListener("submit", handleHQInsert);
       updatedMarkers.push({
         lat,
         lng,
+        workStart: person.workStart || 540,
+        workEnd: person.workEnd || 1260,
         name: person.address || person.name || "",
         //infoBox: person.infoBox || "",
         amount

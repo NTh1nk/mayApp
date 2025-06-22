@@ -117,8 +117,20 @@ document.getElementById("hqForm").addEventListener("submit", handleHQInsert);
 
   });
   initSlider();
-  // Initialize globe with no markers
-  initGlobe({ coordinateArray: [] });
+   // --- LOAD PEOPLE FROM LOCALSTORAGE AND INIT GLOBE ---
+  let peopleList = JSON.parse(localStorage.getItem('peopleList')) || [];
+  addressData = [];
+  updatedMarkers = [];
+  for (const person of peopleList) {
+    // If you saved workStart, workEnd, timezone, etc., use them; otherwise, set defaults
+    addressData.push({
+      ...person.coords,
+      workStart: person.workStart || 540,
+      workEnd: person.workEnd || 1260,
+      timezone: person.timezone || "",
+    });
+    updatedMarkers.push(person.coords);
+  }
 });
 
 

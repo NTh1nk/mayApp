@@ -147,8 +147,8 @@ document.getElementById("hqForm").addEventListener("submit", handleHQInsert);
       updatedMarkers.push({
         lat,
         lng,
-        name: person.address || person.name || "", // Add a name for the marker
-        infoBox: person.infoBox || "",             // Optional: add infoBox if your globe uses it
+        name: person.address || person.name || "",
+        infoBox: person.infoBox || "",
         amount
       });
     }

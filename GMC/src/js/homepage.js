@@ -154,7 +154,7 @@ document.getElementById("hqForm").addEventListener("submit", handleHQInsert);
     }
   }
   console.log("updatedMarkers:", updatedMarkers);
-  finalMarkers = reloadMarkers(updatedMarkers, 60); // Initialize with OMT 60 = 01:00 UTC
+  let finalMarkers = reloadMarkers(updatedMarkers, 60); // Initialize with OMT 60 = 01:00 UTC
   initGlobe({ coordinateArray: finalMarkers }); 
 });
 

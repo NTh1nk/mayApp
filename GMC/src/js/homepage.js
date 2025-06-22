@@ -144,8 +144,7 @@ document.getElementById("hqForm").addEventListener("submit", handleHQInsert);
         ...(person.coords || {})
       });
       rawMarkers.push({
-        lat,
-        lng,
+        coords: { lat, lng },
         workStart: person.workStart || 540,
         workEnd: person.workEnd || 1260,
         name: person.address || person.name || "",

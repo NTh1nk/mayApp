@@ -32,13 +32,14 @@ async function handleInsert(event) {
 
   // Merge coords into the object for COMT
   console.log("Input data:", inputData);
-  addressData.push({
+  const personObj = {
     ...inputData.coords,
-    workStart: 540, // Could also get input here
-    workEnd: 1260,  // Could also get input here
-    timezone,       // Add timezone to address data
+    workStart: 540,
+    workEnd: 1260,
+    timezone,
     // add other fields as needed
-  });
+  };
+  addressData.push(personObj);
 
     // --- Save to localStorage ---
   let peopleList = JSON.parse(localStorage.getItem('peopleList')) || [];

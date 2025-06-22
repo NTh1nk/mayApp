@@ -50,6 +50,7 @@ async function handleInsert(event) {
 
   updatedMarkers = updatedMarkers.concat(await markers(inputData));
   console.log("Updated markers:", updatedMarkers)
+  console.log("Markers for globe:", updatedMarkers);
   initGlobe({ coordinateArray: updatedMarkers });
 
   // Clear inputs and refocus
@@ -122,14 +123,22 @@ document.getElementById("hqForm").addEventListener("submit", handleHQInsert);
   addressData = [];
   updatedMarkers = [];
   for (const person of peopleList) {
-    // If you saved workStart, workEnd, timezone, etc., use them; otherwise, set defaults
-    addressData.push({
-      ...person.coords,
-      workStart: person.workStart || 540,
-      workEnd: person.workEnd || 1260,
-      timezone: person.timezone || "",
-    });
-    updatedMarkers.push(person.coords);
+    // If person.coords exists and has lat/lng, use it
+    if (person.coords && typeof person.coords.lat === "number" && typeof person.coords.lng === "number") {
+      updatedMarkers.push({
+        lat: person.coords.lat,
+        lng: person.coords.lng,
+        ...person.coords, // include other properties if needed
+      });
+    } else if (typeof person.lat === "number" && typeof person.lng === "number") {
+      // fallback if person itself has lat/lng
+      updatedMarkers.push({
+        lat: person.lat,
+        lng: person.lng,
+        ...person
+      });
+    }
+    // addressData can be handled similarly if needed
   }
   initGlobe({ coordinateArray: updatedMarkers }); 
 });

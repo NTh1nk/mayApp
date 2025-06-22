@@ -148,7 +148,7 @@ document.getElementById("hqForm").addEventListener("submit", handleHQInsert);
         lat,
         lng,
         name: person.address || person.name || "",
-        infoBox: person.infoBox || "",
+        //infoBox: person.infoBox || "",
         amount
       });
     }

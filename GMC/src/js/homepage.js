@@ -205,8 +205,8 @@ async function handlecOMP() {
   }
 
   const OMPBox = document.getElementById("ompResult");
-  const OMP = cOMP(candidateCities, addressData);
   console.log(candidateCities, addressData);
+  const OMP = cOMP(candidateCities, addressData);
   OMPBox.value = OMP;
   OMPBox.style.color = "white";
 

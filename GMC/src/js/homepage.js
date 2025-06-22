@@ -123,22 +123,27 @@ document.getElementById("hqForm").addEventListener("submit", handleHQInsert);
   addressData = [];
   updatedMarkers = [];
   for (const person of peopleList) {
-    // If person.coords exists and has lat/lng, use it
+    let lat, lng;
     if (person.coords && typeof person.coords.lat === "number" && typeof person.coords.lng === "number") {
-      updatedMarkers.push({
-        lat: person.coords.lat,
-        lng: person.coords.lng,
-        ...person.coords, // include other properties if needed
-      });
+      lat = person.coords.lat;
+      lng = person.coords.lng;
     } else if (typeof person.lat === "number" && typeof person.lng === "number") {
-      // fallback if person itself has lat/lng
-      updatedMarkers.push({
-        lat: person.lat,
-        lng: person.lng,
-        ...person
-      });
+      lat = person.lat;
+      lng = person.lng;
     }
-    // addressData can be handled similarly if needed
+    if (typeof lat === "number" && typeof lng === "number") {
+      // Add to addressData for calculations
+      addressData.push({
+        lat,
+        lng,
+        workStart: person.workStart || 540,
+        workEnd: person.workEnd || 1260,
+        timezone: person.timezone || "",
+        ...person.coords // include any extra info if needed
+      });
+      // Add to updatedMarkers for globe
+      updatedMarkers.push({ lat, lng });
+    }
   }
   initGlobe({ coordinateArray: updatedMarkers }); 
 });

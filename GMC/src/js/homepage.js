@@ -147,6 +147,7 @@ document.getElementById("hqForm").addEventListener("submit", handleHQInsert);
       updatedMarkers.push({ lat, lng });
     }
   }
+  console.log("updatedMarkers:", updatedMarkers);
   initGlobe({ coordinateArray: updatedMarkers }); 
 });
 

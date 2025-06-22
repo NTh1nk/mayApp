@@ -131,6 +131,7 @@ document.getElementById("hqForm").addEventListener("submit", handleHQInsert);
     });
     updatedMarkers.push(person.coords);
   }
+  initGlobe({ coordinateArray: updatedMarkers }); 
 });
 
 

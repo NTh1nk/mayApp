@@ -154,7 +154,8 @@ document.getElementById("hqForm").addEventListener("submit", handleHQInsert);
     }
   }
   console.log("updatedMarkers:", updatedMarkers);
-  initGlobe({ coordinateArray: updatedMarkers }); 
+  finalMarkers = reloadMarkers(updatedMarkers, 0); // Initialize with OMT 0
+  initGlobe({ coordinateArray: finalMarkers }); 
 });
 
 

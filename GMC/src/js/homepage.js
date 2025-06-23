@@ -170,8 +170,8 @@ document.getElementById("hqForm").addEventListener("submit", handleHQInsert);
   const now = new Date();
   const utcMinutes = now.getUTCHours() * 60 + now.getUTCMinutes();
 
-  let finalMarkers = reloadMarkers(processedMarkers, utcMinutes);
-  initGlobe({ coordinateArray: finalMarkers });
+  updatedMarkers = reloadMarkers(processedMarkers, utcMinutes);
+  initGlobe({ coordinateArray: updatedMarkers });
 });
 
 

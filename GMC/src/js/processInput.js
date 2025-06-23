@@ -22,13 +22,14 @@ export function renderPeopleTable() {
             // Remove from localStorage
             let updatedList = JSON.parse(localStorage.getItem('peopleList')) || [];
             updatedList = updatedList.filter(p =>
-                !(p.address === person.address && p.amount === person.amount)
+                !(String(p.address) === String(person.address) && Number(p.amount) === Number(person.amount))
             );
             localStorage.setItem('peopleList', JSON.stringify(updatedList));
+            console.log("Deleted person:", person.address, person.amount);
             // Remove from table
             renderPeopleTable();
         });
-
+s
         deleteCell.appendChild(deleteBtn);
         newRow.appendChild(addressCell);
         newRow.appendChild(amountCell);

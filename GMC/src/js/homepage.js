@@ -214,9 +214,10 @@ async function handlecOMP() {
   OMPBox.value = OMP;
   OMPBox.style.color = "white";
 
+  console.log("calling processinput with ", OMP);
   const inputCity = await processInput({ address: OMP });
-
-  if (inputCity?.error ||!inputCity) {
+  console.log("Result from processInput for OMP:", inputCity);
+  if (inputCity?.error || !inputCity) {
     console.warn("Input error:", inputCity?.error);
     return;
   }

@@ -60,7 +60,7 @@ export async function processInput(eventOrData) {
         let peopleList = JSON.parse(localStorage.getItem('peopleList')) || [];
         peopleList.push({ address: location, amount, coords });
         localStorage.setItem('peopleList', JSON.stringify(peopleList));
-
+        console.log("Saved person:", JSON.stringify(peopleList));
         // Re-render table
         renderPeopleTable();
 

@@ -207,12 +207,16 @@ async function handlecOMP() {
   const OMPBox = document.getElementById("ompResult");
   console.log(candidateCities, addressData);
   const OMP = cOMP(candidateCities, addressData);
+  if (!OMP) {
+    console.error("cOMP returned undefined. candidateCities:", candidateCities, "addressData:", addressData);
+    return;
+  }
   OMPBox.value = OMP;
   OMPBox.style.color = "white";
 
   const inputCity = await processInput({ address: OMP });
 
-  if (inputCity?.error) {
+  if (inputCity?.error ||!inputCity) {
     console.warn("Input error:", inputCity?.error);
     return;
   }
@@ -220,7 +224,7 @@ async function handlecOMP() {
   // Ensure inputCity has coords and name
   if (!inputCity.coords || !inputCity.coords.lat || !inputCity.coords.lng) {
     console.error("Invalid inputCity coordinates:", inputCity);
-    
+    return;
   }
   else {
     inputCity.coords.infoBox = "OMP";

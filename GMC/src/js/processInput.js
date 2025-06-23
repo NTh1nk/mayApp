@@ -21,9 +21,18 @@ export function renderPeopleTable() {
         deleteBtn.addEventListener("click", () => {
             // Remove from localStorage
             let updatedList = JSON.parse(localStorage.getItem('peopleList')) || [];
-            updatedList = updatedList.filter(p =>
-                !(String(p.address) === String(person.address) && Number(p.amount) === Number(person.amount))
-            );
+            updatedList = updatedList.filter(p => {
+                // Case 1: address/amount at top level
+                if (p.address && typeof p.amount !== "undefined") {
+                    return !(String(p.address) === String(person.address) && Number(p.amount) === Number(person.amount));
+                }
+                // Case 2: coords at top level, no address/amount
+                if (p.lat && p.lng && person.coords) {
+                    return !(Number(p.lat) === Number(person.coords.lat) && Number(p.lng) === Number(person.coords.lng));
+                }
+                // Otherwise, keep
+                return true;
+            });
             localStorage.setItem('peopleList', JSON.stringify(updatedList));
             console.log("Deleted person:", person.address, person.amount);
             // Remove from table

@@ -217,9 +217,15 @@ async function handlecOMP() {
     return;
   }
 
-  inputCity.coords.infoBox = "OMP";
-  console.log("Input City: ", inputCity);
-
+  // Ensure inputCity has coords and name
+  if (!inputCity.coords || !inputCity.coords.lat || !inputCity.coords.lng) {
+    console.error("Invalid inputCity coordinates:", inputCity);
+    
+  }
+  else {
+    inputCity.coords.infoBox = "OMP";
+    console.log("Input City: ", inputCity);
+  }
   updatedMarkers = updatedMarkers.concat(await markers(inputCity));
   console.log("Updated markers:", updatedMarkers);
 

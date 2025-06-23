@@ -11,7 +11,7 @@ export function renderPeopleTable() {
         const addressCell = document.createElement("td");
         const amountCell = document.createElement("td");
         const deleteCell = document.createElement("td");
-        const deleteBtn = document.createElement("button");
+        const deleteBtn = document.createElement("button"); 
 
         addressCell.textContent = person.address || person.location || '';
         amountCell.textContent = person.amount || '';
@@ -68,7 +68,12 @@ export async function processInput(eventOrData) {
         document.getElementById("amount").value = '';
         return { address: location, amount, coords };
     } else if (eventOrData && typeof eventOrData === "object") {
-        // ...existing object handling code...
+        let coords = await geocodeAddress(eventOrData.address);
+        if (!coords) {
+            alert("Failed to get coordinates for " + eventOrData.address);
+            return { error: "Failed to get coordinates" };
+        }
+        return { coords };
     } else {
         return { error: "No input provided" };
     }

@@ -215,6 +215,8 @@ async function handlecOMP() {
   OMPBox.style.color = "white";
 
   console.log("calling processinput with ", OMP);
+
+  //currently OMP is just a string of the city name which is why i am getting an error here
   const inputCity = await processInput({ address: OMP });
   console.log("Result from processInput for OMP:", inputCity);
   if (inputCity?.error || !inputCity) {

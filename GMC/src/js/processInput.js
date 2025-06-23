@@ -29,7 +29,7 @@ export function renderPeopleTable() {
             // Remove from table
             renderPeopleTable();
         });
-s
+
         deleteCell.appendChild(deleteBtn);
         newRow.appendChild(addressCell);
         newRow.appendChild(amountCell);

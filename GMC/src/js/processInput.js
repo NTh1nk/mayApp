@@ -38,7 +38,12 @@ export function renderPeopleTable() {
             // Remove from table
             renderPeopleTable();
         });
-
+        //if there is data then append to the table 
+        //this i think is where a was bug is located, and hoppefully this will fix it
+        if(!addressCell.textContent && !amountCell.textContent) {
+            console.warn("Skipping empty row for person:", person);
+            continue; // Skip empty rows
+        }
         deleteCell.appendChild(deleteBtn);
         newRow.appendChild(addressCell);
         newRow.appendChild(amountCell);

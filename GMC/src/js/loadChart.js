@@ -122,23 +122,27 @@ export function loadHQChart() {
     options: {
       responsive: true,
       plugins: {
-        legend: { display: false,
-                  labels: {
-          color: 'white' // legend label color
+        legend: {
+          display: false,
+          labels: {
+            color: 'white' // legend label color
+          }
+        },
+        title: {
+          display: false,
+          color: 'white' // chart title color (if enabled)
         }
-      },
-      title: {
-        display: false,
-        color: 'white' // chart title color (if enabled)
       },
       scales: {
         y: {
           min: 0,
           max: hQMaxFlaw * 1.5,
-          ticks: { color: 'white' }
+          ticks: { color: 'white' },
+          title: { color: 'white' }
         },
         x: {
-          ticks: { color: 'white' }
+          ticks: { color: 'white' },
+          title: { color: 'white' }
         }
       }
     }

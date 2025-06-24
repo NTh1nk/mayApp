@@ -111,6 +111,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   loadHQ();
   renderPeopleTable();
   //reload the markers
+  console.log("Reloading markers with initial data", updatedMarkers);
   initGlobe({ coordinateArray: updatedMarkers });
 
 document.getElementById("hqForm").addEventListener("submit", handleHQInsert);

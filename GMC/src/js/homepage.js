@@ -109,7 +109,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   });
   //handle the click of the HQ button
   loadHQ();
-  renderPeopleTable();
+  await renderPeopleTable();
   //reload the markers
   console.log("Reloading markers with initial data", updatedMarkers);
   initGlobe({ coordinateArray: updatedMarkers });
@@ -295,6 +295,61 @@ function reloadMarkers(markers, OMT) {
 }
 
 
+export async function reloadDelete() {
+  // 1. Reload people from localStorage
+  let peopleList = JSON.parse(localStorage.getItem('peopleList')) || [];
+  addressData = [];
+  let rawMarkers = [];
+  for (const person of peopleList) {
+    let lat, lng;
+    if (person.coords && typeof person.coords.lat === "number" && typeof person.coords.lng === "number") {
+      lat = person.coords.lat;
+      lng = person.coords.lng;
+    } else if (typeof person.lat === "number" && typeof person.lng === "number") {
+      lat = person.lat;
+      lng = person.lng;
+    }
+    let amount = (typeof person.amount === "number" && !isNaN(person.amount)) ? person.amount : 1;
+
+    if (typeof lat === "number" && typeof lng === "number") {
+      addressData.push({
+        lat,
+        lng,
+        amount,
+        workStart: person.workStart || 540,
+        workEnd: person.workEnd || 1260,
+        timezone: person.timezone || "",
+        ...(person.coords || {})
+      });
+      rawMarkers.push({
+        coords: { lat, lng },
+        workStart: person.workStart || 540,
+        workEnd: person.workEnd || 1260,
+        name: person.address || person.name || "",
+        amount
+      });
+    }
+  }
+
+  // 2. Process markers through your markers() function
+  let processedMarkers = [];
+  for (const marker of rawMarkers) {
+    const result = await markers(marker);
+    if (Array.isArray(result)) {
+      processedMarkers = processedMarkers.concat(result);
+    } else if (result) {
+      processedMarkers.push(result);
+    }
+  }
+
+  // 3. Get current UTC minutes
+  const now = new Date();
+  const utcMinutes = now.getUTCHours() * 60 + now.getUTCMinutes();
+
+  // 4. Update and reload globe
+  updatedMarkers = reloadMarkers(processedMarkers, utcMinutes);
+  initGlobe({ coordinateArray: updatedMarkers });
+}
 
 function HQ() {
   // HQ button click handler

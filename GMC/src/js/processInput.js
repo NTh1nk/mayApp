@@ -1,5 +1,5 @@
 import { geocodeAddress } from "./geocodeAddress.js";
-
+import { reloadDelete } from "./homepage.js";
 // Renders the people table from localStorage
 export function renderPeopleTable() {
     const tableBody = document.querySelector("#peopleTable tbody");
@@ -18,7 +18,7 @@ export function renderPeopleTable() {
 
         deleteBtn.textContent = "Delete";
         deleteBtn.className = "delete-location-btn";
-        deleteBtn.addEventListener("click", () => {
+        deleteBtn.addEventListener("click", async () => {
             // Remove from localStorage
             let updatedList = JSON.parse(localStorage.getItem('peopleList')) || [];
             updatedList = updatedList.filter(p => {
@@ -37,6 +37,9 @@ export function renderPeopleTable() {
             console.log("Deleted person:", person.address, person.amount);
             // Remove from table
             renderPeopleTable();
+
+            await reloadDelete(); // <-- Add this line
+
         });
         //if there is data then append to the table 
         //this i think is where a was bug is located, and hoppefully this will fix it

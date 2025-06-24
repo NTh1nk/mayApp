@@ -30,18 +30,27 @@ body{
     width: 100%;
     pointer-events: none;
     text-decoration: underline;
-}  .hero-container {
-        position: relative;
-        width: 80vw;
-        margin: 0 auto;
-    }
+}  
+/* HERO CONTAINER: Full viewport */
+.hero-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
 
-    .hero-container img {
-        width: 100%;
-        height: auto;
-        opacity: 60%;
-        display: block;
-    }
+/* HERO IMAGE: Fill container */
+.hero-container img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    opacity: 0.6; /* or 60% if you prefer */
+    display: block;
+    margin: 0;
+    padding: 0;
+}
 
     .hero-overlay {
         position: absolute;

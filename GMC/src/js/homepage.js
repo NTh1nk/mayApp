@@ -110,6 +110,8 @@ window.addEventListener('DOMContentLoaded', async () => {
   //handle the click of the HQ button
   loadHQ();
   renderPeopleTable();
+  //reload the markers
+  initGlobe({ coordinateArray: updatedMarkers });
 
 document.getElementById("hqForm").addEventListener("submit", handleHQInsert);
   const form = document.getElementById("dataForm");

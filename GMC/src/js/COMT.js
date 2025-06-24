@@ -60,12 +60,21 @@ export async function cOMT(people) {
 
 
 //Dont actually need UTCTime?
-function getLocalTime(dateUTC, timeZone)
-{
-    // Format the UTC date to the local time in the specified time zone
-    const localStr = dateUTC.toLocaleTimeString("en-US", {hour12: false, timeZone});
-    const [hour, minute] = localStr.split(":").map(Number);
-    return hour * 60 + minute;
+function getLocalTime(dateUTC, timeZone) {
+    // Fallback to UTC if timeZone is invalid or missing
+    if (!timeZone || typeof timeZone !== "string" || timeZone.trim() === "") {
+        // Optionally log a warning
+        console.warn("Invalid or missing timeZone, defaulting to UTC:", timeZone);
+        return dateUTC.getUTCHours() * 60 + dateUTC.getUTCMinutes();
+    }
+    try {
+        const localStr = dateUTC.toLocaleTimeString("en-US", {hour12: false, timeZone});
+        const [hour, minute] = localStr.split(":").map(Number);
+        return hour * 60 + minute;
+    } catch (e) {
+        console.warn("Invalid timeZone, defaulting to UTC:", timeZone, e);
+        return dateUTC.getUTCHours() * 60 + dateUTC.getUTCMinutes();
+    }
 }
 
 

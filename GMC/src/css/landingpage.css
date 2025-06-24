@@ -149,7 +149,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5vw; /* space between buttons */
+    gap: 1vw; /* space between buttons */
     width: 100%;
     z-index: 10;
 }

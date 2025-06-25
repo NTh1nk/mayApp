@@ -40,3 +40,8 @@
   border-radius: 6px;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
+/* Blue-tinted overlay for Intro.js */
+.introjs-overlay {
+  background: rgba(30, 80, 200, 0.7) !important;
+  background-color: rgba(30, 80, 200, 0.7) !important;
+}

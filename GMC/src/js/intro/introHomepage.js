@@ -1,6 +1,6 @@
-import '../../css/introHomepage.css'; // custom theme
 import introJs from 'intro.js';
 import 'intro.js/introjs.css';
+import '../../css/introHomepage.css'; 
 
 window.addEventListener('DOMContentLoaded', () => {
   const intro = introJs();
@@ -46,7 +46,7 @@ window.addEventListener('DOMContentLoaded', () => {
     showProgress: true,
     showBullets: false,
     hidePrev: true,
-    overlayOpacity: 0.7,
+    overlayOpacity: 0.2,
     nextLabel: 'Next',
     prevLabel: 'Back',
     doneLabel: 'Finish',

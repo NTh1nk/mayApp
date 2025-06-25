@@ -8,7 +8,11 @@ export function loadHQ() {
 
   btn.addEventListener("click", () => {
     overlay.classList.add("active");
-    introHQ();
+    if (!localStorage.getItem("introHQShown")) {
+      introHQ();
+      localStorage.setItem("introHQShown", "true");
+    }
+    
 
   });
 

@@ -82,15 +82,15 @@ export function introHQ(){
       */
             {
         element: document.querySelector('#hQLocation'),
-        intro: 'HQ location',
+        intro: 'Enter the location of a headquarter.',
       },
       {
         element: document.querySelector('#openHQGraphBtn'),
-        intro: 'HQ Graph',
+        intro: 'This is where you open the graph over the total distance to the different headquarters',
       },
       {
         element: document.querySelector('#hQTable'),
-        intro: 'HQ table',
+        intro: 'This is the table to store the location of the headquarters',
       },
     ],
     showProgress: true,
@@ -115,12 +115,15 @@ export function introChart(){
       {
         intro: 'Welcome to the chart overlay, lets take a tour!',
       },
-      /*
+      
       {
-        element: document.querySelector('#hQOverlay'),
-        intro: 'HQ overlay',
+        element: document.querySelector('#flawChart'),
+        intro: 'This is the chart over the meeting times ',
       },
-      */
+      {
+        intro: 'The lower the beter, when it is at 0, then everyone is available.',
+      },                                                    
+      
 
     ],
     showProgress: true,

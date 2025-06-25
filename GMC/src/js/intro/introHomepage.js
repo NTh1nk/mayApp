@@ -108,4 +108,30 @@ export function introHQ(){
 
 export function introChart(){
 
+    const introChart = introJs();
+
+    introChart.setOptions({
+    steps: [
+      {
+        intro: 'Welcome to chart overlay, lets take a tour!',
+      },
+      /*
+      {
+        element: document.querySelector('#hQOverlay'),
+        intro: 'HQ overlay',
+      },
+      */
+
+    ],
+    showProgress: true,
+    showBullets: false,
+    hidePrev: true,
+    overlayOpacity: 0.6,
+    nextLabel: 'Next',
+    prevLabel: 'Back',
+    doneLabel: 'Finish',
+  });
+    
+  introChart.start();
+
 }

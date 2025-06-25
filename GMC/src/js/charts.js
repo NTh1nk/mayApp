@@ -1,4 +1,6 @@
+import { introChart } from "./intro/introHomepage.js";
 import { loadChart } from "./loadChart.js";
+
 
 const overlay = document.getElementById("canvasOverlay");
 const btn = document.getElementById("openCanvasBtn");
@@ -11,6 +13,9 @@ btn.addEventListener("click", () => {
     // Toggle button text
     
     btn.textContent = isActive ? "+" : "–";
+    setTimeout(() => {
+        introChart();
+    }, 500);
 });
 
   // Optional: also allow closing by clicking the overlay

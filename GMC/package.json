@@ -16,6 +16,7 @@
     "dotenv": "^16.5.0",
     "geo-tz": "^8.1.4",
     "globe.gl": "^2.41.4",
+    "intro": "^1.0.0",
     "nouislider": "^15.8.1",
     "solar-calculator": "^0.3.0",
     "three": "^0.176.0",

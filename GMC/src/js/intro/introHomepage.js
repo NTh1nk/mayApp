@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
       },
       {
         element: document.querySelector('#openHQBtn'),
-        intro: 'Add headquarters, and use them to find the OMP(optimal meeting point)',
+        intro: 'Add headquarters, and use them to find the optimal meeting point (OMP)',
       },
       {
         element: document.querySelector('#slider'),
@@ -64,3 +64,48 @@ window.addEventListener('DOMContentLoaded', () => {
   // Start the tour
   intro.start();
 });
+
+
+export function introHQ(){
+    const introHQ = introJs();
+
+    introHQ.setOptions({
+    steps: [
+      {
+        intro: 'Welcome to HQ overlay, lets take a quick tour!',
+      },
+      /*
+      {
+        element: document.querySelector('#hQOverlay'),
+        intro: 'HQ overlay',
+      },
+      */
+            {
+        element: document.querySelector('#hQLocation'),
+        intro: 'HQ location',
+      },
+      {
+        element: document.querySelector('#openHQGraphBtn'),
+        intro: 'HQ Graph',
+      },
+      {
+        element: document.querySelector('#hQTable'),
+        intro: 'HQ table',
+      },
+    ],
+    showProgress: true,
+    showBullets: false,
+    hidePrev: true,
+    overlayOpacity: 0.6,
+    nextLabel: 'Next',
+    prevLabel: 'Back',
+    doneLabel: 'Finish',
+  });
+    
+  introHQ.start();
+}
+
+
+export function introChart(){
+
+}

@@ -1,4 +1,5 @@
 import { geocodeAddress } from './geocodeAddress.js'; // adjust path as needed
+import { introHQ } from './intro/introHomepage.js';
 
 export function loadHQ() {
   const overlay = document.getElementById("hQOverlay");
@@ -7,6 +8,8 @@ export function loadHQ() {
 
   btn.addEventListener("click", () => {
     overlay.classList.add("active");
+    introHQ();
+
   });
 
   closeBtn.addEventListener("click", () => {

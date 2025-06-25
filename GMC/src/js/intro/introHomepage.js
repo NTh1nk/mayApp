@@ -121,6 +121,7 @@ export function introChart(){
         intro: 'This is the chart over the meeting times ',
       },
       {
+        element: document.querySelector('#flawChart'),
         intro: 'The lower the beter, when it is at 0, then everyone is available.',
       },                                                    
       

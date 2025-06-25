@@ -46,7 +46,7 @@ window.addEventListener('DOMContentLoaded', () => {
     showProgress: true,
     showBullets: false,
     hidePrev: true,
-    overlayOpacity: 0.2,
+    overlayOpacity: 0.6,
     nextLabel: 'Next',
     prevLabel: 'Back',
     doneLabel: 'Finish',

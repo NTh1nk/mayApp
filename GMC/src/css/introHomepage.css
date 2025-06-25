@@ -42,6 +42,11 @@
 }
 /* Blue-tinted overlay for Intro.js */
 .introjs-overlay {
-  background: rgba(30, 80, 200, 0.7) !important;
-  background-color: rgba(30, 80, 200, 0.7) !important;
+  background: rgba(30, 81, 200, 0.267) !important;
+  background-color: rgba(30, 81, 200, 0.24) !important;
+}
+
+
+.introjs-overlay {
+  opacity: 0.2 !important;   
 }

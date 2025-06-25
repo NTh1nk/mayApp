@@ -11,6 +11,7 @@ export default {
         contact: 'contact.html',
         math: 'math.html',
         underConstruction: 'underCon.html',
+        introTest: 'introTest.html',
 
 
       }

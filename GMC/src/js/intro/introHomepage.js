@@ -19,6 +19,10 @@ window.addEventListener('DOMContentLoaded', () => {
         intro: 'Enter a location you want to include in the meeting.',
       },
       {
+        element: document.querySelector('#openHQBtn'),
+        intro: 'Add headquarters, and use them to find the OMP(optimal meeting point)',
+      },
+      {
         element: document.querySelector('#slider'),
         intro: 'Use this slider to define your availability range.',
       },
@@ -31,6 +35,11 @@ window.addEventListener('DOMContentLoaded', () => {
         intro: 'Here is where the calculated meeting time will be shown.',
       },
       {
+        element: document.querySelector('#ompResult'),
+        intro: 'Here is where the calculated meeting point will be shown.',
+      },
+      
+      {
         element: document.querySelector('#peopleTable'),
         intro: 'This table shows the added locations and the number of people at each.',
       },
@@ -40,7 +49,7 @@ window.addEventListener('DOMContentLoaded', () => {
       },
       {
         element: document.querySelector('#openCanvasBtn'),
-        intro: 'Click this to expand the chart view with time zone data.',
+        intro: 'Click this to expand the chart over meeting times',
       }
     ],
     showProgress: true,

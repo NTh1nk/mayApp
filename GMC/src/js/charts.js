@@ -13,9 +13,13 @@ btn.addEventListener("click", () => {
     // Toggle button text
     
     btn.textContent = isActive ? "+" : "–";
-    setTimeout(() => {
-        introChart();
-    }, 500);
+    // Only show introChart if not shown before
+    if (!localStorage.getItem("introChartShown")) {
+        setTimeout(() => {
+            introChart();
+            localStorage.setItem("introChartShown", "true");
+        }, 500);
+    }
 });
 
   // Optional: also allow closing by clicking the overlay

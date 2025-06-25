@@ -113,7 +113,7 @@ export function introChart(){
     introChart.setOptions({
     steps: [
       {
-        intro: 'Welcome to chart overlay, lets take a tour!',
+        intro: 'Welcome to the chart overlay, lets take a tour!',
       },
       /*
       {

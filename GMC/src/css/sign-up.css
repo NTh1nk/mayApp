@@ -102,3 +102,9 @@ h1{
     height: 24px;
     width: 24px;
 }
+
+.g_id_signin {
+    transform: scale(1.5); /* Increase the scale as needed */
+    transform-origin: top left;
+    margin: 2em 0;
+}

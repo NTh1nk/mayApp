@@ -122,7 +122,7 @@ export function introChart(){
       },
       {
         element: document.querySelector('#flawChart'),
-        intro: 'The lower the beter, when it is at 0, then everyone is available.',
+        intro: 'The lower the better!',
       },                                                    
       
 

@@ -39,27 +39,48 @@ body{
     width: 100%;
 }
 
-#logoutButton {
+#logoutButton {    background: #000; /* Button fill */
+    color: #fff;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 12px 32px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.2s, color 0.2s;
+    /* Gradient border trick: */
+    background-image:
+      linear-gradient(#161616, #000), /* Button fill */
+      linear-gradient(90deg, #202020, #1e90ff, #787878); /* Border gradient */
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    margin: 20px 2px;
     position: absolute;
     top: 10vh;
     right: 1.8vw;
-    padding: 10px 20px;
-    background-color: #313131;
-    color: rgb(122, 122, 122);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+
     font-size: 2vw;
+    margin-top: 0;
+    text-align: center;
+
+    color: white;
+    text-align: center;
 }
 
+
+
 #logoutButton:hover {
-    background-color: #444;
-    color: white;
+  background-image:
+    linear-gradient(#222, #222),
+    linear-gradient(90deg, #1900ff, #1e90ff, #08ea8f);
+  color: #fff;
 }
 
 #logoutButton:active {
-    background-color: #555;
-    color: white;
+  background-image:
+    linear-gradient(#444, #444),
+    linear-gradient(90deg, #009dff, #1e90ff, #00ff99);
+  color: #fff;
 }
 
 

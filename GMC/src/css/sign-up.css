@@ -59,6 +59,7 @@ h1{
     text-align: center;
     color: white;
     position: static; /* Remove absolute */
+    text-decoration: underline;
 }
 
 .signup {
@@ -104,7 +105,6 @@ h1{
 }
 
 .g_id_signin {
-    transform: scale(1.5); /* Increase the scale as needed */
-    transform-origin: top left;
+    transform: scale(2); /* Increase the scale as needed */
     margin: 2em 0;
 }

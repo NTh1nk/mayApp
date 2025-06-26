@@ -12,11 +12,11 @@ window.addEventListener('DOMContentLoaded', () => {
       },
       {
         element: document.querySelector('.sidebar'),
-        intro: 'This is your control panel. You can input locations, set availability, and compute optimal times.',
+        intro: 'This is your control panel. You can input locations, set availability, and compute meeting times.',
       },
       {
         element: document.querySelector('#location'),
-        intro: 'Enter a location you want to include in the meeting.',
+        intro: 'Enter the location of someone you want to include in the meeting.',
       },
       {
         element: document.querySelector('#openHQBtn'),
@@ -29,6 +29,10 @@ window.addEventListener('DOMContentLoaded', () => {
       {
         element: document.querySelector('#calcBtn'),
         intro: 'Click here to calculate the Optimal Meeting Time (OMT).',
+      },
+      {
+      element: document.querySelector('#calcBtn'),
+        intro: 'This will also calculate the Optimal Meeting Point (OMP)',
       },
       {
         element: document.querySelector('#omtResult'),

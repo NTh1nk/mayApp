@@ -37,22 +37,49 @@
     margin-top: 1.5em;
     width: 100%;
     padding: 0.75em;
-    background: #007bff;
+
+    background: #000; /* Button fill */
     color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 1.1em;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 12px 32px;
+    font-size: 24px;
     cursor: pointer;
-    transition: background 0.2s;
+    text-align: center;
+    transition: background 0.2s, color 0.2s;
+    /* Gradient border trick: */
+    background-image:
+      linear-gradient(#161616, #000), /* Button fill */
+      linear-gradient(90deg, #202020, #1e90ff, #787878); /* Border gradient */
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    margin: 20px 2px;
+    display: inline-block;
+        
+    font-size: 2vw;
+    margin-top: 1vh;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    color: white;
+    text-align: center;
+        width: 100%;  
 }
 
+
+
 .contact-form button:hover {
-    background: #0056b3;
+  background-image:
+    linear-gradient(#222, #222),
+    linear-gradient(90deg, #1900ff, #1e90ff, #08ea8f);
+  color: #fff;
 }
-.navbar {
-    border-bottom:0.1vw solid white;
-    box-sizing: border-box;
-    color: white;
+
+.contact-form button:active {
+  background-image:
+    linear-gradient(#444, #444),
+    linear-gradient(90deg, #009dff, #1e90ff, #00ff99);
+  color: #fff;
 }
 
 

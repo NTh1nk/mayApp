@@ -405,6 +405,23 @@ table, th, td {
     overflow-x: auto;
     overflow-y: visible;
   }
+  .sidebar.active {
+  /* You need to add: */
+  z-index: 9999 !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 80vw;
+  height: 100vh;
+  background: #111;
+  padding: 30px 20px;
+  transition: transform 0.3s;
+  transform: translateX(0);
+  
+  }
 
   .sidebar .bar-item {
     margin-bottom: 0;
@@ -480,7 +497,7 @@ table, th, td {
   }
 
 
-  #globeViz {
+  #globeViz, canvas, .globe-container {
     /*position: fixed;     /* Keep fixed to stay visible */
     bottom: 0;
     right: 0;
@@ -488,9 +505,10 @@ table, th, td {
     height: 100vh;
     left: 0;
     right: auto;
-    z-index: 10;         /* Bring it above background, below UI */
+  z-index: 1 !important;
     overflow: hidden;
     pointer-events: auto; /* Ensure pointer events are enabled */
+
   }
   #openCanvasBtn {
     top: 2vh;

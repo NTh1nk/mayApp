@@ -375,9 +375,12 @@ function handleHQChartClick() {
 function handleOpenMobile(e){
   e?.stopPropagation?.(); // Prevent event bubbling if called from a click
   const sidebar = document.querySelector('.sidebar');
+  const btn = document.getElementById('openMobileMenuBtn');
   if (sidebar.classList.contains('active')) {
     sidebar.classList.remove('active');
+    if (btn) btn.textContent = "+";
   } else {
     sidebar.classList.add('active');
+    if (btn) btn.textContent = "−";
   }
 }

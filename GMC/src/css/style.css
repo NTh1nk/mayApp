@@ -385,13 +385,17 @@ table, th, td {
   font-family: 'Inter', sans-serif;
   user-select: none;
 }
+#openMobileMenuBtn {
+  display: none;
+}
 
 @media (max-width: 768px) {
   .sidebar {
+    display:none;
     position: static !important;
     width: 100% !important;
     height: auto !important;
-    display: flex !important;
+    
     flex-direction: row !important;
     align-items: center;
     justify-content: flex-start;
@@ -420,7 +424,25 @@ table, th, td {
     margin-top: 0;
     margin-left: 10px;
   }
-
+#openMobileMenuBtn {
+  
+    display: flex;
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #1e90ff;
+    color: #fff;
+    font-size: 2.5em;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    z-index: 2000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
   .topBar {
     flex-direction: column;
     gap: 1vh;
@@ -462,8 +484,10 @@ table, th, td {
     /*position: fixed;     /* Keep fixed to stay visible */
     bottom: 0;
     right: 0;
-    width: 100vw;
-    height: 60vh;
+    width: 100vh;
+    height: 100vh;
+    left: 0;
+    right: auto;
     z-index: 10;         /* Bring it above background, below UI */
     overflow: hidden;
     pointer-events: auto; /* Ensure pointer events are enabled */

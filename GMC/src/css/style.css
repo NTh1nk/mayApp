@@ -440,6 +440,28 @@ table, th, td {
     margin-top: 0;
     margin-left: 10px;
   }
+#openCanvasBtn {
+    display: flex !important;
+    position: fixed !important;
+    bottom: 24px !important;
+    top: auto !important;      /* Unset top */
+    right: auto !important;
+    left: 24px;
+    width: 56px;
+    height: 56px;
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 50%;
+    background: #3f3f3f;
+    color: #fff;
+    font-size: 2.5em;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    z-index: 3000 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
 #openMobileMenuBtn {
   
     display: flex;
@@ -509,13 +531,7 @@ table, th, td {
     pointer-events: auto; /* Ensure pointer events are enabled */
 
   }
-  #openCanvasBtn {
-    top: 2vh;
-    right: 2vh;
-    width: 40px;
-    height: 40px;
-    font-size: 24px;
-  }
+
 
   .button {
     padding: 10px 24px;

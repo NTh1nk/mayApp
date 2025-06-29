@@ -1,4 +1,4 @@
-Hey, I’m Johannes, and I built GMC — the Global Meeting Coordinator — to solve a problem that most of us face every week: scheduling meetings across time zones
+Hey, I’m Johannes, and I built GMC — the Global Meeting Coordinator — to solve a problem some face every week: scheduling meetings across time zones
 
 [Problem ]
 If you've ever tried to book a meeting with people in three or more countries, you know how frustrating it is — endless back-and-forth, time zone confusion, and no one’s ever available at the same time.

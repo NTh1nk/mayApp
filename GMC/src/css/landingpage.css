@@ -324,7 +324,18 @@ body{
     width: 100vw;
     height: 100vh;
   }
+  .signup-button{
+    display: none;
+  }
 
+  .navbarText, .navbar, .navbarPlaceholder{
+    display: none !important;
+  }
+  .guest-button{
+    width: 100% !important;
+    display: flex !important;
+    font-size: 8vw !important;
+  }
   .hero-container img {
     width: 100vw;
     height: 100vh;

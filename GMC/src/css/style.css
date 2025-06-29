@@ -537,6 +537,7 @@ table, th, td {
     padding: 10px 24px;
     font-size: 18px;
     margin: 15px 2px;
+    width: 100%;
   }
 
   #output {

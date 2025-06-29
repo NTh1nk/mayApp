@@ -385,33 +385,107 @@ table, th, td {
   font-family: 'Inter', sans-serif;
   user-select: none;
 }
-  
+#openMobileMenuBtn {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .sidebar {
-    position: static;
-    width: 100%;
-    height: auto;
-    padding: 10px;
+    display:none;
+    width: 100% !important;
+    
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 0;
+    background-color: #111;
+    z-index: 100; 
+    overflow-x: auto;
+  }
+  .sidebar.active {
+  /* You need to add: */
+  z-index: 999 !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 80vw;
+  height: 100vh;
+  background: #111;
+  padding: 30px 20px;
+  transition: transform 0.3s;
+  transform: translateX(0);
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  
   }
 
   .sidebar .bar-item {
+    margin-bottom: 0;
+    margin-right: 20px;
+    border-bottom: none;
+    border-right: 1px solid #444;
+    padding-bottom: 0;
+    padding-right: 10px;
     font-size: 18px;
-    margin-bottom: 15px;
   }
-
   .sidebar a {
-    padding: 8px 0;
+    display: inline-block;
+    padding: 8px 12px;
   }
-
   .sidebar input[type="text"] {
-    width: 100%;
-    margin-top: 8px;
+    width: auto;
+    margin-top: 0;
+    margin-left: 10px;
   }
-
+#openCanvasBtn {
+    display: flex !important;
+    position: fixed !important;
+    bottom: 24px !important;
+    top: auto !important;      /* Unset top */
+    right: auto !important;
+    left: 24px;
+    width: 56px;
+    height: 56px;
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 50%;
+    background: #3f3f3f;
+    color: #fff;
+    font-size: 2.5em;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    z-index: 3000 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+#openMobileMenuBtn {
+  
+    display: flex;
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #1e90ff;
+    color: #fff;
+    font-size: 2.5em;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    z-index: 2000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
   .topBar {
     flex-direction: column;
     gap: 1vh;
     padding: 15px;
+    display:none;
   }
 
   .vis-text, .landing-text {
@@ -422,7 +496,10 @@ table, th, td {
   .container {
     padding: 15px;
   }
-
+  #time
+  {
+    display:none;
+  }
   .topBar h1 {
     font-size: 24px;
   }
@@ -440,33 +517,58 @@ table, th, td {
     font-size: 1em;
   }
 
-@media (max-width: 768px) {
-  #globeViz {
-    position: fixed;     /* Keep fixed to stay visible */
+
+  #globeViz, canvas, .globe-container {
+    /*position: fixed;     /* Keep fixed to stay visible */
     bottom: 0;
     right: 0;
-    width: 100vw;
-    height: 70vh;
-    z-index: 10;         /* Bring it above background, below UI */
+    width: 100vh;
+    height: 100vh;
+    left: 0;
+    right: auto;
+  z-index: 1 !important;
     overflow: hidden;
     pointer-events: auto; /* Ensure pointer events are enabled */
+
   }
-  #openCanvasBtn {
-    top: 2vh;
-    right: 2vh;
-    width: 40px;
-    height: 40px;
-    font-size: 24px;
-  }
+
 
   .button {
     padding: 10px 24px;
     font-size: 18px;
     margin: 15px 2px;
+    width: 100%;
   }
 
   #output {
     font-size: 16px;
+  }  
+    #slider, .noUi-target {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100vw !important;
+    z-index: 1002 !important;
+    position: relative;
+    touch-action: pan-x;
+    background: #1e90ff; /* Slightly softer blue */
+    border: 2px solid #1e90ff; /* match .noUi-connect blue */
+
   }
+  .noUi-handle {
+  background: #3a3a3a; /* dark gray */
+  border: 2px solid #1e90ff; /* match .noUi-connect blue */
+  height: 16px !important;  /* bigger for easier drag */
+  width: 16px !important;
+  top: -4px !important; /* vertically center */
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* subtle shadow */
+  cursor: grab;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  margin: 0 !important; /* remove default margin */
+  padding: 0 !important; /* remove default padding */
+  box-sizing: border-box; /* ensure border included in size */
+  z-index: 1; /* keep above track */
 }
+  
+
 }

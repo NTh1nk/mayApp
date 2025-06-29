@@ -91,6 +91,10 @@ window.addEventListener('DOMContentLoaded', async () => {
   
   document.getElementById('calcBtn').addEventListener("click", handleCalc);
 
+  //call the handleOpenMobile to open the mobile menu
+  document.getElementById('openMobileMenuBtn').addEventListener("click", handleOpenMobile);
+
+
     // Simulate clicking the Insert button or call its function
   document.getElementById("insertBtn").addEventListener("click", handleInsert);
 
@@ -368,3 +372,15 @@ function handleHQChartClick() {
   loadHQChart();
 }
 
+function handleOpenMobile(e){
+  e?.stopPropagation?.(); // Prevent event bubbling if called from a click
+  const sidebar = document.querySelector('.sidebar');
+  const btn = document.getElementById('openMobileMenuBtn');
+  if (sidebar.classList.contains('active')) {
+    sidebar.classList.remove('active');
+    if (btn) btn.textContent = "+";
+  } else {
+    sidebar.classList.add('active');
+    if (btn) btn.textContent = "−";
+  }
+}

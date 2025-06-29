@@ -4,9 +4,29 @@ import '../../css/introHomepage.css';
 
 window.addEventListener('DOMContentLoaded', () => {
   const intro = introJs();
+  
+  const mobileSteps = [
+    {
+      intro: 'Welcome to GMC! Let’s take a quick tour.',
+    },
+    {
+      element: document.querySelector('#openMobileMenuBtn'),
+      intro: 'Tap here to open the menu.',
+      position: 'bottom'
+    },
+    {
+      element: document.querySelector('#openCanvasBtn'),
+      intro: 'Click this to expand the chart over meeting times',
+    },
+    {
+      element: document.querySelector('#globeViz'),
+      intro: 'Here is the globe visualization of your participants.',
+      position: 'top'
+    }
+    // Add all elements relevant to mobile
 
-  intro.setOptions({
-    steps: [
+  ];
+  const desktopSteps = [
       {
         intro: 'Welcome to GMC – Global Meeting Coordinator. Let’s take a quick tour!',
       },
@@ -55,7 +75,11 @@ window.addEventListener('DOMContentLoaded', () => {
         element: document.querySelector('#openCanvasBtn'),
         intro: 'Click this to expand the chart over meeting times',
       }
-    ],
+    ];
+
+
+  intro.setOptions({
+    steps: isMobile() ? mobileSteps : desktopSteps,
     showProgress: true,
     showBullets: false,
     hidePrev: true,
@@ -63,6 +87,8 @@ window.addEventListener('DOMContentLoaded', () => {
     nextLabel: 'Next',
     prevLabel: 'Back',
     doneLabel: 'Finish',
+    tooltipClass: isMobile() ? 'introjs-tooltip-mobile' : ''
+
   });
 
   // Start the tour
@@ -142,4 +168,8 @@ export function introChart(){
     
   introChart.start();
 
+}
+
+function isMobile() {
+  return window.innerWidth <= 768;
 }

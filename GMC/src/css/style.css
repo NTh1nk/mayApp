@@ -407,7 +407,7 @@ table, th, td {
   }
   .sidebar.active {
   /* You need to add: */
-  z-index: 9999 !important;
+  z-index: 999 !important;
 
   display: flex !important;
   flex-direction: column !important;

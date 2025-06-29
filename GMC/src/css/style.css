@@ -399,10 +399,10 @@ table, th, td {
     position: fixed !important;
     top: 50% !important;
     left: 50% !important;
-    width: 0 !important;
-    height: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
     opacity: 0 !important;
-    transform: translate(-50%, -50%) scale(0.3) !important;
+    transform: translate(-50%, -50%) scale(0) !important; /* start scaled down */
     background-color: #111 !important;
     padding: 20px !important;
     overflow-y: auto !important;
@@ -415,11 +415,9 @@ table, th, td {
   /* Active (expanded) state */
   .sidebar.active {
 
-    width: 100vw !important;
-    height: 100vh !important;
+
     opacity: 1 !important;
-    transform: translate(-50%, -50%) scale(1) !important;
-    pointer-events: auto !important;
+    transform: translate(-50%, -50%) scale(1) !important; /* scale up to full */    pointer-events: auto !important;
     z-index: 1000 !important;
   }
 

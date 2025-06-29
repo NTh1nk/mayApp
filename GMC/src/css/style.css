@@ -385,33 +385,47 @@ table, th, td {
   font-family: 'Inter', sans-serif;
   user-select: none;
 }
-  
+
 @media (max-width: 768px) {
   .sidebar {
-    position: static;
-    width: 100%;
-    height: auto;
-    padding: 10px;
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 0;
+    background-color: #111;
+    z-index: 100;
+    overflow-x: auto;
+    overflow-y: visible;
   }
 
   .sidebar .bar-item {
+    margin-bottom: 0;
+    margin-right: 20px;
+    border-bottom: none;
+    border-right: 1px solid #444;
+    padding-bottom: 0;
+    padding-right: 10px;
     font-size: 18px;
-    margin-bottom: 15px;
   }
-
   .sidebar a {
-    padding: 8px 0;
+    display: inline-block;
+    padding: 8px 12px;
   }
-
   .sidebar input[type="text"] {
-    width: 100%;
-    margin-top: 8px;
+    width: auto;
+    margin-top: 0;
+    margin-left: 10px;
   }
 
   .topBar {
     flex-direction: column;
     gap: 1vh;
     padding: 15px;
+    display:none;
   }
 
   .vis-text, .landing-text {
@@ -422,7 +436,10 @@ table, th, td {
   .container {
     padding: 15px;
   }
-
+  #time
+  {
+    display:none;
+  }
   .topBar h1 {
     font-size: 24px;
   }
@@ -440,7 +457,7 @@ table, th, td {
     font-size: 1em;
   }
 
-@media (max-width: 768px) {
+
   #globeViz {
     position: fixed;     /* Keep fixed to stay visible */
     bottom: 0;
@@ -467,6 +484,7 @@ table, th, td {
 
   #output {
     font-size: 16px;
-  }
-}
+  }  
+
+
 }

@@ -469,6 +469,9 @@ table, th, td {
   border:none !important;
   text-align: center;
   margin-bottom: 3vh;
+
+  position: relative;
+  left: 5.9vw
 }
 
 

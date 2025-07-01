@@ -398,14 +398,15 @@ table, th, td {
   .sidebar {
     position: fixed !important;
     top: 50% !important;
-    left: 50% !important;
-    width: 100vw !important;
+    left: 50vw !important;
+    width: 101vw !important;
     height: 100vh !important;
     opacity: 0 !important;
     transform: translate(-50%, -50%) scale(0) !important; /* start scaled down */
     background-color: #111 !important;
     padding: 20px !important;
     overflow-y: auto !important;
+    overflow-x: hidden;
     z-index: 0 !important;
     transition: all 0.5s ease !important;
     pointer-events: none !important;
@@ -461,6 +462,27 @@ table, th, td {
     z-index: 3000 !important;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     cursor: pointer;
+}
+
+#menu-title{
+
+  border:none !important;
+  text-align: center;
+  margin-bottom: 3vh;
+
+  position: relative;
+  left: 5.9vw;
+  text-decoration: underline;
+  
+}
+
+
+#location, #amount{
+  width: 80vw;
+
+}
+.bar-text{
+  text-align: center;
 }
 #backLandingMobile{
     display: flex !important;
@@ -541,8 +563,8 @@ table, th, td {
     font-size: 14px;
   }
 
-  .omt-result {
-    width: 90%;
+  .omt-result, .omp-result {
+    width: 80vw !important;
     font-size: 1em;
   }
 
@@ -598,6 +620,65 @@ table, th, td {
   box-sizing: border-box; /* ensure border included in size */
   z-index: 1; /* keep above track */
 }
-  
+#slider {
+  background: #000000;
+  border: 2px solid #141414;
+  height: 10px;
+  border-radius: 8px;
+  margin-top: 20px;
+  position: relative; /* ensure proper stacking */
+}
+
+.noUi-connect {
+  background: #1e90ff; /* Slightly softer blue */
+  border-radius: 8px 0 0 8px; /* Rounded left corners on fill */
+}
+
+.noUi-handle {
+  background: #3a3a3a; /* dark gray */
+  border: 2px solid #1e90ff; /* match .noUi-connect blue */
+  height: 16px !important;  /* bigger for easier drag */
+  width: 16px !important;
+  top: -4px !important; /* vertically center */
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* subtle shadow */
+  cursor: grab;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  margin: 0 !important; /* remove default margin */
+  padding: 0 !important; /* remove default padding */
+  box-sizing: border-box; /* ensure border included in size */
+  z-index: 1; /* keep above track */
+}
+
+/* Hover and focus states */
+.noUi-handle:hover,
+.noUi-handle:focus {
+  background-color: #0056b3;
+  border-color: #004080;
+  cursor: grabbing;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Remove default grip lines */
+.noUi-handle:before,
+.noUi-handle:after {
+  display: none;
+  content: none !important;
+}
+
+/* Remove any extra background or border on the origin wrapper */
+.noUi-origin {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Keep base background consistent */
+.noUi-base {
+  background: #000000 !important;
+  border: 2px solid #141414 !important;
+  border-radius: 8px;
+}
+
 
 }

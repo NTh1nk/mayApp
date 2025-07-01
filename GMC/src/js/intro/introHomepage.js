@@ -19,9 +19,8 @@ window.addEventListener('DOMContentLoaded', () => {
       intro: 'Click this to expand the chart over meeting times',
     },
     {
-      element: document.querySelector('#globeViz'),
-      intro: 'Here is the globe visualization of your participants.',
-      position: 'top'
+      element: document.querySelector('#backLandingMobile'),
+      intro: 'This is the button to return to the landing page',
     }
     // Add all elements relevant to mobile
 

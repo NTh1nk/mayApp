@@ -557,8 +557,8 @@ table, th, td {
     font-size: 14px;
   }
 
-  .omt-result {
-    width: 90%;
+  .omt-result, .omp-result {
+    width: 80vw !important;
     font-size: 1em;
   }
 

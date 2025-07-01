@@ -462,6 +462,19 @@ table, th, td {
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     cursor: pointer;
 }
+
+#menu-title{
+
+  border:none !important;
+  text-align: center;
+  margin-bottom: 3vh;
+}
+
+#dataForm{
+  text-align: center;
+  justify-content: center;
+
+}
 #backLandingMobile{
     display: flex !important;
     position: fixed !important;

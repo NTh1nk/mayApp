@@ -406,6 +406,7 @@ table, th, td {
     background-color: #111 !important;
     padding: 20px !important;
     overflow-y: auto !important;
+    overflow-x: hidden;
     z-index: 0 !important;
     transition: all 0.5s ease !important;
     pointer-events: none !important;

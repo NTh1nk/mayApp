@@ -398,8 +398,8 @@ table, th, td {
   .sidebar {
     position: fixed !important;
     top: 50% !important;
-    left: 50% !important;
-    width: 100vw !important;
+    left: 50vw !important;
+    width: 101vw !important;
     height: 100vh !important;
     opacity: 0 !important;
     transform: translate(-50%, -50%) scale(0) !important; /* start scaled down */

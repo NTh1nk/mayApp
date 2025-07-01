@@ -5,5 +5,3 @@ window.addEventListener('DOMContentLoaded', () => {
   loadBottomBar();
   }
 });
-
-s

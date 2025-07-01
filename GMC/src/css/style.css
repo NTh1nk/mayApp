@@ -470,10 +470,13 @@ table, th, td {
   margin-bottom: 3vh;
 }
 
-#dataForm{
-  text-align: center;
-  justify-content: center;
 
+#location, #amount{
+  width: 80vw;
+
+}
+.bar-text{
+  text-align: center;
 }
 #backLandingMobile{
     display: flex !important;

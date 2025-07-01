@@ -471,7 +471,9 @@ table, th, td {
   margin-bottom: 3vh;
 
   position: relative;
-  left: 5.9vw
+  left: 5.9vw;
+  text-decoration: underline;
+  
 }
 
 
@@ -679,4 +681,3 @@ table, th, td {
 }
 
 
-}

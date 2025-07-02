@@ -13,6 +13,7 @@ import { initSlider } from './slider.js';
 import { loadChart, loadHQChart } from './loadChart.js';
 import { handleHQInsert, loadHQ } from './loadHQ.js';
 import { geocodeAddress } from './geocodeAddress.js';
+import { loadPresets } from './loadPresets.js';
 //console.log(data);
 //let updatedMarkers = [...data];
 let updatedMarkers = [];
@@ -378,7 +379,7 @@ function handleHQChartClick() {
 
 function handlePresetClick(){
   console.log("Preset btn")
-
+  loadPresets();
 }
 
 function handleOpenMobile(e){

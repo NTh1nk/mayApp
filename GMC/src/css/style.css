@@ -66,6 +66,11 @@ body {
   color: #fff;
 }
 
+#presetOverlay.active {
+
+  display: static !important;
+
+}
 
 /* Sidebar styling */
 .sidebar {

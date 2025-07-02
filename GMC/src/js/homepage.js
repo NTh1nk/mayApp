@@ -94,6 +94,9 @@ window.addEventListener('DOMContentLoaded', async () => {
   //call the handleOpenMobile to open the mobile menu
   document.getElementById('openMobileMenuBtn').addEventListener("click", handleOpenMobile);
 
+  //ccall the 
+
+  document.getElementById('openPresetbtn'). addEventListener("click",handlePresetClick);
 
     // Simulate clicking the Insert button or call its function
   document.getElementById("insertBtn").addEventListener("click", handleInsert);
@@ -370,6 +373,12 @@ function handleHQChartClick() {
   // Handle HQ chart click
   console.log("HQ chart clicked");
   loadHQChart();
+}
+
+
+function handlePresetClick(){
+  console.log("Preset btn")
+
 }
 
 function handleOpenMobile(e){
